@@ -1,0 +1,355 @@
+// bootstrap
+.btn {
+  padding: .45rem 2rem .4rem;
+  font-size: .875rem;
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:focus,
+  &:active:focus,
+  &.active:focus {
+    outline: none;
+  }
+
+  &:active,
+  &.active {
+    box-shadow: none
+  }
+
+  &.disabled,
+  &[disabled] {
+    opacity: .5
+  }
+}
+
+.btn-group-lg > .btn,
+.btn-lg {
+  padding: .55rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-group-sm > .btn,
+.btn-sm {
+  font-size: .7rem
+}
+
+.btn-default {
+  @include themify() {
+    // background-color: transparent;
+    // border-color: $bg1-color;
+    background-color: $bg1-color;
+    border-color: $bg1-color;
+    color: $fg-color;
+
+    &:hover {
+      border-color: $bg1-color;
+    }
+
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $fg1-color;
+      border-color: $fg1-color;
+      color: $bg-color;
+    }
+  }
+}
+
+// .btn-complement {
+//   opacity: .5;
+
+//   &.disabled,
+//   &[disabled] {
+//     opacity: .25
+//   }
+// }
+
+//.btn extend
+
+
+
+
+.btn-default--progress {
+  @extend .btn-default;
+
+  @include themify() {
+    .content {
+      &:after,
+      &:before {
+        // color: lighten($fg-color, 40);
+        color: $fg2-color
+      }
+    }
+
+    .progress-inner {
+      background-color: lighten($fg-color, 40);
+    }
+  }
+
+  position: relative;
+  letter-spacing: inherit;
+  line-height: 1.42857143; // normal
+
+  border-width: 1px;
+  border-style: solid;
+
+  &.state-success .content:after,
+  &.state-success .content:before,
+  &.state-error .content:after,
+  &.state-error .content:before {
+    @include transition(opacity $default-transition-duration1 $default-transition-function1 $default-transition-duration1);
+  }
+
+  .progress-inner {
+    height: 3px;
+    top: -1px;
+  }
+
+  .content {
+    &:after,
+    &:before {
+      @include transition(opacity $default-transition-duration1 $default-transition-function1 $default-transition-duration0);
+      margin-left: 0;
+      left: inherit;
+      right: -1.5rem;
+      bottom: .05rem;
+      font-weight: normal;
+    }
+  }
+}
+
+.btn-default--progress-2 {
+  @extend .btn-default;
+
+  @include themify() {
+    .content {
+      &:after,
+      &:before {
+        // color: lighten($fg-color, 40);
+        color: $fg2-color
+      }
+    }
+
+    .progress-inner {
+      background-color: lighten($fg-color, 40);
+    }
+  }
+
+  position: relative;
+  padding-top: .0915rem;
+  padding-bottom: .0915rem;
+
+  // line-height: 1.42857143; // normal
+  line-height: 2.129;
+
+  border-width: 1px;
+  border-style: solid;
+
+  letter-spacing: inherit;
+
+  .progress-inner {
+    height: 3px;
+    top: -1px;
+  }
+
+  &.progress-button-style-fill.state-success .content,
+  &.progress-button-style-fill.state-error .content {
+    // @include transform(translateY(-1.75rem));
+    @include transform(translateY(-115%));
+
+    &::before,
+    &::after {
+      top: 110%;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.btn-1 {
+  background-color: transparent;
+  color: $n-fg-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $n-fg-color;
+  }
+
+  &.active {
+    // background-color: $n-fg-color;
+    // border-color: $n-fg-color;
+    // color: $n-bg-color;
+    background-color: $n-bg1-color;
+    border-color: $n-bg1-color;
+    color: $n-fg-color;
+  }
+}
+
+.btn-2 {
+  border-color: $n-bg1-color;
+  background-color: transparent;
+  color: $n-fg-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $n-bg1-color;
+    color: $n-fg-color;
+  }
+
+  &.active {
+    // background-color: $n-fg-color;
+    background-color: $n-bg1-color;
+    // border-color: $n-fg-color;
+    border-color: $n-bg1-color;
+    // color: $n-bg-color;
+    color: $n-fg-color
+  }
+}
+
+
+
+.btn-5 {
+  @include themify() {
+    background-color: $bg-color;
+    border-color: $bg1-color;
+    color: $fg2-color;
+
+    &:hover {
+      @if is-brightest($fg-color, $bg-color) {
+        background-color: lighten($theme-dark-bg, 5);
+      } @else {
+        background-color: darken($theme-light-bg, 5);
+      }
+
+      color: $fg2-color;
+    }
+    &:focus,
+    &:active {
+      color: $fg2-color;
+    }
+
+    &.active {
+      // background-color: $bg1-color;
+
+
+      @if is-brightest($fg-color, $bg-color) {
+        background-color: lighten($theme-dark-bg, 5);
+      } @else {
+        background-color: darken($theme-light-bg, 5);
+      }
+      color: $fg2-color;
+    }
+  }
+}
+
+
+.btn-5--progress {
+  @extend .btn-5;
+
+  @include themify() {
+    .content:after,
+    .content:before {
+      color: $fg2-color;
+    }
+
+    .progress-inner {
+      background-color: $bg-color;
+    }
+  }
+
+  position: relative;
+
+  border-width: 1px;
+  border-style: solid;
+
+  letter-spacing: inherit;
+}
+
+
+
+
+
+
+
+
+
+//
+
+.btn-xunlink {
+  @include themify() {
+    background-color: transparent;
+    color: $fg-color;
+
+    &:focus,
+    &:active,
+    &.active {
+      background-color: transparent;
+      color: $bg2-color;
+    }
+    // &[disabled],
+    // &[disabled]:hover {
+    //   color: $bg2-color;
+    // }
+  }
+
+  border: none;
+  font-size: .75rem;
+  font-weight: normal;
+}
+
+.btn-xlink {
+  @include themify() {
+    background-color: transparent;
+    color: $bg2-color;
+
+    &:focus,
+    &:active,
+    &.active {
+      background-color: transparent;
+      border-color: transparent;
+      color: $fg-color;
+    }
+
+
+    // &[disabled],
+    // &[disabled]:hover {
+    //   color: $bg2-color;
+    // }
+  }
+
+  border: none;
+  font-size: .75rem;
+  font-weight: normal;
+}
+
+.btn-xupdate {
+  @include themify() {
+    background-color: transparent;
+    color: $bg2-color;
+
+    &:focus,
+    &:active,
+    &.active {
+      background-color: transparent;
+      border-color: transparent;
+      color: $fg-color;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      color: $bg2-color;
+    }
+  }
+
+  border: none;
+}

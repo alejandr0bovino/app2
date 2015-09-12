@@ -1,0 +1,12 @@
+*.sw*
+*~
+*.log
+
+.sass-cache/
+build/
+bin/
+node_modules/
+/vendor
+
+development.json
+production.json

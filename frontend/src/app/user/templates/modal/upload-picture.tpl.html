@@ -1,0 +1,64 @@
+<div class="c-modal" id="c-upload-picture">
+  <div class="c-modal__content">
+    <div class="c-upload__outer picture">
+      <div growl inline="true" reference="111"></div>
+
+      <div class="c-upload__drop-box" ngf-drop ng-model="file" ng-show="!leftCanvas.src" ngf-drag-over-class="dragover" ngf-accept="'*.jpg,*.png'">
+        <i class="fa fa-picture-o"></i>
+
+        <p>
+          Drop image
+          <br>
+          <small><span style="opacity: .25">—</span> &nbsp;or&nbsp; <span style="opacity: .25">—</span></small>
+        </p>
+      </div>
+
+      <div class="c-upload__crop-area" ng-class="{'has-border': leftCanvas.src, 'be-still': uploadReady}" ng-show="leftCanvas.src">
+        <canvas width="846" height="300" ap-canvas src="leftCanvas.src" image="leftCanvas.image" zoomable="true" frame="leftCanvas.frame" scale="leftCanvas.scale"></canvas>
+
+        <div class="c-upload__loading-cover is-invisible" ng-class="{'is-visible': uploadReady, 'should-leave': shouldLeave}"></div>
+
+        <div class="c-upload__info is-invisible" ng-class="{'is-visible': controlDrag && !uploadReady}">
+          <span class="inner">
+            <i class="fa fa-bars"></i>&nbsp; Drag to reposition &amp; scale
+          </span>
+        </div>
+
+        <div class="c-upload__control--zoom is-invisible" ng-class="{'is-visible': controlZoom && !uploadReady}">
+          <rzslider ng-disabled="true"
+            rz-slider-floor="priceSlider.floor"
+            rz-slider-ceil="priceSlider.ceil"
+            rz-slider-model="priceSlider.value"
+            rz-slider-always-show-bar="true"
+            rz-slider-on-change="onSliderChange()">
+          </rzslider>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-upload__action">
+      <div class="c-upload__action__main">
+        <button class="btn btn-lg btn-block btn-5--progress" id="nn" ng-show="nnn" progress-button="upload(file.name)" ng-disabled="!leftCanvas.src || uploaded">{{ uploadBtnText }}</button>
+        <button class="btn btn-lg btn-block btn-5--progress" ng-show="leftCanvas.src && !nnn" ng-click="n()">{{ uploadBtnText }}</button>
+        <button class="btn btn-lg btn-block btn-5--progress visible-md visible-lg" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'">Select from your drive</button>
+        <button class="btn btn-lg btn-block btn-5--progress visible-xs visible-sm" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'">Select from your device</button>
+
+        <button class="btn btn-lg btn-block invisible">placeholder</button>
+      </div>
+
+      <ul class="c-upload__action__complement">
+        <li class="col-xs-6">
+          <button class="btn btn-lg btn-block btn-5--progress" ng-click="restart()" ng-disabled="!leftCanvas.src || uploadReady">
+            <span>Restart</span>
+          </button>
+        </li>
+
+        <li class="col-xs-6">
+          <button class="btn btn-lg btn-block btn-5--progress" ng-click="cancel()" ng-disabled="uploadReady">
+            <span>Cancel</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

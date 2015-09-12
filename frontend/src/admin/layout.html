@@ -1,0 +1,28 @@
+<div id="wrapper">
+  <nav id="header-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <a href="#" ng-click="appController.displayHome()" class="navbar-brand">{{ appController.applicationName }}</a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+      <li class="dropdown">
+        <a href ui-sref="logout">
+          <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout
+        </a>
+      </li>
+    </ul>
+
+<!--     <span ng-controller="SidebarController as sidebarController">
+      <menu></menu>
+    </span> -->
+
+<!--     <span>
+      <menu></menu>
+    </span> -->
+  </nav>
+
+  <div id="page-wrapper">
+    <div ui-view></div>
+  </div>
+  <div id="loader"></div>
+</div>

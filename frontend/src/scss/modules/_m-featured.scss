@@ -1,0 +1,48 @@
+@mixin m-featured() {
+  @media (min-width: $screen-sm-min) {
+    .m-featured__excerpt {
+      font-size: .9rem
+    }
+  }
+
+  .m-featured__header {
+    margin-bottom: .625rem;
+  }
+
+
+    .m-featured__title {
+      margin-top: 0;
+      // margin-bottom: .25rem;
+
+      a:hover,
+      a:focus {
+        text-decoration: none
+      }
+
+      em {
+        font-style: normal
+      }
+    }
+
+    .m-featured__metadata {
+      font-size: .75rem;
+      text-transform: uppercase
+    }
+      .m-featured__time {
+        font-family: $headings-font-family
+      }
+  .m-featured__footer {
+    // @extend %cf;
+
+    font-size: .75rem;
+    text-transform: uppercase
+  }
+
+    .m-featured__read-more {
+      font-family: $headings-font-family
+    }
+
+    // .m-featured__taxonomy {
+    //   float: right;
+    // }
+}

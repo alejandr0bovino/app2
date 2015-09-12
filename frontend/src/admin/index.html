@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular admin</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="vendor/ng-admin.min.css">
+    <style>
+      @font-face {
+        font-family:'Glyphicons Halflings';
+        src:url(vendor/fonts/glyphicons-halflings-regular.eot);
+        src:url(vendor/fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+            url(vendor/fonts/glyphicons-halflings-regular.woff) format("woff"),
+            url(vendor/fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+            url(vendor/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg")
+      }
+    </style>
+  </head>
+  <!-- <body ng-app="myApp"> -->
+  <body>
+    <div ui-view></div>
+
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/scripts/config.js"></script>
+    <script src="vendor/angular-deferred-bootstrap.min.js"></script>
+    <script src="/vendor/satellizer/satellizer.js"></script>
+    <script src="vendor/ng-admin.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

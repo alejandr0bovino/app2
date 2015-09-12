@@ -1,0 +1,71 @@
+<div class="zzz clearfix">
+  <header class="m-user--header clearfix" style="background-image: url({{ public_user.profile.cover.original }})">
+    <div class="m-user--header__c1">
+      <img ng-src="{{public_user.profile.picture.medium }}" class="m-user--header__picture img-circle">
+    </div>
+
+    <div class="m-user--header__c2">
+      <ul class="m-user--header__data" ng-if="!public_user.pendingUpdate">
+        <li class="ellipsis">
+           <a href ui-sref="user.profile" ng-if="isAuthenticated() && public_user.userName === user.userName" class="label label-danger" style="font-size: .6rem; vertical-align: middle">EDIT</a>
+           <span ng-bind="public_user.userName"></span>
+        </li>
+
+        <li class="ellipsis">
+          <span ng-bind="public_user.profile.location"></span> <i class="fa fa-map-marker"></i>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <aside class="theme-main__aside theme-main__aside--connect col-md-3">
+    <h5>Latest</h5>
+
+   <!--  <ul class="list-group m-info">
+      <li class="list-group-item" ng-repeat="user in userAll" ng-if="!$first">
+        <p class="list-group-item-text">
+          <img src="{{ user.profile.picture.small }}" alt="">
+          <span ng-bind="user.userName"></span>
+        </p>
+      </li>
+    </ul> -->
+
+    <ul class="media-list m-info--2">
+      <li class="media" ng-repeat="user in userAll" ng-if="!$first">
+        <a href ui-sref="userpage({username: user.userName})">
+        <div class="media-left media-middle">
+          <img class="media-object" ng-src="{{ user.profile.picture.small }}" alt="64x64">
+        </div>
+        <div class="media-body media-middle" ng-bind="user.userName"></div>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <section class="theme-main__section col-md-9">
+    <ul class="list-group m-info">
+      <li class="list-group-item">
+        <p class="list-group-item-text" style="font-size: .9rem"><i class="fa fa-user" tooltip-placement="bottom" tooltip="Username"></i>&nbsp;&nbsp; {{ public_user.userName }}</h4></p>
+      </li>
+
+      <li class="list-group-item">
+        <p class="list-group-item-text" style="font-size: .9rem"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp; {{ public_user.email }}</h4></p>
+      </li>
+    </ul>
+
+    <ul class="list-group m-info">
+      <li class="list-group-item">
+        <label class="list-group-item-heading ">Full name:</label>
+        <p class="list-group-item-text">{{ public_user.profile.name }}</h4></p>
+      </li>
+      <li class="list-group-item">
+        <label class="list-group-item-heading ">Location:</label>
+        <p class="list-group-item-text">{{ public_user.profile.location }}</h4></p>
+      </li>
+      <li class="list-group-item">
+        <label class="list-group-item-heading ">Website:</label>
+        <p class="list-group-item-text">{{ public_user.profile.website }}</h4></p>
+      </li>
+    </ul>
+  </section>
+</div>

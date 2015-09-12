@@ -1,0 +1,495 @@
+.c-upload__outer {
+  @include themify() {
+    @if is-brightest($fg-color, $bg-color) {
+      background-image: url(img/bg3.png)
+    } @else {
+      background-image: url(img/bg4.png)
+    }
+  }
+
+  position: relative;
+  margin-bottom: .75rem;
+
+  border-radius: $border-radius-base;
+
+  &.picture {
+    @media (max-width: $screen-xs-max) {
+      width: 306px;
+      height: 306px;
+      margin: 0 auto;
+    }
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      width: 340px;
+      height: 340px;
+    }
+    @media (min-width: $screen-md-min) {
+      width: 400px;
+      height: 400px;
+    }
+
+    .growl-container > .growl-item.icon > .growl-message {
+      @media (max-width: $screen-xs-max) {
+        width: 306px;
+        height: 306px;
+      }
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        width: 340px;
+        height: 340px;
+      }
+      @media (min-width: $screen-md-min) {
+        width: 400px;
+        height: 400px;
+      }
+    }
+  }
+
+  &.cover {
+    @media (max-width: $screen-xs-max) {
+      width: 306px;
+      height: 218px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      height: 255px;
+    }
+
+    @media (min-width: $screen-md-min) {
+      height: 300px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .growl-container > .growl-item {
+        position: absolute;
+        top: 50px;
+        bottom: auto;
+      }
+    }
+
+    .growl-container > .growl-item.icon > .growl-message {
+      @media (max-width: $screen-xs-max) {
+        width: 306px;
+        height: 115px;
+      }
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        width: 720px;
+        height: 255px;
+      }
+      @media (min-width: $screen-md-min) {
+        width: 846px;
+        height: 300px;
+      }
+    }
+  }
+
+  .growl-container {
+    .icon:before {
+      display: none;
+      content: '';
+    }
+
+    > .growl-item {
+      background-color: rgba(#f2dede, .975);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 11;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    > .growl-item.ng-enter {
+      @include animation-duration($default-transition-duration1);
+      @include animation-name(pulse);
+    }
+     > .growl-item.ng-leave {
+      // @include animation-duration($default-transition-duration0);
+      // @include animation-name(none);
+            // @include animation-duration($default-transition-duration0);
+      @include animation-name(fadeOut);
+     }
+
+    > .growl-item.icon > .growl-message {
+      margin-left: 0;
+      padding: 0 1.5rem;
+      display: table-cell;
+      vertical-align: middle;
+
+      line-height: 1.6;
+      color: #af5b61;
+      font-size: 1.25rem;
+      text-align: center;
+
+      .fa {
+        margin-right: .35rem
+      }
+    }
+
+    .close {
+      position: absolute;
+      pointer-events: initial;
+      right: 0.75rem;
+      top: 0rem;
+
+      color: #af5b61;
+      opacity: 0.45;
+
+      font-size: 2.75rem;
+      font-weight: normal;
+      line-height: 1;
+
+      &:hover,
+      &:focus {
+        color: #af5b61;
+      }
+    }
+  }
+}
+
+.c-upload__drop-box {
+  @media (max-width: $screen-sm-max) {
+    > p { display: none; }
+
+    > .fa {
+      position: absolute;
+      left:50%;
+      top: 50%;
+      margin-top: -2rem;
+      margin-left: -2rem;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    > p {
+      font-weight: bold;
+      font-size: 1.45rem;
+      cursor: default;
+    }
+
+    > .fa {
+      margin-bottom: .75rem;
+      display: block;
+    }
+
+    .picture & {
+      padding-top: 7rem;
+    }
+
+    .cover & {
+      padding-top: 3.5rem;
+    }
+  }
+
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  > .fa {
+    font-size: 4rem;
+  }
+}
+
+.c-upload__crop-area {
+  // @include transition(border-color $default-transition-duration1 $default-transition-function1);
+  // z-index: 12;
+  position:absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  opacity: 1;
+
+  &.be-still {
+    > canvas {
+      pointer-events: none;
+      cursor: -moz-none;
+      cursor: -webkit-none;
+      cursor: none;
+    }
+  }
+
+  &.has-border {
+    // @include transition(border-color $default-transition-duration1 $default-transition-function1);
+    // @include themify() {
+    //   border-color: $bg1-color;;
+    // }
+
+    // border-width: 1px;
+    // border-style: solid;
+    // border-radius: 3px;
+
+    &.be-still {
+      border-color: transparent;
+    }
+
+    // .cover & {
+    //   @media (max-width: $screen-xs-max) {
+    //     border: none
+    //   }
+    // }
+  }
+
+  > canvas {
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    cursor: grab;
+
+    &.grabbing {
+      cursor: -moz-grabbing;
+      cursor: -webkit-grabbing;
+      cursor: grabbing;
+    }
+
+    .cover & {
+      @media (max-width: $screen-xs-max) {
+        // @include themify() {
+        //   border-color: $bg1-color;;
+        // }
+
+        margin-top: 50px;
+
+        // border-width: 1px;
+        // border-style: solid;
+        // border-radius: 3px;
+      }
+    }
+  }
+}
+
+.c-upload__loading-cover {
+  @include themify() {
+    background-color: rgba($fg2-color, .75);
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .cover & {
+      top: 50px;
+      height: 115px;
+    }
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &::before {
+    content: '';
+    @include animation-duration(1s);
+    @include animation-name(spin);
+    @include animation-timing-function(ease);
+    @include animation-iteration-count(infinite);
+    @include transition(opacity 1.25s $default-transition-function1 1s);
+
+
+    @include themify {
+      @if is-brightest($fg-color, $bg-color) {
+        border-bottom-color: lighten($theme-dark-fg, 7);
+        border-top-color: lighten($theme-dark-fg, 7);
+      } @else {
+        border-bottom-color: $bg1-color;
+        border-top-color: $bg1-color;
+      }
+    }
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-left: -1.375rem;
+    margin-top: -1.375rem;
+
+    border-radius: 50%;
+    border-width: .3rem;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  &.should-leave::before {
+    opacity: 0;
+  }
+}
+
+.c-upload__control--zoom {
+  position: absolute;
+  right: 50%;
+
+  .cover & {
+    @media (max-width: $screen-xs-max) {
+      bottom: 1rem;
+      width: 75%;
+      margin-right: -37.5%;
+    }
+    @media (min-width: $screen-sm-min) {
+      bottom: 1rem;
+      width: 40%;
+      margin-right: -20%;
+    }
+
+  }
+  .picture & {
+    width: 75%;
+    margin-right: -37.5%;
+    bottom: 1rem;
+  }
+}
+
+
+
+.c-upload__info {
+  pointer-events: none;
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+
+
+  font-size: .85rem;
+  font-weight: bold;
+  text-align: center;
+
+  > .inner {
+    display: inline-block;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border-radius: $border-radius-base;
+  }
+
+  .cover & {
+    @media (max-width: $screen-xs-max) {
+      @include themify() {
+        > .inner {
+          color: $fg2-color;
+        }
+      }
+
+      top: 12px;
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      top: 50%;
+      margin-top: -12.5px;
+
+      > .inner {
+        background-color: rgba($n-bg-color, .35);
+        color: $n-fg2-color;
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      top: 50%;
+      margin-top: -13.5px;
+
+      > .inner {
+        background-color: rgba($n-bg-color, .35);
+        color: $n-fg2-color;
+      }
+    }
+  }
+  .picture & {
+    @media (max-width: $screen-xs-max) {
+      margin-top: -10.5px;
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      margin-top: -12.5px;
+    }
+
+    @media (min-width: $screen-md-min) {
+      margin-top: -13.5px;
+    }
+
+    top: 50%;
+
+    > .inner {
+      background-color: rgba($n-bg-color, .35);
+      color: $n-fg2-color;
+    }
+  }
+}
+
+
+
+.c-upload__action {
+  @media (max-width: $screen-xs-max) {
+    width: 306px;
+    margin: 0 auto;
+  }
+  // @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  //   height: 255px;
+  // }
+  // @media (min-width: $screen-md-min) {
+  //   height: 300px;
+  // }
+
+  .btn {
+    line-height:1.933333;
+  }
+}
+
+  .c-upload__action__main {
+    position: relative;
+
+    > .btn-5 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &.disabled,
+      &[disabled] {
+        opacity: 1
+      }
+    }
+  }
+
+  .c-upload__action__complement {
+    @extend %ul-reset;
+    @extend %cf;
+
+    > li {
+      padding-right: .3725rem;
+      padding-left: .3725rem;
+
+      &:first-child {
+        padding-left: 0;
+        padding-right: 0;
+
+        > .btn {
+          border-top: none;
+          border-right: none;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      &:last-child {
+        padding-right: 0;
+        padding-left: 0;
+
+        > .btn {
+          border-top: none;
+
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+
+      > .btn {
+        font-size: .9rem;
+      }
+    }
+  }

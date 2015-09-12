@@ -1,0 +1,22 @@
+<div style="color: #666">
+  <h2 style="font-size: 1.3em; font-weight: normal">Hello <%= name %>,</h2>
+
+  <div style="font-size: 1.3em">
+    <p>We received a request to reset the password for your account, @<%= userName %>.</p>
+    <p>If you made this request, follow the link below. If you didn't make this request, you can ignore this email. </p>
+    <br>
+    <p><a href="<%= resetPasswordUrl %>" style="text-decoration: none;
+      background: #f9f9f9;
+      padding: 8px 40px;
+      border-radius: 2px;
+      color: #666;
+      letter-spacing: 1px;
+      border: 1px solid #ddd;">Reset your password <span style="font-size: .75em; margin-left: 10px;">❯</span></a></p>
+    <br>
+    <!--
+    <br>
+    <hr style="border-style: solid; border-color: #eee;">
+    <p style="margin-top: 0"><a href="#" style="color: #999; text-decoration: none; font-size: .8em">test24.xyz</a></p>
+    -->
+  </div>
+</div>

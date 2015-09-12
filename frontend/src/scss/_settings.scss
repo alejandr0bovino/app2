@@ -1,0 +1,177 @@
+$default-transition-duration0:  .1s;
+$default-transition-duration1:  .25s;
+$default-transition-duration2:  .5s;
+$default-transition-duration3:  .75s;
+$default-transition-function1:   ease;
+$default-transition-function2:   ease;
+
+////
+
+$n-bg-color: #191919;
+$n-bg0-color: lighten($n-bg-color, 6.5);
+$n-bg1-color: lighten($n-bg-color, 10);
+$n-bg2-color: lighten($n-bg-color, 3);
+
+
+$n-fg-color: #999;
+$n-fg0-color: lighten($n-fg-color, 20);
+$n-fg1-color: darken($n-fg-color, 10);
+$n-fg2-color: #f9f9f9;
+
+////
+
+$theme-light-bg: #f9f9f9;
+// $theme-light-fg: #222;
+$theme-light-fg: #262527;
+
+
+$theme-dark-bg: #333;
+$theme-dark-fg: #999;
+
+$v1: 7.5;
+$v2: 20;
+$themes: (
+  "theme-light": (
+    "bg":       $theme-light-bg,
+    "bg1":      darken($theme-light-bg, $v1),
+    "bg2":      darken($theme-light-bg, $v2),
+
+    "fg":       $theme-light-fg,
+    "fg1":      lighten($theme-light-fg, $v1),
+    "fg2":      lighten($theme-light-fg, $v2),
+
+    // "primary":  $theme-light-primary,
+  ),
+
+  "theme-dark": (
+    "bg":       $theme-dark-bg,
+    "bg1":      lighten($theme-dark-bg, $v1),
+    "bg2":      lighten($theme-dark-bg, $v2),
+
+    "fg":       $theme-dark-fg,
+    "fg1":      darken($theme-dark-fg, $v1),
+    "fg2":      darken($theme-dark-fg, $v2),
+
+    // "primary":  $theme-dark-primary,
+  ),
+);
+
+
+
+$success: #5cb85c;
+$warning: #f0ad4e; $warning-light: saturate(lighten($warning, 15), 15);
+$danger:  #d9534f;
+$info:  #5C92B8;
+
+
+////
+
+
+$font-path:         "fonts";
+
+
+$app2-base-font-size: 18; //[16, 18]
+
+
+
+
+// $headings-font-family: Montserrat, sans-serif;
+// $font-family-base: 'Source Sans Pro', sans-serif;
+
+
+$headings-font-family: ubuntu, sans-serif;
+$font-family-base: $headings-font-family;
+
+
+
+// $sans-serif: "Helvetica Neue",Helvetica,Arial,sans-serif;
+$sans-serif: $headings-font-family;
+
+
+$font-size-h1:          2.25rem;
+$font-size-h2:          1.865rem;
+$font-size-h3:          1.5rem;
+$font-size-h4:          1.125rem;
+$font-size-h5:          .875rem;
+$font-size-h6:          .75rem;
+
+
+
+////
+
+
+$theme-header-height: 3.8rem;
+$theme-header-line-height: 2.5;
+
+
+//
+
+$theme-sidebar-width: 25rem;
+$theme-sidebar-inner1-width: 9rem;
+$theme-sidebar-inner1-gap: 1.25rem;
+$theme-sidebar-inner2-width: $theme-sidebar-width - $theme-sidebar-inner1-width;
+$menu-height: 4rem;
+$menu-open-height: 11.5rem;
+
+
+//
+
+$theme-main-sidebar-width: 10rem;
+
+////
+
+$screen-xs-min:              480px !default;
+$screen-sm-min:              768px !default;
+$screen-md-min:              992px !default;
+$screen-lg-min:              1200px !default;
+
+$screen-xxs-max:             ($screen-xs-min - 1) !default;
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+
+
+$border-radius-base: 2px;
+
+
+
+
+////
+
+// Todos terminan en '5' (!)
+
+//-  0rem
+
+  //  .0625rem
+
+    //- .125rem
+
+      //  .1875rem
+
+        //- .25rem
+
+          //  .3125
+
+            //  .375rem
+
+              //-
+
+                //- .5rem
+
+              //  .575rem
+
+            //- .625rem
+
+          //
+
+        //- .75rem
+
+      // .8125rem
+
+    //- .875rem
+
+  // .9375rem
+
+//- 1rem

@@ -1,0 +1,90 @@
+<div class="www clearfix">
+
+
+
+  <hr><hr><hr>
+
+  <style>
+    .cropArea {
+      background: #ccc;
+      overflow: hidden;
+      width:500px;
+      height:350px;
+    }
+  </style>
+
+
+  <div>Select an image file: <input type="file" id="fileInput" /></div>
+
+  <div class="cropArea">
+    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+  </div>
+
+  <div>Cropped Image:</div>
+
+  <div><img ng-src="{{myCroppedImage}}" /></div>
+
+  <button ng-show="myImage" class="btn btn-lg" ng-click="upload()">upload</button><br><br><br><br><br><br>
+<br><br><br>
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    table {
+      margin: auto;
+    }
+
+    table canvas {
+      background-color: #aaa;
+    }
+
+    table .toolbar {
+      text-align: center;
+    }
+
+    table td {
+      vertical-align: top;
+    }
+   .theme-light hr {
+      border-top-color: blue;
+    }
+  </style>
+
+  <table>
+      <tr>
+        <td>
+          <h3>Source</h3>
+          <input type="file" value="open image" ap-file-src="leftCanvas.src">
+        </td>
+        <td>
+          <h3>Crop</h3>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <canvas width="400" height="450" ap-canvas src="leftCanvas.src" image="leftCanvas.image" zoomable="true" frame="leftCanvas.frame" scale="leftCanvas.scale" offset="leftCanvas.offset"></canvas>
+        </td>
+        <td>
+          <canvas width="400" height="450" ap-canvas src="rightCanvas.src" image="rightCanvas.image"></canvas>
+        </td>
+      </tr>
+      <tr>
+        <td class="toolbar">
+          <div ng-show="leftCanvas.src">
+            <input type="button" value="zoom in (+)" ng-click="zoomIn()">
+            <input type="button" value="zoom out (-)" ng-click="zoomOut()">
+            <input type="button" value="crop ->" ng-click="crop()">
+
+          </div>
+        </td>
+        <td class="toolbar">
+          <button class="btn btn-lg" ng-click="upload2()">upload</button>
+        </td>
+      </tr>
+  </table><br><br><br><br><br><br><br>
+
+</div>

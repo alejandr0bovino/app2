@@ -1,0 +1,17 @@
+<div class="c-modal">
+  <header class="c-modal__header">
+    <h4 class="c-modal__header__title">Remove profile picture</h4>
+  </header>
+
+  <div class="c-modal__content">
+    <p>Your profile picture helps people identify you.<br>
+    Do you want to remove it?</p>
+  </div>
+
+  <form class="c-modal__footer" name="removePictureForm">
+    <button id="removePictureSubmit" type="button" class="btn btn-default--progress js-btn-focus"
+      progress-button="remove()" pb-style="top-line" ng-disabled="btnDisabled">Remove picture</button>
+
+    <button class="btn btn-default js-btn-unfocus" type="button" ng-click="cancel()" ng-disabled="btnDisabled">Cancel</button>
+  </form>
+</div>

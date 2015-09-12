@@ -1,0 +1,71 @@
+<section class="c-latest clearfix">
+  <h2 class="hidden">Latest articles</h2>
+
+  <article class="m-featured col-lg-3 col-md-6" ng-repeat="a in (((b=[]).length=4)&&b) track by $index">
+    <!-- <div class="m-featured__inner"> -->
+      <header class="m-featured__header">
+        <h4 class="m-featured__title">
+          <a href="#">
+            <em>Lorem Ipsum simply dummy text</em>
+          </a>
+        </h4>
+
+        <div class="m-featured__metadata">
+          <i class="fa fa-clock-o"></i>
+          &nbsp;
+          <a class="m-featured__time" href="#">
+            <time datetime="2014-05-03T19:33:38+00:00">mayo, Sábado 3 </time>
+          </a>
+        </div>
+      </header>
+
+      <p class="m-featured__excerpt">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+      </p>
+
+      <footer class="m-featured__footer">
+        <div class="m-featured__read-more">
+          <a href="#">Read more</a>
+          &nbsp;
+          <i class="fa fa-angle-right"></i>
+        </div>
+
+          <!-- <div class="m-featured__taxonomy">
+           <i class="fa fa-circle-o"></i>&nbsp; <a href="#" rel="tag">Coding</a>
+        </div> -->
+      </footer>
+    <!-- </div> -->
+
+    <!-- <figure class="m-featured__figure">
+      <i class="fa fa-tablet"></i>
+      <figcaption>lorem ipsum</figcaption>
+    </figure> -->
+  </article>
+</section>
+
+<section class="c-topics hidden-xs">
+  <article class="m-topic clearfix" ng-repeat="a in (((b=[]).length=5)&&b) track by $index">
+    <header class="m-topic__c1 col-lg-3">
+      <div class="m-topic__c1__inner">
+        <h4><a href="#">Topic example</a></h4>
+        <!-- <p><a href="#">example docs</a></p> -->
+      </div>
+    </header>
+
+    <div class="m-topic__c2 col-lg-9">
+      <div class="m-topic__c2__inner">
+        <p>This <strong>example</strong> is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+
+<!--
+
+
+
+
+<div style="width: 260px; height: 260px; background: white">
+<i class="fa fa-ticket" style="font-size: 20rem"></i>
+</div> -->

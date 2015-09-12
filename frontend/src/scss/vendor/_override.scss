@@ -1,0 +1,726 @@
+/* Bootstrap
+______________________________________ */
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.row {
+  margin-right: -1.5rem;
+  margin-left: -1.5rem;
+}
+
+
+// .fade  {
+//   @include transition(opacity $default-transition-duration1 linear);
+// }
+
+///
+
+.popover,
+.form-control,
+.input-lg,
+.input-group-addon,
+.btn-lg,
+.btn,
+.alert,
+.tooltip-inner,
+.panel,
+.panel-group .panel,
+.well,
+.img-rounded,
+.dropdown-menu {
+  border-radius: $border-radius-base;
+}
+
+///
+
+// MARGINS 2 EMS (global)
+
+h1, h2, h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h4, h5, h6 {
+  margin-top: 1.25rem;
+  margin-bottom: .625rem;
+}
+
+ul,ol,
+.panel,
+.alert,
+.list-group,
+p {
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+///
+
+.text-muted {
+  @include themify {
+    // color: $fg2-color;
+    color: $bg2-color;
+  }
+}
+
+///
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled]
+.form-control {
+  cursor: default;
+}
+
+
+///
+
+
+.dropdown-menu {
+  font-size: .9rem;
+
+  >li>a {
+    @media (max-width: $screen-xs-max) {
+      padding: .25rem .5rem;
+    }
+    @media (min-width: $screen-sm-min) {
+      padding: .25rem 1rem;
+    }
+
+    // color: $n-fg1-color;
+  }
+}
+
+
+
+
+
+
+
+
+
+///
+
+.tooltip {
+  font-size: 0.75rem;
+}
+
+///
+
+.well {
+  box-shadow: none;
+  background: none;
+}
+
+///
+
+// h1 small {
+//   @include themify() {
+//     color: $fg1-color;
+//   }
+// }
+
+///
+
+hr {
+  // @include transition (border-top-color $default-transition-duration1 $default-transition-function1);
+
+  @include themify {
+    border-top-color: $bg1-color;
+  }
+
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+}
+
+///
+
+
+///
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  @include transition(none);
+  background-image: none !important;
+  @include themify {
+    border-color: $bg1-color;
+    color: $fg-color;
+
+    &:focus {
+      border-color: $bg2-color;
+    }
+    @include placeholder($fg2-color);
+  }
+
+  @media (max-width: $screen-xs-max) {
+    height: 34px;
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    height: 36px;
+  }
+  @media (min-width: $screen-md-min) {
+    height: 39px;
+  }
+
+
+  padding: .35rem .75rem;
+  font-size: 1rem;
+
+  background-color: transparent;
+  box-shadow: none;
+
+  &:focus,
+  .has-error &,
+  .has-error &:focus {
+    box-shadow: none;
+  }
+
+  &[disabled] {
+    background-color: transparent;
+    opacity: .65;
+  }
+}
+
+
+
+/// Error colors
+
+// .has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label,
+// .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label,
+// .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
+//   color: $danger;
+// }
+
+.help-block {
+  @include themify {
+    color: $bg2-color;
+  }
+
+  .has-error & {
+    color: $danger;
+  }
+  font-size: .65rem;
+  // font-family: $sans-serif;
+  line-height: 1.1;
+}
+
+///
+.alert {
+  @include themify {
+    color: $bg-color;
+
+    a {
+      color: $bg-color;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    font-size: .9rem;
+  }
+
+  @media (min-width: $screen-sm-min) {
+      font-size: .8rem;
+  }
+
+
+  padding: .5rem 1rem;
+  border: none;
+  // font-family: $sans-serif;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.alert-success {
+  background-color: $success;
+  // border-color: $success-light;
+  // color: $success;
+
+  // @include themify() {
+  //   a {
+  //     color: $success;
+  //   }
+  // }
+}
+
+.alert-warning {
+  background-color: $warning;
+  // border-color: $warning-light;
+  // color: $warning;
+
+  // @include themify() {
+  //   a {
+  //     color: $warning;
+  //   }
+  // }
+}
+
+.alert-danger {
+  background-color: $danger;
+  // border-color: $danger-light;
+  // color: $danger;
+
+  // @include themify() {
+  //   a {
+  //     color: $danger;
+  //   }
+  // }
+}
+
+///
+
+.progress {
+  // @include transition(background-color $default-transition-duration1 $default-transition-function1);
+  background-color: transparent;
+  box-shadow: none;
+
+  ///
+  .progress-bar {
+    box-shadow: none;
+  }
+}
+
+///
+
+.panel {
+  background-color: transparent;
+  box-shadow: none;
+
+  .panel-heading {
+    background-color: transparent;
+  }
+
+  > .panel-heading > .panel-title a:hover {
+    text-decoration: none;
+  }
+}
+
+.panel-heading {
+  padding: 0;
+  border: none;
+}
+
+.panel-title {
+  font-size: 1.125rem;
+}
+
+.panel-body {
+  padding: 0;
+}
+
+//
+
+.panel-default {
+  @include themify {
+    &.text-muted > .panel-heading > .panel-title a {
+      color: $bg2-color;
+    }
+  }
+
+  border-color: transparent;
+
+  //
+  &.text-muted > .panel-heading > .panel-title a {
+    cursor: default;
+  }
+
+  > .panel-heading {
+    border-bottom-color: transparent;
+    color: inherit;
+
+    > .panel-title {
+      // margin-bottom: .5rem;
+      margin-bottom: .625rem;
+
+      a {
+        cursor: pointer;
+      }
+    }
+
+    + .panel-collapse > .panel-body {
+      border-top-color: transparent;
+    }
+  }
+}
+
+
+/* growl
+__________________________________*/
+
+
+.growl-container {
+  &.growl-fixed {
+    float: none;
+    z-index: 1039;
+
+    @media (max-width: $screen-xs-max) {
+      max-width: initial;
+      width: auto;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      width: 27.5rem;
+    }
+
+    &.top-right {
+      top: inherit;
+
+      @media (max-width: $screen-xs-max) {
+        bottom: 1.5rem;
+        left: 1.5rem;
+        right: 1.5rem;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        right: inherit;
+        bottom: 3rem;
+      }
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        left: $theme-sidebar-inner1-width + 1.5rem;
+      }
+
+      @media (min-width: $screen-md-min) {
+        left: $theme-sidebar-inner1-width + 2rem;
+      }
+    }
+  }
+
+  > .growl-item {
+    margin-bottom: 1px;
+    padding: 0;
+    position: relative;
+  }
+
+  > .growl-item.ng-enter,
+  > .growl-item.ng-leave {
+    @include transition(none);
+    @include animation-timing-function($default-transition-function1);
+  }
+
+  > .growl-item.ng-enter,
+  > .growl-item.ng-leave.ng-leave-active {
+    opacity: inherit;
+  }
+  > .growl-item.ng-leave,
+  > .growl-item.ng-enter.ng-enter-active {
+    opacity: inherit;
+  }
+
+  > .growl-item.ng-enter {
+    @include animation-name(slideInUp);
+    @include animation-duration($default-transition-duration1);
+  }
+
+  > .growl-item.ng-leave {
+    @include animation-name(slideInDown);
+    @include animation-duration($default-transition-duration2);
+  }
+
+  .growl-item.icon > .growl-message {
+    margin-left: 0;
+    padding: .7rem 1.5rem .75rem 3.25rem;
+
+    line-height: 1.4;
+  }
+
+  .icon:before {
+    @extend %fa;
+    @media (max-width: $screen-xs-max) {
+      line-height: 2.9;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      line-height: 3.2;
+    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.5rem;
+    text-align: center;
+    height: 100%;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+
+  > .alert-success.icon,
+  > .alert-warning.icon,
+  > .alert-danger.icon {
+    background-image: none;
+  }
+
+  .alert-success.icon {
+    &:before {
+      background-color: darken($success, 5);
+      content: "\f00c";
+    }
+  }
+
+  .alert-warning.icon {
+    &:before {
+      background-color: darken($warning, 5);
+      content: "\f05a";
+    }
+  }
+
+  .alert-danger.icon {
+    &:before {
+      background-color: darken($danger, 5);
+      content: "\f071";
+    }
+  }
+
+  .close {
+    opacity: .65;
+    text-shadow: none;
+
+
+    &:hover,
+    &:focus {
+      @include themify() {
+        color: $bg-color;
+      }
+      opacity: .75
+    }
+
+    &:focus {
+      outline: none
+    }
+
+    &:first-child {
+      right: .4rem ;
+      top: .2rem;
+      font-size: 1.15rem;
+
+      + .close {
+       right: 0.55rem;
+       font-size: 0.8rem;
+       top: 0.4rem;
+      }
+    }
+  }
+
+}
+
+/* Loading bar
+__________________________________*/
+
+
+#loading-bar {
+  display: none;
+  // .peg {
+  //   display: none
+  // }
+
+  // pointer-events: initial;
+
+  // .bar {
+  //   @include transition(width .175s ease);
+  //   height: 2rem;
+  //   top: initial;
+  //   bottom: 0;
+
+  //   background-color: $n-bg-color;
+  //   @include filter-gradient($n-bg-color, $n-bg0-color, horizontal);
+  //   @include background-image(linear-gradient(left, $n-bg-color 0%, $n-bg0-color 100%));
+  // }
+}
+
+#loading-bar-spinner {
+  @include transition(all .175s ease);
+  @include themify {
+    background: rgba($bg-color, 0.75);
+
+    .spinner-icon {
+      color: $fg2-color;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    bottom: 0;
+    left: 0;
+  }
+  @media (min-width: $screen-sm-min) {
+    bottom: 2rem;
+    left: 9rem;
+  }
+
+  top: 0;
+  pointer-events: initial;
+  right: 0;
+
+  // .empezo & {
+  //   display: none
+  // }
+
+
+  // .spinner-icon {
+  //   @include animation(fa-spin 1s infinite ease-in-out);
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   width: auto;
+  //   height: auto;
+  //   margin-left: -1.5rem;
+  //   margin-top: -1.5rem;
+  //   border: none;
+  //   font: normal normal normal 3rem/1 FontAwesome;
+  //   text-rendering: auto;
+  //   -webkit-font-smoothing: antialiased;
+
+  //   &::before {
+  //     content: "\f1ce";
+  //   }
+  // }
+
+  .spinner-icon {
+    @include animation-duration(1s);
+    @include animation-name(spin);
+    @include animation-timing-function(ease);
+    @include animation-iteration-count(infinite);
+
+    @include themify {
+      border-bottom-color: $fg2-color;
+      border-top-color: $fg2-color;
+    }
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin-left: -1.375rem;
+    margin-top: -1.375rem;
+
+    width: 2.75rem;
+    height: 2.75rem;
+
+    border-radius: 50%;
+    border-width: .3rem;
+    border-style: solid;
+    border-color: transparent;
+  }
+}
+
+/* ui-switch
+__________________________________*/
+
+.switch {
+  @include transition(none);
+
+  @include themify {
+    background-color: $bg-color;
+    border-color: $bg1-color;
+  }
+
+  border-width: 1px;
+  border-style: solid;
+  width: 30px;
+  // width: 1.6rem;
+  height: 15px;
+}
+
+// .switch.wide {
+//   width: 80px;
+// }
+
+.switch small {
+  @include transition(left $default-transition-duration1 $default-transition-function1);
+
+  @include themify {
+    background-color: $bg1-color;
+    border-color: $bg1-color;
+  }
+
+  box-shadow: none;
+  width: 13px;
+  height: 13px;
+  top: 1px;
+  left: 1px;
+}
+
+.switch.checked {
+  @include themify {
+    background-color: $bg1-color;
+
+    small {
+      border-color: $bg1-color;
+      background-color: $bg-color;
+    }
+  }
+}
+
+.switch.checked small {
+  left: 16px;
+}
+
+
+/* rzslider
+__________________________________*/
+
+rzslider {
+  $unit: 1.25rem;
+
+  height: $unit;
+  margin: 0;
+  display: block;
+
+  span.rz-bar-wrapper {
+    padding-top: inherit;
+    margin-top: auto;
+    height: $unit;
+
+    cursor: -moz-cell;
+    cursor: -webkit-cell;
+    cursor: cell;
+  }
+
+  span.rz-bubble {
+    display: none
+  }
+  span.rz-pointer {
+    @include themify() {
+      background-color: $bg1-color;
+      border-color: $fg2-color;
+    }
+
+    width: $unit;
+    height: $unit;
+    top: 0;
+
+    cursor: -moz-cell;
+    cursor: -webkit-cell;
+    cursor: cell;
+    border-radius: 50%;
+    border-width: .25rem;
+    border-style: solid;
+
+    &:after {
+      display: none;
+    }
+  }
+  span.rz-bar {
+    @include themify() {
+      background-color: $bg1-color;
+      // border-color: rgba($fg1-color, .35);
+    }
+
+    top: .475rem;
+    height: $unit / 4;
+
+    // border-width: 1px;
+    // border-style: dashed;
+  }
+
+  span.rz-bar.rz-selection {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}

@@ -1,0 +1,115 @@
+<header class="m-user--header clearfix" style="background-image: url({{ user.profile.cover.original }})">
+  <div class="m-user--header__c1">
+    <img ng-src="{{ user.profile.picture.medium }}" class="m-user--header__picture img-circle">
+  </div>
+
+  <div class="m-user--header__c2">
+    <ul class="m-user--header__data">
+      <li class="ellipsis" ng-if="(user.pendingUpdate != 'twitter')">
+        {{ user.email }}
+      </li>
+
+      <li class="ellipsis">
+        <!--<i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> connected-->
+        {{ user.profile.name }}
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+<aside class="theme-main__aside theme-main__aside--connect col-md-3">
+<!--   <ul class="m-list m-list--connect">
+    <li>
+      <button class="btn btn-block btn-xupdate" disabled>
+        <i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> <span>connected</span>
+      </button>
+    </li>
+  </ul> -->
+ <div class="c-info clearfix">
+    <ul class="list-group m-info">
+      <li class="list-group-item">
+        <button class="btn btn-block btn-xunlink" disabled>
+          <div>
+            <i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> <span ng-bind="user.pendingUpdate"></span> <i class="fa fa-check-circle-o"></i>
+          </div>
+        </button>
+      </li>
+    </ul>
+    </div>
+</aside>
+
+<section class="theme-main__section col-md-9">
+  <h4 class="theme-main__section__title">Please fill in the following fields to complete your registration</h4>
+
+  <!-- <form method="post" ng-submit="updateInfo()" name="updateInfoForm"> -->
+  <form method="post" name="updateInfoForm" ng-enter="updateInfoEnter()">
+    <div ng-if="(user.pendingUpdate == 'twitter')">
+      <div class="form-group has-feedback" ng-class="{ 'has-error' : updateInfoForm.email.$invalid && updateInfoForm.email.$dirty }">
+        <label class="control-label" for="twitterEmail">Email:</label>
+
+        <input class="form-control" type="email" id="twitterEmail" name="email" ng-model="$parent.email" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" email-available>
+
+        <div class="help-block text-danger" ng-if="updateInfoForm.email.$dirty" ng-messages="updateInfoForm.email.$error">
+          <div ng-message="pattern">Your email address is invalid.</div>
+          <div ng-message="required">Your email address is required.</div>
+          <div ng-message="emailAvailable">This email address is already taken.</div>
+          <!-- <div ng-show="updateInfoForm.email.$error.checkingEmail">Checking &hellip;</div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{ 'has-error' : updateInfoForm.userName.$invalid && updateInfoForm.userName.$dirty }">
+      <label class="control-label" for="userName">Username:</label>
+
+      <input class="form-control" type="text" id="userName" name="userName" ng-model="userName" ng-minlength="5" ng-maxlength="32" username-available required ng-pattern="/^[a-zA-Z0-9]*$/">
+
+      <div class="help-block text-danger" ng-if="updateInfoForm.userName.$dirty" ng-messages="updateInfoForm.userName.$error">
+        <div ng-message="required">You must enter your username.</div>
+        <div ng-message="minlength">Your username is too short.</div>
+        <div ng-message="maxlength">Your username is too long.</div>
+        <div ng-message="pattern">Your username must contain only alphanumeric characters.</div>
+        <div ng-message="usernameAvailable">This username is already taken.</div>
+        <!-- <div ng-show="updateInfoForm.userName.$error.checkingUsername">Checking &hellip;</div> -->
+      </div>
+    </div>
+
+    <!-- <div ng-if="user.password">fwwefwfw</div> -->
+
+
+    <div class="form-group has-feedback">
+      <label class="control-label" for="password">Password:</label>
+
+      <div style="position: relative">
+        <div class="input-group input-group--password-team">
+          <input class="form-control" type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" ng-model="password" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required>
+
+          <span class="input-group-addon">
+            <switch ng-model="showPassword"></switch>
+          </span>
+        </div>
+
+        <password-strength ng-model="password"></password-strength>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : updateInfoForm.confirmPassword.$invalid && updateInfoForm.confirmPassword.$dirty }">
+      <label class="control-label" for="confirmPassword">Verify password:</label>
+
+      <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword"
+      password-match="password" required>
+
+      <div class="help-block text-danger" ng-if="updateInfoForm.confirmPassword.$dirty" ng-messages="updateInfoForm.confirmPassword.$error">
+        <div ng-message="required">Verify password is required.</div>
+        <div ng-message="passwordMatch">Must match the previous entry</div>
+      </div>
+    </div>
+
+    <div class="c-form__action--update">
+      <!-- <button type="submit" ng-disabled="updateInfoForm.$invalid" ng-click="ok()" class="btn btn-default">Update information</button> -->
+       <button id="updateInfoSubmit" type="button" class="btn btn-default--progress js-btn-unfocus"
+       ng-disabled="updateInfoForm.$invalid || updateInfoForm.$pristine"
+       progress-button="updateInfo()" pb-style="top-line">Update information</button>
+    </div>
+  </form>
+</section>

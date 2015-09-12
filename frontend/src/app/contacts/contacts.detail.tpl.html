@@ -1,0 +1,77 @@
+<!-- <div class="panel panel-default contact-detail">
+  <div class="panel-heading" style="padding-bottom: .2rem">
+    <h3  class="panel-title">{{contact.name}}  &nbsp;<small ui-view="tip"></small></h3>
+  </div>
+
+  <div class="panel-body">
+    <ul class="list-unstyled">
+      <li ng-repeat="item in contact.items">
+        <div class="form-group" ng-show="!permissionToEdit">
+          <label>{{item.type}}:</label>
+          <input class="form-control" type="text" placeholder="{{item.value}}" disabled>
+        </div>
+
+        <div class="form-group" ng-show="permissionToEdit">
+          <label>{{item.type}}</label>
+
+          <div class="input-group">
+            <input class="form-control" type="text" placeholder="{{item.value}}"
+            ng-disabled="!item.editing" ng-model="item.value" sync-focus="item.focused"
+            ng-keyup="$event.keyCode == 13 && keypressCallback(item)" stop-event='click'>
+
+            <span class="input-group-btn">
+              <span ng-show="!item.editing">
+                <button class="btn btn-default" ng-click="edit(item)" stop-event='click' style="width: 90px"><i class="fa fa-eraser"></i> Edit</button>
+              </span>
+              <span ng-show="item.editing">
+                <button class="btn btn-default" ng-click="done(item)"  style="width: 90px;"><i class="fa fa-check"></i> Done</button>
+              </span>
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ -->
+
+
+
+
+
+
+  <header class="theme-main__section__header">
+    <h1 ng-bind-html="headerTitle" class="theme-main__section__header__title"></h1>
+
+    <p ng-if="headerSubtitle" class="theme-main__section__header__subtitle">
+      <em ng-bind-html="headerSubtitle"></em>
+    </p>
+  </header>
+
+  <h4>{{contact.name}}  &nbsp;<small ui-view="tip"></small></h4>
+
+  <div ng-repeat="item in contact.items">
+    <div class="form-group" ng-show="!permissionToEdit">
+      <label>{{item.type}}:</label>
+      <input class="form-control" type="text" placeholder="{{item.value}}" disabled>
+    </div>
+
+    <div class="form-group" ng-show="permissionToEdit">
+      <label>{{item.type}}</label>
+
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="{{item.value}}"
+        ng-disabled="!item.editing" ng-model="item.value" sync-focus="item.focused"
+        ng-keyup="$event.keyCode == 13 && keypressCallback(item)" stop-event='click'>
+
+        <span class="input-group-btn">
+          <span ng-show="!item.editing">
+            <button class="btn btn-default" ng-click="edit(item)" stop-event='click' style="width: 90px"><i class="fa fa-eraser"></i> Edit</button>
+          </span>
+          <span ng-show="item.editing">
+            <button class="btn btn-default" ng-click="done(item)"  style="width: 90px;"><i class="fa fa-check"></i> Done</button>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>

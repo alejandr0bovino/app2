@@ -1,0 +1,35 @@
+@mixin m-highlight {
+  .m-highlight:hover {
+    .m-highlight__line {
+      @include themify() {
+        color: $fg-color;
+        a {color: $fg-color;}
+      }
+    }
+
+    a {
+      text-decoration: underline
+    }
+  }
+
+  .m-highlight__line {
+    @include transition(color $default-transition-duration1 $default-transition-function1);
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
+    @include themify() {
+      color: $bg2-color;
+    }
+
+    margin-top: 1rem;
+    line-height: 1;
+    font-size: .7rem;
+
+    a {
+      @include transition(color $default-transition-duration1 $default-transition-function1);
+      @include themify() {
+        color :$bg2-color
+      }
+    }
+  }
+}

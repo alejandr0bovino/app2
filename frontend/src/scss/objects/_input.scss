@@ -1,0 +1,35 @@
+// bootstrap
+
+.input-group-addon {
+  @include themify {
+    border-color: $bg1-color;
+  }
+
+  padding: .35rem .75rem;
+
+  background-color: transparent;
+
+  .has-error & {
+    background-color: transparent;
+  }
+
+  .switch {
+    vertical-align: -.5rem;
+  }
+}
+
+//
+
+.input-lg {
+  height: auto;
+  padding: .5rem 1rem;
+  font-size: 1.125rem;
+}
+
+
+// extend
+
+.input-1 {
+
+
+}

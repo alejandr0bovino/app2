@@ -1,0 +1,6 @@
+@import "./c-sidebar", "./c-modal", "./c-form", "./c-info";
+
+@include c-sidebar();
+@include c-modal();
+@include c-form();
+@include c-info();

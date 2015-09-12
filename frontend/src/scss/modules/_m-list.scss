@@ -1,0 +1,64 @@
+@mixin m-list() {
+  .m-list {
+    @extend %cf;
+    @extend %ul-reset;
+  }
+
+  .m-list--connect {
+    > li {
+      padding-right: 5px;
+      padding-left: 5px;
+
+      &:first-child {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+
+      &:last-child:not(:first-child) {
+        padding-right: 0;
+        padding-left: 10px;
+      }
+
+      > .btn {
+        @extend %ellipsis;
+
+        @media (max-width: $screen-xs-max) {
+          > span {
+            display: none;
+          }
+        }
+
+        > .fa {
+          @media (min-width: $screen-sm-min) {
+            &:first-child {
+              margin-right: .5rem;
+            }
+          }
+
+          &:last-child {
+            @media (max-width: $screen-xs-max) {
+              vertical-align: .25rem
+            }
+
+            margin-left: .5rem;
+            font-size: .8rem;
+          }
+        }
+      }
+    }
+  }
+
+  .m-list--2 {
+    padding-left: 0;
+    list-style: none;
+
+    a {
+      &::before {
+        @extend %fa;
+        margin-right: .5rem;
+        content: '\f105';
+      }
+    }
+  }
+}
+

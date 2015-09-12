@@ -1,0 +1,121 @@
+@mixin c-modal {
+  // .modal.fade .modal-dialog {
+  //   @include transition(transform $default-transition-duration1 $default-transition-function1);
+  // }
+
+  .modal-backdrop {
+    @include themify() {
+      background-color: $fg2-color;
+    }
+    position: fixed;
+    bottom: 0;
+
+    &.in {
+      opacity: .95
+    }
+  }
+
+  .modal-dialog {
+    @media (max-width: $screen-xs-max) {
+      margin: 0;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      &.modal-dialog-upload--sm {
+        width: 388px;
+      }
+      &.modal-dialog-upload--lg {
+        width: 768px;
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      &.modal-dialog-upload--sm {
+        width: 454px;
+      }
+      &.modal-dialog-upload--lg {
+        width: 900px;
+      }
+    }
+
+    .modal.fade & {
+      @include transition(transform $default-transition-duration1 $default-transition-function1);
+    }
+
+
+    &.modal-dialog-upload {
+      .c-modal__content {
+        padding-bottom: .75rem;
+      }
+    }
+  }
+
+  .modal-content {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  //
+
+
+
+
+
+  .c-modal {
+    @extend %type-reset;
+    @include themify() {
+      background-color: $bg-color;
+      color: $fg2-color;
+    }
+  }
+
+  .c-modal__header {
+    padding: .75rem 1.5rem;
+  }
+  .c-modal__header__title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+
+
+  .c-modal__content {
+    @media (max-width: $screen-xs-max) {
+      padding:  .75rem 1.5rem 1.75rem;
+
+      .modal-wwwwww &,
+      .modal-www & {
+        padding: 7px;
+      }
+    }
+
+    @media (min-width: $screen-sm-min) {
+      padding:  .75rem 1.5rem 1.75rem;
+
+      .modal-wwwwww &,
+      .modal-www & {
+        padding: .75rem 1.5rem;
+      }
+    }
+  }
+
+  .c-modal__footer {
+    @include themify() {
+      border-top-color: $bg1-color;
+    }
+
+    padding: .75rem 1.5rem;
+
+    border-top-width: 1px;
+    border-top-style: solid;
+
+    text-align: right;
+  }
+
+}

@@ -1,0 +1,42 @@
+.ellipsis {
+  white-space: nowrap;
+  // width: 100%;
+  overflow: hidden;
+  text-overflow:    ellipsis;
+}
+
+.gc {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.sans-serif {
+  font-family: $sans-serif;
+}
+
+.m-bottom-1 {
+  margin-bottom: 1rem;
+}
+.m-bottom-1_25 {
+  margin-bottom: 1.25rem;
+}
+.m-bottom-1_5 {
+  margin-bottom: 1.5rem;
+}
+
+
+
+
+
+//
+.is-invisible {
+  @include transition(opacity $default-transition-duration2 $default-transition-function1);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.is-visible {
+  @include transition(opacity $default-transition-duration2 $default-transition-function1);
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,147 @@
+@each $theme, $map in $themes {
+  $bg-color: map-fetch($themes, $theme "bg") !global;
+  $bg1-color: map-fetch($themes, $theme "bg1") !global;
+  $bg2-color: map-fetch($themes, $theme "bg2") !global;
+
+  $fg-color: map-fetch($themes, $theme "fg") !global;
+  $fg1-color: map-fetch($themes, $theme "fg1") !global;
+  $fg2-color: map-fetch($themes, $theme "fg2") !global;
+
+  // $primary-color: map-fetch($themes, $theme "primary") !global;
+
+  .#{$theme}  {
+    &::-webkit-scrollbar {
+      width:  .55em;
+      height: .55em;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $fg-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      // @if is-brightest($fg-color, $bg-color) {
+      //   background: desaturate(lighten($bg-color, 20), 50);
+      // } @else {
+      //   background: desaturate(darken($bg-color, 20), 50);
+      // }
+      background: desaturate(darken($bg-color, 20), 50);
+    }
+
+    background-color: $bg-color;
+    // a { color: $fg-color }
+  }
+}
+
+
+
+// body {
+//   cursor: default;
+// }
+
+
+
+.loading {
+  overflow: hidden;
+}
+
+a:focus {
+  outline: none;
+}
+
+
+
+.www {
+  @media (max-width: $screen-sm-max) {
+    @include themify() {
+      background-color: $bg-color;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    @include themify() {
+      @include background-image(
+        linear-gradient(
+          to right,
+          $bg1-color,
+          $bg1-color 25%,
+          $bg-color 25%,
+          $bg-color 100%
+        )
+      );
+    }
+
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+  }
+}
+
+.zzz {
+  @media (max-width: $screen-sm-max) {
+    @include themify() {
+      background-color: $bg-color;
+    }
+  }
+  @media (min-width: $screen-md-min) {
+    @include themify() {
+      background-color: $bg-color;
+      background-image: -moz-linear-gradient(180deg, transparent, $bg1-color, transparent); // FF 3.6+
+      background-image: -webkit-linear-gradient(180deg, transparent, $bg1-color, transparent); // Safari 5.1+, Chrome 10+
+      background-image: -o-linear-gradient(180deg, transparent, $bg1-color, transparent); // Opera 11.10
+      background-image: linear-gradient(180deg, transparent, $bg1-color, transparent); // Standard, IE10
+      background-position: 25%;
+      background-repeat: repeat-y;
+      background-size: 1px 1px;
+    }
+
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+  }
+}
+
+// .theme-dark,
+// .theme-light {
+//   @include transition-duration(1s);
+//   @include transition-property(background-color, color, border-color);
+//   @include transition-timing-function($default-transition-duration1);
+// }
+
+
+
+
+.theme-main__aside {
+  @include themify() {
+    @media (max-width: $screen-sm-max) {
+      background-color: $bg1-color;
+    }
+
+    color: $fg2-color;
+
+    a { color: $fg2-color }
+
+    hr { border-color: $bg2-color }
+  }
+}
+
+
+
+.theme-main__section {
+  @include themify() {
+    color: $fg-color;
+  }
+
+  a { color: inherit }
+}
+
+
+.theme-footer {
+  @media (max-width: $screen-xs-max) {
+    display: none;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    background-color: $n-bg0-color;
+  }
+}

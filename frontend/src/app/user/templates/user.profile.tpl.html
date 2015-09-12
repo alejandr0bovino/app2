@@ -1,0 +1,210 @@
+<header class="m-user--header clearfix" style="background-image: url({{ $parent.user.profile.cover.original }})">
+  <div class="m-user--header__c1">
+    <img ng-src="{{ $parent.user.profile.picture.medium }}" class="m-user--header__picture img-circle">
+
+    <div class="m-user--header__picture__edit" dropdown is-open="status.isopen">
+      <button type="button" dropdown-toggle ng-disabled="disabled">
+        <i class="fa fa-camera"></i>
+      </button>
+
+      <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+        <li role="menuitem"><a href="#" ng-click="uploadPicture()">{{$parent.removeEnabled ? "Change picture" : "Add picture"}}</a></li>
+        <li role="menuitem" ng-show="$parent.removeEnabled"><a href="#" ng-click="removePicture()">Remove</a></li>
+        <li class="divider" role="presentation"></li>
+        <li role="menuitem"><a href="#">Cancel</a></li>
+      </ul>
+
+      <div class="arrow"></div>
+    </div>
+  </div>
+
+  <div class="m-user--header__c2">
+    <ul class="m-user--header__data" ng-if="!user.pendingUpdate">
+      <li class="ellipsis">
+        <a href ui-sref="userpage({username: user.userName})">{{ user.userName }}</a>
+      </li>
+
+      <li class="ellipsis">
+        <i class="fa fa-map-marker"></i> {{ user.profile.location }}
+      </li>
+    </ul>
+
+    <ul class="m-user--header__data" ng-if="user.pendingUpdate">
+      <li class="ellipsis" ng-if="(user.pendingUpdate != 'twitter')">
+        {{ user.email }}
+      </li>
+
+      <li class="ellipsis">
+        <!--<i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> connected-->
+        {{ user.profile.name }}
+      </li>
+    </ul>
+
+    <ul class="m-user--header__data visible-xs">
+      <li>
+        <div class="m-user--header__cover__edit">
+          <button type="button" ng-click="uploadCover()">
+            <i class="fa fa-camera"></i> {{ 1 ? "Change cover" : "Add cover"}}
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="m-user--header__cover__edit hidden-xs">
+    <button type="button" ng-click="uploadCover()">
+      <i class="fa fa-camera"></i>&nbsp;&nbsp; {{ 1 ? "Change cover" : "Add cover"}}
+    </button>
+  </div>
+</header>
+
+
+<aside class="theme-main__aside theme-main__aside--connect col-md-3">
+  <div class="c-info clearfix">
+    <ul class="list-group m-info" ng-if="!user.pendingUpdate">
+      <li class="list-group-item">
+        <label class="list-group-item-heading ">Email:</label>
+        <p class="list-group-item-text">{{ user.email }}</h4></p>
+      </li>
+
+      <li class="list-group-item">
+        <label class="list-group-item-heading ">Username:</label>
+        <p class="list-group-item-text">{{ user.userName }}</h4></p>
+      </li>
+    </ul>
+
+    <ul class="list-group m-info">
+      <li class="list-group-item">
+        <button class="btn btn-block btn-xunlink" ng-if="user.facebook" ng-click="unlink('facebook')" ng-disabled="user.pendingUpdate">
+        <div>
+          <i class="fa fa-facebook"></i> <span>Facebook</span> <i class="fa fa-check-circle-o"></i>
+          </div>
+        </button>
+        <button class="btn btn-block btn-xunlink" ng-if="!user.facebook" ng-click="link('facebook')" ng-disabled="user.pendingUpdate">
+        <div>
+          <i class="fa fa-facebook"></i> <span>Facebook</span>
+          </div>
+        </button>
+      </li>
+
+      <li class="list-group-item">
+          <button class="btn btn-block btn-xunlink" ng-if="user.google" ng-click="unlink('google')" ng-disabled="user.pendingUpdate">
+          <div>
+            <i class="fa fa-google-plus"></i> <span>Google</span> <i class="fa fa-check-circle-o"></i>
+            </div>
+          </button>
+          <button class="btn btn-block btn-xunlink" ng-if="!user.google" ng-click="link('google')" ng-disabled="user.pendingUpdate">
+          <div>
+            <i class="fa fa-google-plus"></i> <span>Google</span>
+            </div>
+          </button>
+
+      </li>
+
+      <li class="list-group-item">
+
+          <button class="btn btn-block btn-xunlink" ng-if="user.twitter" ng-click="unlink('twitter')" ng-disabled="user.pendingUpdate">
+          <div>
+            <i class="fa fa-twitter"></i> <span>Twitter</span> <i class="fa fa-check-circle-o"></i>
+            </div>
+          </button>
+          <button class="btn btn-block btn-xunlink" ng-if="!user.twitter" ng-click="link('twitter')" ng-disabled="user.pendingUpdate">
+          <div>
+            <i class="fa fa-twitter"></i> <span>Twitter</span>
+            </div>
+          </button>
+
+      </li>
+    </ul>
+
+    <!-- <p ng-if="user.pendingUpdate" class="m-highlight__line">
+      <i class="fa fa-exclamation-circle"></i>&nbsp; <a href ui-sref="user.update"><span>Update your info</span></a>
+    </p> -->
+  </div>
+</aside>
+
+<section class="theme-main__section col-md-9">
+  <div class="growl-container m-bottom-1_25" ng-if="user.pendingUpdate">
+    <div class="growl-item alert alert-warning icon alert-dismissable">
+      <div class="growl-message"><a href ui-sref="user.update">You need to update your info</a></div>
+    </div>
+  </div>
+
+  <form method="post" name="updateUserForm" ng-enter="myFunction()">
+    <div class="form-group" ng-class="{ 'has-error' : updateUserForm.name.$invalid && updateUserForm.name.$dirty }">
+      <label class="control-label" for="name">Full name:</label>
+      <input type="text" class="form-control" id="name" name="name" ng-model="user.profile.name" ng-minlength="5" required>
+      <div class="help-block" ng-if="updateUserForm.name.$dirty" ng-messages="updateUserForm.name.$error">
+        <div ng-message="required">You must enter your name.</div>
+        <div ng-message="minlength">Your name is too short.</div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : updateUserForm.location.$invalid && updateUserForm.location.$dirty }">
+      <label class="control-label" for="location">Location:</label>
+      <input type="text" class="form-control" id="location" name="location" ng-model="user.profile.location" ng-minlength="5" required>
+      <div class="help-block" ng-if="updateUserForm.location.$dirty" ng-messages="updateUserForm.location.$error">
+        <div ng-message="required">You must enter your location.</div>
+        <div ng-message="minlength">Your location is too short.</div>
+      </div>
+    </div>
+
+    <div class="c-form__action--update">
+      <!-- <button id="updateUserSubmit" type="submit" class="btn btn-default" ng-disabled="updateUserForm.$invalid || updateUserForm.$pristine">Update Information</button> -->
+
+      <button id="updateUserSubmit" type="button" class="btn btn-default--progress"
+       ng-disabled="updateUserForm.$invalid || updateUserForm.$pristine"
+       progress-button="updateUser()" pb-style="top-line">Update information</button>
+    </div>
+  </form>
+
+  <div ng-if="!user.pendingUpdate">
+    <br><hr>
+    <!-- <form method="post" ng-submit="updatePassword()" name="updatePasswordForm"> -->
+    <form name="updatePasswordForm" ng-enter="myFunction2()">
+      <div ng-init="$parent.updatePasswordForm = updatePasswordForm"></div>
+
+      <div class="form-group" ng-class="{ 'has-error' : updatePasswordForm.oldPassword.$invalid && updatePasswordForm.oldPassword.$dirty }">
+        <label class="control-label" for="oldPassword">Old password:</label>
+        <input class="form-control" type="password" id="oldPassword" name="oldPassword" ng-model="user.oldPassword" ng-minlength="8" required>
+        <div class="help-block text-danger" ng-if="updatePasswordForm.oldPassword.$dirty" ng-messages="updatePasswordForm.oldPassword.$error">
+          <div ng-message="required">Old password is required.</div>
+          <div ng-message="minlength">Your old password must be 8 characters in length.</div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : updatePasswordForm.newPassword.$invalid && updatePasswordForm.newPassword.$dirty }">
+        <label class="control-label" for="newPassword">New password:</label>
+
+        <div  style="position: relative">
+          <div class="input-group input-group--password-team">
+            <input class="form-control" type="{{showPassword ? 'text' : 'password'}}" id="newPassword" name="newPassword" ng-model="user.newPassword" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required>
+            <span class="input-group-addon">
+              <switch ng-model="showPassword"></switch>
+            </span>
+          </div>
+          <password-strength ng-model="user.newPassword"></password-strength>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : updatePasswordForm.confirmPassword.$invalid && updatePasswordForm.confirmPassword.$dirty }">
+        <label class="control-label" for="confirmPassword">Verify password:</label>
+
+        <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" ng-model="user.confirmPassword"
+          password-match="user.newPassword" required>
+
+        <div class="help-block text-danger" ng-if="updatePasswordForm.confirmPassword.$dirty" ng-messages="updatePasswordForm.confirmPassword.$error">
+          <div ng-message="required">Verify password is required.</div>
+          <div ng-message="passwordMatch">Must match the previous entry</div>
+        </div>
+      </div>
+
+      <div class="c-form__action--update">
+        <!-- <button class="btn btn-default" ng-disabled="updatePasswordForm.$invalid || updatePasswordForm.$pristine">Update Password</button> -->
+        <button id="updatePasswordSubmit" type="button" class="btn btn-default--progress"
+         ng-disabled="updatePasswordForm.$invalid || updatePasswordForm.$pristine"
+         progress-button="updatePassword()" pb-style="top-line">Update password</button>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+@function map-fetch($map, $keys) {
+  $key: nth($keys, 1);
+  $length: length($keys);
+  $value: map-get($map, $key);
+
+  @if $value != null {
+    @if $length > 1 {
+      $rest: ();
+
+      @for $i from 2 through $length {
+        $rest: append($rest, nth($keys, $i))
+      }
+
+      @return map-fetch($value, $rest);
+
+    } @else {
+      @return $value;
+    }
+  } @else {
+    @return false;
+  }
+}
+
+
+@function is-brightest($color1, $color2) {
+  @if (lightness($color1) > lightness($color2)) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}

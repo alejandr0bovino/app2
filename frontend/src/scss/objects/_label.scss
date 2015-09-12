@@ -1,0 +1,10 @@
+.label {
+  border-radius: 2px;
+}
+.label-1 {
+  @include themify(){
+    background-color: $bg1-color;
+    color: $fg1-color;
+  }
+  
+}

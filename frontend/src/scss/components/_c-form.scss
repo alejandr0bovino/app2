@@ -1,0 +1,9 @@
+@mixin c-form {
+  .c-form__action--update {
+    text-align: right;
+
+    // > .btn {
+    //   min-width: 10rem
+    // }
+  }
+}
