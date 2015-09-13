@@ -450,7 +450,8 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
       var canvasData;
 
       if (uploadType=='cover') {
-        canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 1500, height: 531});
+        // canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 1500, height: 531});
+        canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 2500, height: 886});
       } else {
         canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 400, height: 400});
       }
