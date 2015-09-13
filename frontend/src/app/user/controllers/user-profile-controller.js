@@ -207,7 +207,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
     var remove = User.removePicture();
     var promise = remove.$promise;
-console.log("sdfjk");
+
     promise.then(
       function(response) {
         $rootScope.initialUser = null;
