@@ -219,7 +219,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           $timeout(function(){
             growl.success("Picture removed");
           }, 850);
-        }, 2000);
+        }, 1400);
       },
       function(response) {
         console.log(response.status);

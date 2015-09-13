@@ -48,7 +48,7 @@ angular.module( 'ngBoilerplate', [
   //////////////
   $authProvider.signupUrl = ENV.apiEndpoint + '/auth/signup';
   $authProvider.loginUrl  = ENV.apiEndpoint + '/auth/login';
-  $authProvider.unlinkUrl = ENV.apiEndpoint + '/auth/unlink/';
+  $authProvider.unlinkUrl = ENV.apiEndpoint + '/auth/unlink';
   $authProvider.logoutRedirect = null;
   $authProvider.loginOnSignup = false;
   $authProvider.signupRedirect = false;
