@@ -36,7 +36,8 @@ var UserSchema = new Schema({
       small: { type: String, default: 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default-small.png', trim: true }
     },
     cover: {
-      original: { type: String, default: 'https://s3.amazonaws.com/app2-uploads/user/cover/default/default.jpg', trim: true },
+      // original: { type: String, default: 'https://s3.amazonaws.com/app2-uploads/user/cover/default/default.jpg', trim: true },
+      large: { type: String, default: 'https://s3.amazonaws.com/app2-uploads/user/cover/default/default.jpg', trim: true },
       small: { type: String, default: 'https://s3.amazonaws.com/app2-uploads/user/cover/default/default-small.jpg', trim: true }
     },
   },

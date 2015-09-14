@@ -244,14 +244,25 @@ exports.uploadFilePost = function (req, res) {
         maxWidth: 52
       }];
     } else {
+      // versions = [{
+      //   original: true
+      // }, {
+      //   suffix: '-small',
+      //   quality: 100,
+      //   maxHeight: 150,
+      //   maxWidth: 400
+      // }];
       versions = [{
-        original: true
-      }, {
-        suffix: '-small',
-        quality: 100,
-        maxHeight: 150,
-        maxWidth: 400
-      }];
+          suffix: '-large',
+          quality: 100,
+          maxHeight: 531,
+          maxWidth: 1500
+        },{
+          suffix: '-small',
+          quality: 100,
+          maxHeight: 150,
+          maxWidth: 400
+      },];
     }
 
     AWS.config.loadFromPath(process.cwd() + '/config/aws.json');
@@ -289,7 +300,7 @@ exports.uploadFilePost = function (req, res) {
               user.profile.picture.medium = url + images[1].path;
               user.profile.picture.small = url + images[2].path;
             } else {
-              user.profile.cover.original = url + images[0].path;
+              user.profile.cover.large = url + images[0].path;
               user.profile.cover.small = url + images[1].path;
             }
 
