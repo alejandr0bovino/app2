@@ -31,7 +31,7 @@
     </ul> -->
 
     <ul class="media-list m-info--2">
-      <li class="media" ng-repeat="user in userAll" ng-if="!$first">
+      <li class="media" ng-repeat="user in userAll" ng-if="user.userName!='admin' && user.userName!='username'">
         <a href ui-sref="userpage({username: user.userName})">
         <div class="media-left media-middle">
           <img class="media-object" ng-src="{{ user.profile.picture.small }}" alt="64x64">
