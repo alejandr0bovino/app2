@@ -14,7 +14,13 @@
   }
 
   .switch {
-    vertical-align: -.5rem;
+    @media (max-width: $screen-xs-max) {
+      vertical-align: -.75rem;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      vertical-align: -.5rem;
+    }
   }
 }
 

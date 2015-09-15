@@ -9,6 +9,13 @@ ______________________________________ */
   .input-group-addon {
     position: relative;
     z-index: 2;
+
+    &::selection {
+      background: none
+    }
+    &::-moz-selection {
+      background: none
+    }
   }
 }
 
