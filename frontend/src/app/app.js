@@ -27,7 +27,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.user.service',
 ])
 
-.constant("requireAuth", ['events.list', 'contacts.detail'])
+.constant("requireAuth", ['events.list', 'contacts.list'])
 
 .config( function myAppConfig (ENV, $locationProvider, $stateProvider, $urlRouterProvider, $authProvider, growlProvider, cfpLoadingBarProvider) {
   $urlRouterProvider.otherwise('/');
@@ -221,10 +221,11 @@ angular.module( 'ngBoilerplate', [
     // var currentState = toState.name.split('.', 1);
     var currentState = toState.name;
 
-    if((requireAuth.indexOf(currentState[0]) > -1) && !$auth.isAuthenticated()) {
-      $scope.referer = function () {
-        shell.setReferer(toState.name);
-      };
+    if((requireAuth.indexOf(currentState) > -1) && !$auth.isAuthenticated()) {
+      // $scope.referer = function () {
+      //   shell.setReferer(toState.name);
+      // };
+      shell.setReferer(toState.name);
     }
 
     // scroll top on page change

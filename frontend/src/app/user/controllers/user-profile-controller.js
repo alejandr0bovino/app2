@@ -390,7 +390,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
             '<i class="fa fa-warning"></i> File max size: <b>1Mb</b>',
             {
               referenceId: 111,
-              ttl: 4000000,
+              ttl: 4000,
               disableCloseButton: false
             }
           );
