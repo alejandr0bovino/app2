@@ -79,44 +79,56 @@
   }
 
   .m-info--2 {
-
-      > .media {
+    > .media {
         @include themify {
-          @media (max-width: $screen-sm-max) {
-            background-color: $bg-color;
-          }
+          // @media (max-width: $screen-sm-max) {
+          //   background-color: $bg-color;
+          // }
 
-          @media (min-width: $screen-md-min) {
-            background-color: transparent;
-          }
+          // @media (min-width: $screen-md-min) {
+          //   background-color: transparent;
+          // }
 
           border-color: $bg1-color;
+          &:hover,
+          &:focus {
+            > a > .media-body {
+              // color: $bg-color;
+              // color: $bg-color;
+              text-shadow: 1px 1px 0 $fg1-color;
+            }
+          }
+          > a {
+            > .media-body {
+              color: $bg-color;
+              text-shadow: 1px 1px 0 transparent;
+            }
 
-          > a .media-left > img {
-            background-color: $fg2-color;
+            .media-left > img {
+              background-color: $fg2-color;
+            }
           }
         }
 
-        border-width: 1px;
+        position : relative;
         border-style: solid;
-          border-top-left-radius:     2rem;
-          border-top-right-radius:    2rem;
-          border-bottom-right-radius: 2rem;
-          border-bottom-left-radius:  2rem;
+        border-width: 1px;
+        border-top-left-radius:     2rem;
+        border-top-right-radius:    2rem;
+        border-bottom-right-radius: 2rem;
+        border-bottom-left-radius:  2rem;
 
-        // &:first-child {
-        //   border-top-left-radius:     $border-radius-base;
-        //   border-top-right-radius:    $border-radius-base;
-        // }
+        &:hover,
+        &:focus {
+          .m-info--2__bg {
+             opacity: .75;
+          }
+        }
 
-        // &:last-child {
-        //   border-bottom-right-radius: $border-radius-base;
-        //   border-bottom-left-radius:  $border-radius-base;
-        // }
 
         > a {
+          position : relative;
           display: block;
-
 
           > .media-body,
           > .media-left {
@@ -124,18 +136,34 @@
           }
 
           > .media-body {
+            @include transition(color $default-transition-duration1 $default-transition-function1);
+            @include transition(text-shadow $default-transition-duration1 $default-transition-function1);
             width: auto;
             @extend %ellipsis;
-            font-size: .75rem;
+            font-size: .85rem;
           }
 
           .media-left > img {
             border-radius: 50%;
           }
         }
-
-
-
     }
   }
+    .m-info--2__bg {
+      @include transition(opacity $default-transition-duration1 $default-transition-function1);
+// overflow: hidden;
+      border-top-left-radius:     2rem;
+      border-top-right-radius:    2rem;
+      border-bottom-right-radius: 2rem;
+      border-bottom-left-radius:  2rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: .5;
+      // box-shadow: 0 0 3rem rgba(black, .75) inset
+    }
 }
