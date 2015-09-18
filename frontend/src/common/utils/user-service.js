@@ -63,6 +63,7 @@ angular.module('ngBoilerplate.user.service', [
       },
       removePicture: {
         method: 'PUT',
+        params: { type: '@type' },
         url: userEndpoint + '/remove-picture',
         ignoreLoadingBar: true
       }

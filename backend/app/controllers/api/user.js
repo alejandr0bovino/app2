@@ -325,9 +325,16 @@ exports.removePicture = function (req, res) {
       return res.status(400).send({ message: 'User not found' });
     }
 
-    user.profile.picture.original = 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default.png';
-    user.profile.picture.medium    = 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png';
-    user.profile.picture.small    = 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default-small.png';
+    var type = req.body.type;
+
+    if (type == 'picture') {
+      user.profile.picture.original = 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default.png';
+      user.profile.picture.medium    = 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png';
+      user.profile.picture.small    = 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default-small.png';
+    } else {
+      user.profile.cover.large = 'https://s3.amazonaws.com/app2-uploads/user/cover/default/default-large.jpg';
+      user.profile.cover.small    = 'https://s3.amazonaws.com/app2-uploads/user/cover/default/default-small.jpg';
+    }
 
     user.save(function(err) {
       res.status(200).send({user: user});

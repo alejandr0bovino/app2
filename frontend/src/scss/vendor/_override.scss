@@ -614,7 +614,7 @@ __________________________________*/
 __________________________________*/
 
 .switch {
-  @include transition(none);
+  // @include transition(none);
 
   @include themify {
     background-color: $bg-color;

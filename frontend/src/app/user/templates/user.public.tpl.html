@@ -19,7 +19,7 @@
   </header>
 
   <aside class="theme-main__aside theme-main__aside--connect col-md-3">
-    <h5>Latest</h5>
+    <h5 style="margin-bottom: 1rem">Latest</h5>
 
    <!--  <ul class="list-group m-info">
       <li class="list-group-item" ng-repeat="user in userAll" ng-if="!$first">
@@ -32,7 +32,7 @@
 
     <ul class="media-list m-info--2">
       <li class="media" ng-repeat="user in userAll" ng-if="user.userName!='admin' && user.userName!='username'">
-        <div class="m-info--2__bg" style="background-image: url({{ user.profile.cover.small }})"></div>
+        <!-- <div class="m-info--2__bg" style="background-image: url({{ user.profile.cover.small }})"></div> -->
         <a href ui-sref="userpage({username: user.userName})">
         <div class="media-left media-middle">
           <img class="media-object" ng-src="{{ user.profile.picture.small }}" alt="64x64">

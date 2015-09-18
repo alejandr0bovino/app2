@@ -90,23 +90,22 @@
           // }
 
           border-color: $bg1-color;
-          &:hover,
-          &:focus {
-            > a > .media-body {
-              // color: $bg-color;
-              // color: $bg-color;
-              text-shadow: 1px 1px 0 $fg1-color;
-            }
-          }
+          // &:hover,
+          // &:focus {
+          //   > a > .media-body {
+          //     text-shadow: 1px 1px 0 $fg1-color;
+          //   }
+          // }
           > a {
             > .media-body {
-              color: $bg-color;
-              text-shadow: 1px 1px 0 transparent;
+              // color: $bg-color;
+              // text-shadow: 1px 1px 0 transparent;
+              // text-shadow: 1px 1px 0 $fg1-color;
             }
 
-            .media-left > img {
-              background-color: $fg2-color;
-            }
+            // .media-left > img {
+            //   background-color: rgba($n-bg1-color, .05);
+            // }
           }
         }
 
@@ -118,12 +117,12 @@
         border-bottom-right-radius: 2rem;
         border-bottom-left-radius:  2rem;
 
-        &:hover,
-        &:focus {
-          .m-info--2__bg {
-             opacity: .75;
-          }
-        }
+        // &:hover,
+        // &:focus {
+        //   .m-info--2__bg {
+        //      opacity: .75;
+        //   }
+        // }
 
 
         > a {
@@ -137,10 +136,10 @@
 
           > .media-body {
             @include transition(color $default-transition-duration1 $default-transition-function1);
-            @include transition(text-shadow $default-transition-duration1 $default-transition-function1);
+
             width: auto;
             @extend %ellipsis;
-            font-size: .85rem;
+            font-size: .75rem;
           }
 
           .media-left > img {
@@ -149,21 +148,20 @@
         }
     }
   }
-    .m-info--2__bg {
-      @include transition(opacity $default-transition-duration1 $default-transition-function1);
-// overflow: hidden;
-      border-top-left-radius:     2rem;
-      border-top-right-radius:    2rem;
-      border-bottom-right-radius: 2rem;
-      border-bottom-left-radius:  2rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: .5;
-      // box-shadow: 0 0 3rem rgba(black, .75) inset
-    }
+    // .m-info--2__bg {
+    //   @include transition(opacity $default-transition-duration1 $default-transition-function1);
+
+    //   border-top-left-radius:     2rem;
+    //   border-top-right-radius:    2rem;
+    //   border-bottom-right-radius: 2rem;
+    //   border-bottom-left-radius:  2rem;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background-size: cover;
+    //   background-position: center;
+    //   opacity: .5;
+    // }
 }

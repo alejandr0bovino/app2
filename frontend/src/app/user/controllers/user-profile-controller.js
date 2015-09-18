@@ -12,7 +12,8 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
       $rootScope.initialUser = angular.copy(data);
       // $scope.auxUser = angular.copy(data);
       $scope.user = data;
-      $rootScope.removeEnabled = (data.profile !== undefined) && (data.profile.picture.medium !== 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png');
+      $rootScope.removePictureEnabled = (data.profile !== undefined) && (data.profile.picture.medium !== 'https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png');
+      $rootScope.removeCoverEnabled = (data.profile !== undefined) && (data.profile.cover.large !== 'https://s3.amazonaws.com/app2-uploads/user/cover/default/default-large.jpg');
     }, function(data){
       growl.error("Unable to get information");
     });
@@ -150,14 +151,30 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
     //
 
-    $scope.removePicture = function() {
+    $scope.removePicture = function(type) {
       var removePicture = $modal.open({
         templateUrl: 'user/templates/modal/remove-picture.tpl.html',
-        controller: 'RemovePictureCtrl',
+        controller: 'RemoveImageCtrl',
         backdrop: 'static',
+        resolve: {
+          type: function() {
+            return 'picture';
+          },
+        },
       });
     };
-
+    $scope.removeCover = function(type) {
+      var removePicture = $modal.open({
+        templateUrl: 'user/templates/modal/remove-cover.tpl.html',
+        controller: 'RemoveImageCtrl',
+        backdrop: 'static',
+        resolve: {
+          type: function() {
+            return 'cover';
+          },
+        },
+      });
+    };
     //
 
     $scope.uploadPicture = function() {
@@ -194,30 +211,33 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   }
 })
 
-.controller('RemovePictureCtrl', function($rootScope, $scope, $modalInstance, growl, ENV, $timeout, User) {
+.controller('RemoveImageCtrl', function($rootScope, $scope, $modalInstance, growl, ENV, $timeout, User, type) {
   $timeout(function() {
-    // angular.element(document.querySelector('.js-btn-focus')).triggerHandler('focus');
     angular.element(document.querySelector('.js-btn-focus'))[0].focus();
   }, 100);
 
   $scope.remove = function() {
-
     document.querySelector('.js-btn-unfocus').blur();
     $scope.btnDisabled = true;
 
-    var remove = User.removePicture();
+    var remove = User.removePicture({'type': type});
     var promise = remove.$promise;
 
     promise.then(
       function(response) {
         $rootScope.initialUser = null;
         $rootScope.user = response.user;
-        $rootScope.removeEnabled = false;
 
         $timeout(function(){
           $modalInstance.dismiss('cancel');
           $timeout(function(){
-            growl.success("Picture removed");
+            if (type == 'picture') {
+              $rootScope.removePictureEnabled = false;
+              growl.success("Picture removed");
+            } else {
+              $rootScope.removeCoverEnabled = false;
+              growl.success("Cover removed");
+            }
           }, 850);
         }, 1400);
       },
@@ -483,9 +503,10 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
               $modalInstance.dismiss('cancel');
               $timeout(function(){
                 if (uploadType == 'picture') {
-                  $rootScope.removeEnabled = true;
+                  $rootScope.removePictureEnabled = true;
                   growl.success('Picture updated');
                 } else {
+                  $rootScope.removeCoverEnabled = true;
                   growl.success('Cover updated');
                 }
               }, 850);
