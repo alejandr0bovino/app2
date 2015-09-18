@@ -463,7 +463,9 @@ module.exports = function ( grunt ) {
         middleware: function (connect, options) {
           var optBase = (typeof options.base === 'string') ? [options.base] : options.base;
 
-          return [modRewrite(['!admin|\\.html|\\.js|\\.json|\\.svg|\\.css|\\.png|\\.ico|\\.jpg|\\.gif|\\.swf$ /index.html [L]'])].concat(
+          // return [modRewrite(['!admin|\\.html|\\.js|\\.json|\\.svg|\\.css|\\.png|\\.ico|\\.jpg|\\.gif|\\.swf$ /index.html [L]'])].concat(
+          return [modRewrite(['!admin|\\.html|\\.js|\\.json|\\.svg|\\.eot|\\.ttf|\\.woff|\\.woff2|\\.css|\\.png|\\.ico|\\.jpg|\\.gif|\\.swf$ /index.html [L]'])].concat(
+
             optBase.map(function(path){
               return connect.static(path);
             })

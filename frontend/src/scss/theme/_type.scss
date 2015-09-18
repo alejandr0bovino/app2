@@ -1,3 +1,20 @@
+// $font-path:         "fonts";
+
+
+// @font-face {
+//     font-family: 'Junction';
+//     src: url('#{$font-path}/junction/junction-bold.eot');
+//     src: url('#{$font-path}/junction/junction-bold.eot?#iefix') format('embedded-opentype'),
+//          url('#{$font-path}/junction/junction-bold.woff') format('woff'),
+//          url('#{$font-path}/junction/junction-bold.ttf') format('truetype'),
+//          url('#{$font-path}/junction/junction-bold.svg#junctionbold') format('svg');
+//     font-weight: bold;
+//     font-style: normal;
+
+// }
+
+
+
 @mixin html-font-size($size){
   @if $size == 16 {
     html {

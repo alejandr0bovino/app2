@@ -31,12 +31,12 @@
 
     <ul class="m-user--header__data" ng-if="user.pendingUpdate">
       <li class="ellipsis" ng-if="(user.pendingUpdate != 'twitter')">
-        <span style="display: inline-block; background-color: rgba(20,20,20,.5); padding: 0 .5rem; border-radius: 2px;">{{ user.email }}</span>
+        <span style="display: inline-block; background-color: rgba(20,20,20,.25); padding: 0 .5rem; border-radius: 2px;">{{ user.email }}</span>
       </li>
 
       <li class="ellipsis">
         <!--<i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> connected-->
-        <span style="display: inline-block; background-color: rgba(20,20,20,.5); padding: 0 .5rem; border-radius: 2px;">{{ user.profile.name }}</span>
+        <span style="display: inline-block; background-color: rgba(20,20,20,.25); padding: 0 .5rem; border-radius: 2px;">{{ user.profile.name }}</span>
       </li>
     </ul>
 
