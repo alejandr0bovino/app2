@@ -75,9 +75,15 @@
 
 
     line-height: 1.25;
-    font-family: $headings-font-family;
+    // font-family: $headings-font-family;
     text-shadow: 1px 1px 0 lighten($n-bg-color, 20);
     color: $n-fg2-color;
+
+    > li {
+      > span {
+        display: inline-block; background-color: rgba(20,20,20,.25); padding: 0 .5rem; border-radius: 2px;
+      }
+    }
 
     > li:nth-child(1) {
       @media (max-width: $screen-xs-max) {
@@ -88,7 +94,7 @@
         font-size: 1.6rem;
       }
 
-      > a {
+      > span > a {
         color: $n-fg2-color;
       }
     }
@@ -103,7 +109,7 @@
     }
 
     .fa {
-      margin-right: .25rem;
+      margin-right: .1rem;
       font-size: .85rem
     }
   }
@@ -246,11 +252,7 @@
         margin-top: 1rem;
         border: none;
         text-align: center;
-
-        // >li>a {
-        //   padding-left: 0;
-        //   padding-right: 0;
-        // }
+        font-family: $headings-font-family;
 
         .divider {
           margin-top: .5rem;
@@ -326,6 +328,8 @@
         background: none;
         border: none;
 
+        font-family: $headings-font-family;
+
         &:focus {
           outline: none;
         }
@@ -341,7 +345,7 @@
 
       span {
         margin-left: .25rem;
-        color: $n-fg0-color;
+        color: $n-fg2-color;
 
         > i {
           margin-right: .25rem;
@@ -371,7 +375,7 @@
           // width: 9rem;
           position: absolute;
           top: 0;
-          right: 3.25rem;
+          right: 3.5rem;
           line-height: $menu-height;
           text-align: right;
         }

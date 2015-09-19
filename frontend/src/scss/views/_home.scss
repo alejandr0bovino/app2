@@ -1,14 +1,14 @@
 .c-latest {
   @include themify() {
     @media (max-width: $screen-xs-max) {
-      color: $fg-color;
+      color: $fg2-color;
       a { color: inherit }
     }
 
     @media (min-width: $screen-sm-min) {
       background-color: $bg1-color;
 
-      color: $fg-color;
+      color: $fg2-color;
       // a { color: $fg2-color }
       a { color: inherit }
     }
@@ -65,7 +65,7 @@
   @include themify() {
     @media (min-width: $screen-sm-min) {
       background-color: $bg-color;
-      color: $fg-color;
+      color: $fg2-color;
 
       a {
         color: inherit;

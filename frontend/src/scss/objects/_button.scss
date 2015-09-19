@@ -1,8 +1,9 @@
 // bootstrap
 .btn {
   padding: .45rem 2rem .4rem;
-  font-size: .875rem;
-  // font-family: $headings-font-family;
+  // font-size: .875rem;
+  font-size: 1rem;
+  font-family: $headings-font-family;
   text-transform: uppercase;
   font-weight: bold;
 
@@ -25,13 +26,15 @@
 
 .btn-group-lg > .btn,
 .btn-lg {
-  padding: .55rem 2rem;
-  font-size: 1.125rem;
+  padding: .5rem 2rem;
+  // font-size: 1.125rem;
+  font-size: 1.225rem;
 }
 
 .btn-group-sm > .btn,
 .btn-sm {
-  font-size: .7rem
+  // font-size: .7rem
+  font-size: .8rem
 }
 
 .btn-default {
@@ -303,7 +306,7 @@
   }
 
   border: none;
-  font-size: .75rem;
+  font-size: .9rem;
   font-weight: normal;
 }
 
@@ -328,7 +331,7 @@
   }
 
   border: none;
-  font-size: .75rem;
+  font-size: .9rem;
   font-weight: normal;
 }
 

@@ -29,7 +29,7 @@ $theme-dark-bg: #333;
 $theme-dark-fg: #999;
 
 $v1: 7.5;
-$v2: 20;
+$v2: 25;
 $themes: (
   "theme-light": (
     "bg":       $theme-light-bg,
@@ -79,15 +79,17 @@ $app2-base-font-size: 18; //[16, 18]
 // $font-family-base: 'Source Sans Pro', sans-serif;
 
 
-$headings-font-family: ubuntu, sans-serif;
-$font-family-base: $headings-font-family;
+// $headings-font-family: ubuntu, sans-serif;
+$headings-font-family: 'Ropa Sans', sans-serif;
+$font-family-base: 'Signika', sans-serif;
 // $sans-serif: "Helvetica Neue",Helvetica,Arial,sans-serif;
-$sans-serif: $headings-font-family;
+$sans-serif: $font-family-base;
 
 
 $font-size-h1:          2.25rem;
 $font-size-h2:          1.865rem;
-$font-size-h3:          1.5rem;
+// $font-size-h3:          1.5rem;
+$font-size-h3:             1.334rem;
 $font-size-h4:          1.125rem;
 $font-size-h5:          .875rem;
 $font-size-h6:          .75rem;

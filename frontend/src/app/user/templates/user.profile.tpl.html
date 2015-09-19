@@ -21,22 +21,22 @@
   <div class="m-user--header__c2">
     <ul class="m-user--header__data" ng-if="!user.pendingUpdate">
       <li class="ellipsis">
-        <a href ui-sref="userpage({username: user.userName})">{{ user.userName }}</a>
+        <span><a href ui-sref="userpage({username: user.userName})">{{ user.userName }}</a></span>
       </li>
 
       <li class="ellipsis">
-        <i class="fa fa-map-marker"></i> {{ user.profile.location }}
+        <span><i class="fa fa-map-marker"></i> {{ user.profile.location }}</span>
       </li>
     </ul>
 
     <ul class="m-user--header__data" ng-if="user.pendingUpdate">
       <li class="ellipsis" ng-if="(user.pendingUpdate != 'twitter')">
-        <span style="display: inline-block; background-color: rgba(20,20,20,.25); padding: 0 .5rem; border-radius: 2px;">{{ user.email }}</span>
+        <span>{{ user.email }}</span>
       </li>
 
       <li class="ellipsis">
         <!--<i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> connected-->
-        <span style="display: inline-block; background-color: rgba(20,20,20,.25); padding: 0 .5rem; border-radius: 2px;">{{ user.profile.name }}</span>
+        <span>{{ user.profile.name }}</span>
       </li>
     </ul>
 
@@ -46,6 +46,11 @@
           <button type="button" ng-click="uploadCover()">
             <i class="fa fa-photo"></i> {{ $parent.removeCoverEnabled ? "Change cover" : "Add cover"}}
           </button>
+
+          <span ng-if="$parent.removeCoverEnabled">
+            <i>|</i>
+            <button type="button" ng-click="removeCover()">Remove</button>
+          </span>
         </div>
       </li>
     </ul>

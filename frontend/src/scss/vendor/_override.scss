@@ -310,7 +310,8 @@ hr {
 }
 
 .panel-title {
-  font-size: 1.125rem;
+  // font-size: 1.125rem;
+  font-size: $font-size-h3
 }
 
 .panel-body {

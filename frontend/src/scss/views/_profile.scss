@@ -100,14 +100,15 @@
       pointer-events: none;
     }
 
+    // > .growl-item.ng-enter {
+    //   @include animation-duration($default-transition-duration1);
+    //   @include animation-name(pulse);
+    // }
     > .growl-item.ng-enter {
       @include animation-duration($default-transition-duration1);
-      @include animation-name(pulse);
+      @include animation-name(fadeIn);
     }
      > .growl-item.ng-leave {
-      // @include animation-duration($default-transition-duration0);
-      // @include animation-name(none);
-            // @include animation-duration($default-transition-duration0);
       @include animation-name(fadeOut);
      }
 

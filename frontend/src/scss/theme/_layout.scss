@@ -12,12 +12,15 @@ body {
 
 .theme-main__aside {
   @media (max-width: $screen-sm-max) {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    // padding-top: 1rem;
+    padding-top: .75rem;
+    // padding-bottom: 1rem;
+    padding-bottom: .75rem;
   }
 
   @media (min-width: $screen-md-min) {
-    padding: 1rem 2rem;
+    // padding: 1rem 2rem;
+    padding: .75rem 2rem;
   }
 
   > h1:first-child,
@@ -27,50 +30,8 @@ body {
   > h5:first-child {
     margin-top: 0;
   }
-
-  // > .panel {
-  //   margin-bottom: 0;
-  // }
 }
 
-// .theme-main__aside--connect {
-//   .m-list > li {
-//     > .btn {
-//       @media (max-width: $screen-xs-max) {
-//         font-size: 1.5rem;
-//       }
-//       @media (max-width: $screen-sm-max) {
-//         padding-top: 0;
-//         padding-bottom: 0;
-//       }
-//     }
-
-//     @media (min-width: $screen-md-min) {
-//       padding-right: 0;
-//       padding-left: 0;
-
-//       &:first-child {
-//         padding-right: 0;
-//       }
-
-//       &:last-child:not(:first-child) {
-//         padding-left: 0;
-//       }
-
-
-//       > .btn {
-//         padding-left: 0;
-//         padding-right: 0;
-//         text-align: left;
-
-//         > .fa:first-child {
-//           width: .75rem;
-//           text-align: center
-//         }
-//       }
-//     }
-//   }
-// }
 
 
 
@@ -87,13 +48,15 @@ body {
 
   @media (min-width: $screen-sm-min) {
     height: 100%;
-    padding-top: 1rem;
+    // padding-top: 1rem;
+    padding-top: .75rem;
     padding-bottom: 5rem;
   }
 
   @media (min-width: $screen-md-min) {
     float: right;
-    padding-top: 1rem;
+    // padding-top: 1rem;
+    padding-top: .75rem;
     padding-bottom: 5rem;
     padding-left: 2rem;
     padding-right: $theme-main-sidebar-width;

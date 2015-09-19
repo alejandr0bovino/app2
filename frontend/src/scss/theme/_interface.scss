@@ -129,7 +129,7 @@ a:focus {
 
 .theme-main__section {
   @include themify() {
-    color: $fg-color;
+    color: $fg2-color;
   }
 
   a { color: inherit }

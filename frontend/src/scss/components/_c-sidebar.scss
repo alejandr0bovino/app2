@@ -81,7 +81,7 @@
       width: $theme-sidebar-width;
       height: 100%;
     }
-    font-family: $sans-serif;
+    font-family: $headings-font-family;
 
     //
     a {
@@ -141,15 +141,13 @@
         background-color: $bg-color;
       }
 
-      padding-right: $theme-sidebar-inner1-gap;
-      padding-left: $theme-sidebar-inner1-gap;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
       position: relative;
     }
 
     @media (min-width: $screen-sm-min) {
-      // margin-bottom: $theme-sidebar-inner1-gap;
       margin-bottom: 1.5rem;
-
     }
 
     > a {
@@ -164,9 +162,11 @@
 
       @media (min-width: $screen-sm-min) {
         color: $n-fg-color;
-        font-size: .875rem;
+        // font-size: .875rem;
+        font-size: .9rem;
       }
       float: left;
+      text-transform: uppercase;
 
       &.active {
         cursor: default;
@@ -201,13 +201,13 @@
   .theme-sidebar__toggle-sidebar {
     @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
       &:before {
-        top: .15rem;
+        top: .1rem;
       }
     }
 
     @media (min-width: $screen-md-min) {
       &:before {
-        top: .25rem;
+        top: .15rem;
       }
     }
 
@@ -222,6 +222,7 @@
       @include transition(color $default-transition-duration1 $default-transition-function1);
       @extend %fa;
       position: relative;
+      // top: .15rem;
       content: '\f0c9';
     }
 
@@ -241,7 +242,7 @@
     &::before {
       content: '\f0c9';
       position: relative;
-      top: .1rem;
+      // top: .1rem;
     }
   }
 
@@ -273,7 +274,8 @@
     @media (min-width: $screen-sm-min) {
       margin-bottom: 3.75rem;
       line-height: 2.125;
-      font-size: .875rem;
+      // font-size: .875rem;
+      font-size: .9rem;
       font-weight: bold;
 
       a {
@@ -303,7 +305,7 @@
     @media (max-width: $screen-xs-max) {
       position: absolute;
       top: 0;
-      right: 3rem;
+      right: 3.25rem;
       line-height: 4;
       height: $menu-height;
 
