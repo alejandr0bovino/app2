@@ -10,12 +10,12 @@
 </aside>
 
 <section class="theme-main__section col-md-9">
-  <h4 class="theme-main__section__title fix-line-height">Connect your social network</h4>
+  <h3 class="theme-main__section__title fix-line-height">Connect your social network</h3>
 
   <div ui-view="connect"></div>
   <br class="visible-md visible-lg">
 
-  <h4 class="theme-main__section__title">Or sign up</h4>
+  <h3 class="theme-main__section__title">Or sign up</h3>
   <!--   <form method="post" ng-submit="signup()" name="signupForm"> -->
   <form method="post" name="signupForm" ng-enter="signupEnter()">
     <div class="form-group" ng-class="{ 'has-error' : signupForm.name.$invalid && signupForm.name.$dirty }">
@@ -72,12 +72,12 @@
     </div>
 
     <p class="text-center">
-      <small><small>
+      <small>
         By clicking on Sign up, you agree to
         <a href="#"  style="text-decoration: underline">terms & conditions</a>
         and
         <a href="#"  style="text-decoration: underline">privacy policy</a>.
-      </small></small>
+      </small>
     </p>
 
     <div class="form-group">
@@ -88,10 +88,10 @@
     </div>
 
     <p class="text-center">
-      <small><small>
+      <small>
         Already have an account?
         <a href ui-sref="user.login" style="text-decoration: underline">Log in now</a>.
-      </small></small>
+      </small>
     </p>
   </form>
 </section>

@@ -153,7 +153,7 @@
     > a {
       @media (max-width: $screen-xs-max) {
         @include themify {
-          color: $fg-color;
+          color: $fg2-color;
         }
 
         line-height: 4;
@@ -233,7 +233,7 @@
 
   .theme-sidebar__toggle-menu {
     @include themify {
-      color: $fg-color;
+      color: $fg2-color;
     }
 
     padding: 0;
@@ -314,13 +314,14 @@
 
         > .btn {
           @include themify {
-            color: $fg-color;
+            color: $fg2-color;
           }
 
           padding-right: .5rem;
           padding-left: .5rem;
           border-color: transparent;
           background-color: transparent;
+          font-size: .9rem
         }
       }
     }

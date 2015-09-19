@@ -9,21 +9,18 @@ angular.module( 'ngBoilerplate.user.VerifiedCtrl', [
     if (data.alreadyConfirmed) {
       $state.go('user.profile');
     } else {
-
       growl.success("Success");
+      $auth.setToken(data.token, '/user/profile');
+
+      User.get(function(data){
+        $rootScope.user = data;
+      }, function(data){
+        growl.error("Unable to get information");
+      });
 
 
       $timeout(function () {
-
-        $auth.setToken(data.token, '/user/profile');
-
-        User.get(function(data){
-          $rootScope.user = data;
-        }, function(data){
-          growl.error("Unable to get information");
-        });
-
-
+        $state.go('user.profile');
       }, 5000);
 
 

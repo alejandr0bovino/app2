@@ -118,9 +118,7 @@ body {
 }
 
 .theme-main__section__title {
-  // @media (min-width: $screen-md-min) {
-    margin-bottom: 1.25rem;
-  // }
+  // margin-bottom: 1.25rem;
   margin-top: 0;
 }
 
@@ -130,8 +128,8 @@ body {
   position: fixed;
   bottom: 0;
   // z-index: 1073;
-  // z-index: 1033;
-  z-index: 1040;
+  z-index: 1029;
+  // z-index: 1040;
   width: 100%;
   height: 2rem;
 }

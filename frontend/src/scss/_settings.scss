@@ -21,15 +21,15 @@ $n-fg2-color: #f9f9f9;
 ////
 
 $theme-light-bg: #f9f9f9;
-// $theme-light-fg: #222;
 $theme-light-fg: #262527;
 
-
 $theme-dark-bg: #333;
-$theme-dark-fg: #999;
+$theme-dark-fg: #bbb;
 
 $v1: 7.5;
 $v2: 25;
+$v3: 7.5;
+$v4: 25;
 $themes: (
   "theme-light": (
     "bg":       $theme-light-bg,
@@ -45,12 +45,12 @@ $themes: (
 
   "theme-dark": (
     "bg":       $theme-dark-bg,
-    "bg1":      lighten($theme-dark-bg, $v1),
-    "bg2":      lighten($theme-dark-bg, $v2),
+    "bg1":      lighten($theme-dark-bg, $v3),
+    "bg2":      lighten($theme-dark-bg, $v4),
 
     "fg":       $theme-dark-fg,
-    "fg1":      darken($theme-dark-fg, $v1),
-    "fg2":      darken($theme-dark-fg, $v2),
+    "fg1":      darken($theme-dark-fg, $v3),
+    "fg2":      darken($theme-dark-fg, $v4),
 
     // "primary":  $theme-dark-primary,
   ),

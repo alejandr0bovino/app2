@@ -28,22 +28,22 @@
           }
         }
 
-        > .fa {
-          @media (min-width: $screen-sm-min) {
-            &:first-child {
-              margin-right: .5rem;
-            }
-          }
+        // > .fa {
+          // @media (min-width: $screen-sm-min) {
+          //   &:first-child {
+          //     margin-right: .5rem;
+          //   }
+          // }
 
-          &:last-child {
-            @media (max-width: $screen-xs-max) {
-              vertical-align: .25rem
-            }
+          ////// &:last-child {
+          //////   @media (max-width: $screen-xs-max) {
+          //////     vertical-align: .25rem
+          //////   }
 
-            margin-left: .5rem;
-            font-size: .8rem;
-          }
-        }
+          //////   margin-left: .5rem;
+          //////   font-size: .8rem;
+          ////// }
+        // }
       }
     }
   }

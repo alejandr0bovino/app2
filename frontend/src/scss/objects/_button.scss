@@ -2,6 +2,7 @@
 .btn {
   padding: .45rem 2rem .4rem;
   // font-size: .875rem;
+  // font-size: .9rem;
   font-size: 1rem;
   font-family: $headings-font-family;
   text-transform: uppercase;
@@ -39,11 +40,9 @@
 
 .btn-default {
   @include themify() {
-    // background-color: transparent;
-    // border-color: $bg1-color;
     background-color: $bg1-color;
     border-color: $bg1-color;
-    color: $fg-color;
+    color: $fg2-color;
 
     &:hover {
       border-color: $bg1-color;
@@ -59,16 +58,6 @@
   }
 }
 
-// .btn-complement {
-//   opacity: .5;
-
-//   &.disabled,
-//   &[disabled] {
-//     opacity: .25
-//   }
-// }
-
-//.btn extend
 
 
 
@@ -116,8 +105,10 @@
       margin-left: 0;
       left: inherit;
       right: -1.5rem;
-      bottom: .05rem;
-      font-weight: normal;
+      // bottom: .05rem;
+      // font-weight: normal;
+      bottom: 0.15rem;
+      font-size: .85rem;
     }
   }
 }
@@ -135,7 +126,8 @@
     }
 
     .progress-inner {
-      background-color: lighten($fg-color, 40);
+      // background-color: lighten($fg-color, 40);
+      background-color: darken($bg-color, 15);
     }
   }
 
@@ -152,8 +144,8 @@
   letter-spacing: inherit;
 
   .progress-inner {
-    height: 3px;
-    top: -1px;
+    height: 100%;
+    // top: -1px;
   }
 
   &.progress-button-style-fill.state-success .content,

@@ -422,15 +422,25 @@
 
         .m-user--sidebar__img {
           @media (max-width: $screen-xs-max) {
+            @include themify() {
+              background-color: $fg2-color;
+              border-color: $fg2-color;
+            }
             max-height: 2.5rem;
             vertical-align: -.9rem;
             min-width: 100%;
           }
+          @media (min-width: $screen-sm-min) {
+            background-color: $n-bg1-color;
+            border-color: $n-bg1-color;
+          }
 
           max-width: 100%;
+          border-width: 1px;
+          border-style: solid;
 
-          background-color: $n-bg1-color;
-          border: 1px solid $n-bg1-color;
+
+
         }
 
         .m-user--sidebar__name {
@@ -510,7 +520,7 @@
           .m-user--sidebar__control__logout {
             @media (max-width: $screen-xs-max) {
               @include themify() {
-                color: $fg-color;
+                color: $fg2-color;
               }
             }
             @media (min-width: $screen-sm-min) {
@@ -526,7 +536,7 @@
           .m-user--sidebar__control__toggle-theme {
             @media (max-width: $screen-xs-max) {
               @include themify() {
-                color: $fg-color;
+                color: $fg2-color;
               }
             }
             @media (min-width: $screen-sm-min) {

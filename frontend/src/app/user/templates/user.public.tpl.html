@@ -21,23 +21,23 @@
   <aside class="theme-main__aside theme-main__aside--connect col-md-3">
     <h5 style="margin-bottom: 1rem">Latest</h5>
 
-   <!--  <ul class="list-group m-info">
-      <li class="list-group-item" ng-repeat="user in userAll" ng-if="!$first">
-        <p class="list-group-item-text">
-          <img src="{{ user.profile.picture.small }}" alt="">
-          <span ng-bind="user.userName"></span>
-        </p>
-      </li>
-    </ul> -->
-
-    <ul class="media-list m-info--2">
+    <!-- <ul class="media-list m-info-2">
       <li class="media" ng-repeat="user in userAll" ng-if="user.userName!='admin' && user.userName!='username'">
-        <!-- <div class="m-info--2__bg" style="background-image: url({{ user.profile.cover.small }})"></div> -->
         <a href ui-sref="userpage({username: user.userName})">
         <div class="media-left media-middle">
           <img class="media-object" ng-src="{{ user.profile.picture.small }}" alt="64x64">
         </div>
         <div class="media-body media-middle" ng-bind="user.userName"></div>
+        </a>
+      </li>
+    </ul> -->
+
+    <ul class="m-info-3">
+      <li ng-repeat="user in userAll"
+          ng-if="user.userName!='admin' && user.userName!='username'">
+        <a href ui-sref="userpage({username: user.userName})">
+          <img class="m-info-3__figure" ng-src="{{ user.profile.picture.small }}" alt="64x64">
+          <p class="m-info-3__body ellipsis" ng-bind="user.userName"></p>
         </a>
       </li>
     </ul>

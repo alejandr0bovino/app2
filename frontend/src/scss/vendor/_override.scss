@@ -152,7 +152,7 @@ hr {
   background-image: none !important;
   @include themify {
     border-color: $bg1-color;
-    color: $fg-color;
+    color: $fg2-color;
 
     &:focus {
       border-color: $bg2-color;
@@ -201,13 +201,13 @@ hr {
 
 .help-block {
   @include themify {
-    color: $bg2-color;
+    color: $bg1-color;
   }
 
   .has-error & {
     color: $danger;
   }
-  font-size: .65rem;
+  font-size: .7rem;
   // font-family: $sans-serif;
   line-height: 1.1;
 }
@@ -361,7 +361,7 @@ __________________________________*/
 .growl-container {
   &.growl-fixed {
     float: none;
-    z-index: 1039;
+    z-index: 1028;
 
     @media (max-width: $screen-xs-max) {
       max-width: initial;
@@ -376,7 +376,7 @@ __________________________________*/
       top: inherit;
 
       @media (max-width: $screen-xs-max) {
-        bottom: 1.5rem;
+        bottom: 1rem;
         left: 1.5rem;
         right: 1.5rem;
       }
