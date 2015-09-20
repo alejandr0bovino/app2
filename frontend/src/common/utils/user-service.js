@@ -13,6 +13,10 @@ angular.module('ngBoilerplate.user.service', [
         url: userEndpoint + '/all',
         isArray: true
       },
+      get:    {
+        method: 'GET',
+        ignoreLoadingBar: true
+      },
       update: {
         method: 'PUT',
         isArray: false,

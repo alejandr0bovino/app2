@@ -156,6 +156,8 @@
         @include themify {
           background-color: $bg-color;
         }
+        width: 52px;
+        height: 52px;
         margin-right: .75rem;
         border-radius: 50%;
       }

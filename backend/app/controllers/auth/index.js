@@ -80,7 +80,7 @@ exports.signup = function (req, res) {
     });
 
   });
-  // }, 500);
+  // }, 5000);
 };
 
 

@@ -1,6 +1,6 @@
 // bootstrap
 .btn {
-  padding: .45rem 2rem .4rem;
+  padding: .4rem 2rem;
   // font-size: .875rem;
   // font-size: .9rem;
   font-size: 1rem;
@@ -283,7 +283,7 @@
 .btn-xunlink {
   @include themify() {
     background-color: transparent;
-    color: $fg-color;
+    color: $fg2-color;
 
     &:focus,
     &:active,

@@ -24,7 +24,7 @@
         <span><a href ui-sref="userpage({username: user.userName})">{{ user.userName }}</a></span>
       </li>
 
-      <li class="ellipsis" ng-if="user.profile.location.length">
+      <li class="ellipsis hidden-xs" ng-if="user.profile.location.length">
         <span><i class="fa fa-map-marker"></i> {{ user.profile.location }}</span>
       </li>
     </ul>

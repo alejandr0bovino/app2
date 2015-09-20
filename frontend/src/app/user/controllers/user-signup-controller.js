@@ -87,7 +87,7 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
               $timeout(function() {
                 growl.success('Signed up: <b>' + $scope.email + '</b>');
               }, 750);
-            }, 2000);
+            }, 1500);
 
 
           }, function(response) {

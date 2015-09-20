@@ -13,7 +13,7 @@
 
   <accordion>
     <accordion-group heading="{{type.name}}" ng-repeat="type in types" is-disabled="!type.events.length">
-      <ul ng-show="type.events.length" class="m-list--2 effect">
+      <ul ng-show="type.events.length" class="m-list--2" style="margin-bottom: .5rem">
         <li ng-repeat="event in type.events">
           <a class="effect" ui-sref="events.detail({eventID:event._id})">{{ event.title}} <small><em>by {{ event.author }}</em></small></a>
         </li>

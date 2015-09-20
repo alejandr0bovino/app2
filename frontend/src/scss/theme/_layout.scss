@@ -16,6 +16,14 @@ body {
     padding-top: .75rem;
     // padding-bottom: 1rem;
     padding-bottom: .75rem;
+
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child {
+      margin-bottom: .625rem
+    }
   }
 
   @media (min-width: $screen-md-min) {

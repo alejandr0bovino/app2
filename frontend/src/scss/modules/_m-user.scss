@@ -302,6 +302,9 @@
     }
 
     .m-user--header__cover__edit {
+      @media (max-width : $screen-xs-max) {
+        display: inline-block
+      }
       @media (min-width : $screen-sm-min) {
         position: absolute;
         line-height: 1;
@@ -316,7 +319,7 @@
         left: 2rem;
       }
 
-      padding: .36rem 0.6rem .4rem;
+      padding: .26rem .5rem;
 
       background-color: rgba($n-bg-color,.25);
       border-radius: 2px;
@@ -426,13 +429,16 @@
               background-color: $fg2-color;
               border-color: $fg2-color;
             }
-            max-height: 2.5rem;
-            vertical-align: -.9rem;
+            height: 2.5rem;
+            // vertical-align: -.9rem;
             min-width: 100%;
+
           }
           @media (min-width: $screen-sm-min) {
             background-color: $n-bg1-color;
             border-color: $n-bg1-color;
+                        width :52px;
+            height: 52px;
           }
 
           max-width: 100%;
