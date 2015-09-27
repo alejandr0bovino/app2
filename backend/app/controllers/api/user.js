@@ -349,9 +349,10 @@ exports.all = function (req, res) {
   User.where('pendingUpdate').equals(null)
     .exec(function(err, obj) {
       if (err) {
-        return res.send(400, {
-          message: getErrorMessage(err)
-        });
+        // return res.send(400, {
+        //   message: err
+        // });
+        res.status(400).send(err);
       } else {
         res.json(obj);
       }

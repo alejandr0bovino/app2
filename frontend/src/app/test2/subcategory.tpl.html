@@ -1,0 +1,10 @@
+<h2>Category</h2>
+<a ui-sref="^">back</a>
+<div ui-view="">
+<ul>
+  <li class="text-center thumbnail list-inline" ng-repeat="subCat in subCats">
+    <img src="{{subCat.imgUrl}}" alt="" />
+    <a ui-sref="test2.category.subcategory({category: category, subcategory: subCat.url})">{{category}} - {{subCat.title}}</a>
+  </li>
+</ul>
+</div>

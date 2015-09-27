@@ -1,109 +1,130 @@
-angular.module( 'ngBoilerplate.events', [
-  'ui.router',
-  'ui.bootstrap'
-])
+angular.module( 'ngBoilerplate.events', [])
 
-
-
-.config(
-  ['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider
-      .when('/c?id', '/events/:id');
-
-    $stateProvider
-      .state('events', {
-        abstract: true,
-        url: '/events',
-        resolve: {
-          authenticated: function(authenticate){
-            return authenticate.islogged();
-          },
-          types: function(authenticated, Event){
-            if (authenticated) {
-              return Event.getTypes();
-            }
+.config(function config( $stateProvider ) {
+  $stateProvider.state('events', {
+    abstract: true,
+    url: "/events",
+    views: {
+      "main": {
+        templateUrl: "events/events.tpl.html",
+      }
+    },
+    resolve: {
+      authenticated: function(authenticate){
+        return authenticate.islogged();
+      },
+    }
+  })
+    .state('events.types', {
+      url: "^/events",
+      templateUrl: "events/events.types.tpl.html",
+      controller: "TypesCtrl",
+      resolve: {
+        types: function(authenticated, xEventType){
+          if (authenticated) {
+            return xEventType.query().$promise;
           }
-        },
-        views: {
-          "main": {
-            controller: 'EventsCtrl',
-            templateUrl: 'events/events.tpl.html'
-          }
-        },
-        data:{
-          pageTitle: 'Events',
-          // headerTitle: 'examples',
-          headerSubtitle: 'example'
         }
-      })
+      }
+    })
 
-      // List
-
-      .state('events.list', {
-        url: '',
-        templateUrl: 'events/events.list.tpl.html'
-      })
-
-      // Detail
-
-      .state('events.detail', {
-        url: '/{eventID}',
-        resolve: {
-          event: function(Event, $stateParams){
-            return Event.get({id: $stateParams.eventID});
+    .state('events.type', {
+      url: "^/events/:slug",
+      templateUrl: "events/events.type.tpl.html",
+      controller: 'typeCtrl',
+      resolve: {
+        type: function(authenticated, $stateParams, xEventType){
+          if (authenticated && $stateParams.slug !== '') {
+            return xEventType.getType({slug: $stateParams.slug });
           }
-        },
-        views: {
-          '': {
-            templateUrl: 'events/events.detail.tpl.html',
-            controller: 'EventsCtrlDetail'
+        }
+      }
+    })
+
+    .state('events.event', {
+      url: "^/events/:typeSlug/:eventID/:eventSlug",
+      templateUrl: "events/events.event.tpl.html",
+      controller: 'eventCtrl',
+      resolve: {
+        xevent: function(authenticated, $stateParams, xEvent){
+          if (authenticated && $stateParams.typeSlug !== '' && $stateParams.eventID !== '' && $stateParams.eventSlug !== '') {
+            return xEvent.get({typeslug: $stateParams.typeSlug, eventid: $stateParams.eventID, eventslug: $stateParams.eventSlug});
           }
-        },
-        data:{
-          pageTitle: 'Event',
-          headerTitle: 'Event',
+        }
+      }
+    });
+})
+
+.controller( 'TypesCtrl', function TypesCtrl($scope, types) {
+  $scope.types = types;
+})
+
+
+.controller('typeCtrl', function categoryCtrl($scope, $state, $stateParams, type, growl) {
+  if ($stateParams.slug === '' ) {
+    $state.go('events.types');
+  } else {
+    type.$promise.then(function (response) {
+      $scope.type = response;
+    },function (response) {
+      growl.error('type not found');
+      $state.go('events.types');
+    });
+  }
+})
+
+
+.controller('eventCtrl', function eventCtrl($scope, $state, $stateParams, xevent, growl) {
+  if ($stateParams.typeSlug === '') {
+    $state.go('events.type');
+  } else {
+    if ($stateParams.eventID === '' || $stateParams.eventSlug === '') {
+      $state.go('events.type', { slug: $stateParams.typeSlug });
+    } else {
+      xevent.$promise.then(function (response) {
+        $scope.type = response;
+        $scope.xevent = response.events[0];
+      },function (response) {
+        growl.error(response.data.message);
+        if (response.data.message === 'type not found') {
+          $state.go('events.type');
+        } else {
+          $state.go('events.type', { slug: $stateParams.typeSlug });
         }
       });
-
-
-}])
-
-.controller( 'EventsCtrl', function EventsCtrl( $scope, types ) {
-  if (types) {
-    types.$promise.then(function(types) {
-      $scope.types = types;
-    });
+    }
   }
 })
 
-.controller( 'EventsCtrlDetail', function EventsCtrl( $scope, event ) {
-  if (event) {
-    event.$promise.then(function(event) {
-      $scope.event = event;
-    });
-  }
+
+.factory('xEventType', function(ENV, $resource) {
+  var eventEndpoint = ENV.apiEndpoint + '/api/event-types';
+
+  return $resource(eventEndpoint,
+    {},
+    {
+      getType: {
+        method: 'GET',
+        url: eventEndpoint + '/:slug',
+      }
+    }
+  );
 })
 
-.factory('Event', function(ENV, $resource) {
+
+.factory('xEvent', function(ENV, $resource) {
   var eventEndpoint = ENV.apiEndpoint + '/api/event/:id';
 
   return $resource(eventEndpoint,
     { id: '@id' },
     {
-      getTypes: {
+      get: {
         method: 'GET',
-        url: eventEndpoint + '/types',
-        isArray: true
+        url: eventEndpoint + '/:typeslug/:eventid/:eventslug'
       }
     }
   );
-
 })
-
-
-
-
-
 
 
 ;

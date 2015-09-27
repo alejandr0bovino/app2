@@ -26,7 +26,25 @@
     body {
       line-height: 1.625;
     }
-  } @else {
+  } @else if $size == 18{
+    html {
+      @media (max-width: $screen-xs-max)                                  { font-size: 87.5% } // 14px
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  { font-size: 100% } // 16px
+      @media (min-width: $screen-md-min)                                  { font-size: 112.5% } // 18px
+    }
+    body {
+      line-height: 1.828;
+    }
+  } @else if $size == 19 {
+    html {
+      @media (max-width: $screen-xs-max)                                  { font-size: 100% } // 16px
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  { font-size: 112.5% } // 18px
+      @media (min-width: $screen-md-min)                                  { font-size: 118.8% } // 19px
+    }
+    body {
+      line-height: 1.828;
+    }
+  } @else  {
     html {
       @media (max-width: $screen-xs-max)                                  { font-size: 87.5% } // 14px
       @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  { font-size: 100% } // 16px

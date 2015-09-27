@@ -156,7 +156,7 @@
           color: $fg2-color;
         }
 
-        line-height: 4;
+        line-height: 4.2;
         height: $menu-height;
       }
 
@@ -199,17 +199,18 @@
   }
 
   .theme-sidebar__toggle-sidebar {
-    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-      &:before {
-        top: .1rem;
-      }
-    }
+    // @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    //   &:before {
+    //     top: .1rem;
+    //   }
+    // }
 
-    @media (min-width: $screen-md-min) {
-      &:before {
-        top: .15rem;
-      }
-    }
+    // @media (min-width: $screen-md-min) {
+    //   &:before {
+    //     top: .15rem;
+    //   }
+    // }
+
 
 
     padding: 0;
@@ -222,7 +223,7 @@
       @include transition(color $default-transition-duration1 $default-transition-function1);
       @extend %fa;
       position: relative;
-      // top: .15rem;
+      top: .1rem;
       content: '\f0c9';
     }
 
@@ -238,6 +239,7 @@
 
     padding: 0;
     height: $menu-height;
+    line-height: 4.2;
 
     &::before {
       content: '\f0c9';

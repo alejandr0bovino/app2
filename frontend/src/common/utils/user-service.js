@@ -24,14 +24,14 @@ angular.module('ngBoilerplate.user.service', [
       },
       usernameAvailable: {
         method: 'GET',
-        params: { username: '@username' },
+        // params: { username: '@username' },
         url: userEndpoint + '/username-available/:username',
         isArray: false,
         ignoreLoadingBar: true
       },
       emailAvailable: {
         method: 'GET',
-        params: { email: '@email' },
+        // params: { email: '@email' },
         url: userEndpoint + '/email-available/:email',
         isArray: false,
         ignoreLoadingBar: true
@@ -62,12 +62,12 @@ angular.module('ngBoilerplate.user.service', [
       },
       getPublicUser: {
         method: 'GET',
-        params: { username: '@username' },
+        // params: { username: '@username' },
         url: userEndpoint + '/public-user/:username',
       },
       removePicture: {
         method: 'PUT',
-        params: { type: '@type' },
+        // params: { type: '@type' },
         url: userEndpoint + '/remove-picture',
         ignoreLoadingBar: true
       }

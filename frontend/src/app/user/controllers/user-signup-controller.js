@@ -11,43 +11,8 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
     };
 
     $scope.signup = function() {
-      //   $auth.signup({
-      //     email: angular.lowercase($scope.email),
-      //     userName: $scope.userName,
-      //     password: $scope.password,
-      //     name: $scope.name,
-      //   })
-      //   .then(function(response) {
-      //     var lEmail = angular.lowercase($scope.email);
-
-      //     User.confirmRegistrationPost({
-      //       email: lEmail,
-      //       url: ENV.baseUrl + $state.href('user.verified')
-      //     }, function(response) {
-      //       growl.success('Signed up: <b>' + $scope.email + '</b>');
-      //       $state.go('user.confirm', {email: lEmail});
-      //     }, function(response) {
-      //       if (typeof response.data.message != 'undefined') {
-      //         growl.warning(response.data.message);
-      //       }
-      //     });
-
-      //   })
-      //   .catch(function(response) {
-      //     if (typeof response.data.message != 'undefined') {
-      //       growl.error(response.data.message);
-      //     }
-      //   });
-
-
-
-      // var signup = $auth.signup({
-      //   email: angular.lowercase($scope.email),
-      //   userName: $scope.userName,
-      //   password: $scope.password,
-      //   name: $scope.name,
-      // });
-      document.querySelector('.js-btn-unfocus').blur();
+      // document.querySelector('.js-btn-unfocus').blur();
+      // $scope.blurExpression = true;
       $scope.signupForm.$setPristine();
       $scope.btnDisabled = true;
 

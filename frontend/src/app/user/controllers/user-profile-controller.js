@@ -4,7 +4,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   'rzModule'
 ])
 
-.controller( 'ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, resA, $timeout, $modal ) {
+.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, resA, $timeout, $modal ) {
   if (!resA) {
     $state.go('user.login');
   } else {
@@ -514,7 +514,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           }, 750);
         },
         function(response) {
-          // console.log(response.status);
+          console.log(response.status);
         }
       );
 

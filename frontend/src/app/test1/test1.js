@@ -1,89 +1,149 @@
 angular.module( 'ngBoilerplate.test1', [
-  'ui.router',
-  'ngFileUpload'
+  // 'ui.router',
 ])
 
-
-
 .config(function config( $stateProvider ) {
-  $stateProvider.state( 'test1', {
-    url: '/test1',
+  $stateProvider.state('test1', {
+    abstract: true,
+    url: "/test1",
     views: {
       "main": {
-        controller: 'Test1Ctrl',
-        // resolve: {
-        //   userObject: function(authenticate, User){
-        //     if ( authenticate.islogged()) {
-        //       return User.get().$promise;
-        //     }
-        //   }
-        // },
-        templateUrl: 'test1/test1.tpl.html'
+        templateUrl: "test1/test1.tpl.html",
+        // controller: "TypesCtrl"
       }
     },
-    data:{
-      // pageClass: 'about',
-      pageTitle: 'About',
-      headerTitle: 'The Elevator <small>For the impatient</small>',
-      headerSubtitle: 'This example is a quick exercise to illustrate how the default'
+    resolve: {
+      authenticated: function(authenticate){
+        return authenticate.islogged();
+      },
+      // types: function(authenticated, xEventType){
+      //   if (authenticated) {
+      //     return xEventType.query().$promise;
+      //   }
+      // }
     }
-  });
+  })
+    .state('test1.types', {
+      url: "^/test1",
+      templateUrl: "test1/test1.types.tpl.html",
+      controller: "TypesCtrl",
+      resolve: {
+        // authenticated: function(authenticate){
+        //   return authenticate.islogged();
+        // },
+        types: function(authenticated, xEventType){
+          if (authenticated) {
+            return xEventType.query().$promise;
+          }
+        }
+      }
+    })
+
+    .state('test1.type', {
+      url: "^/test1/:slug",
+      templateUrl: "test1/test1.type.tpl.html",
+      controller: 'typeCtrl',
+      resolve: {
+        type: function(authenticated, $stateParams, xEventType){
+          if (authenticated && $stateParams.slug !== '') {
+
+            return xEventType.getType({slug: $stateParams.slug });
+          }
+        }
+      }
+    })
+
+    .state('test1.event', {
+      url: "^/test1/:typeSlug/:eventID/:eventSlug",
+      templateUrl: "test1/test1.event.tpl.html",
+      controller: 'eventCtrl',
+      resolve: {
+        xevent: function(authenticated, $stateParams, xEvent){
+          if (authenticated && $stateParams.typeSlug !== '' && $stateParams.eventID !== '' && $stateParams.eventSlug !== '') {
+            return xEvent.get({typeslug: $stateParams.typeSlug, eventid: $stateParams.eventID, eventslug: $stateParams.eventSlug});
+          }
+        }
+      }
+    });
 })
 
-.controller( 'Test1Ctrl', function Test1Ctrl( $rootScope, $scope, Upload, growl , ENV, User, authenticate) {
+.controller( 'TypesCtrl', function TypesCtrl( $rootScope, $scope, $http, Upload, growl , ENV, types) {
+  $scope.types = types;
+})
 
-if (authenticate.islogged()) {
-    User.get(function(data){
-      $scope.user = data;
-    }, function(data){
-      growl.error("Unable to get information");
+
+.controller('typeCtrl', function categoryCtrl($scope, $state, $stateParams, type) {
+  if ($stateParams.slug === '' ) {
+    $state.go('test1.types');
+  } else {
+    type.$promise.then(function (response) {
+      $scope.type = response;
+    },function (response) {
+      $state.go('test1.types');
     });
-
-    // $scope.$watch('files', function () {
-    //   if ($scope.files && $scope.files.length) {
-    //     $scope.filename = $scope.files[0].name;
-    //   }
-    // });
-
-    window.addEventListener("dragover", function(e) {
-      e.preventDefault();
-    }, false);
-    window.addEventListener("drop", function(e) {
-      e.preventDefault();
-    }, false);
-
-
-    $scope.upload = function (file) {
-
-
-      var userName = $scope.user.pendingUpdate ? 'no' : $scope.user.userName;
-      console.log(file);
-      Upload.upload({
-        url: ENV.apiEndpoint + '/api/user/upload-file',
-        method: 'POST',
-        file: file,
-        fields: {type: 'cover'},
-      })
-      .success(function (data, status, headers, config) {
-        growl.success('file <b>' + config.file.name + '</b> uploaded.');
-      }).error(function (data, status, headers, config) {
-        growl.error('error status: ' + status);
-      });
-    };
   }
 })
 
 
-// .filter('filterUrl', function() {
-//   return function(str) {
-//     if (str !== undefined) {
-//       return str.replace('https://','http://');
-//     }
-//   };
-// })
+.controller('eventCtrl', function eventCtrl($scope, $state, $stateParams, xevent, growl) {
+  if ($stateParams.typeSlug === '') {
+    $state.go('test1.type');
+  } else {
+    if ($stateParams.eventID === '' || $stateParams.eventSlug === '') {
+      $state.go('test1.type', { slug: $stateParams.typeSlug });
+    } else {
+      xevent.$promise.then(function (response) {
+        // $scope.xevent = response;
+        $scope.type = response;
+        $scope.xevent = response.events[0];
+      },function (response) {
+        growl.error(response.data.message);
+        if (response.data.message === 'type not found') {
+          $state.go('test1.type');
+        } else {
+          $state.go('test1.type', { slug: $stateParams.typeSlug });
+        }
 
+      });
+    }
+  }
+
+})
+
+
+.factory('xEventType', function(ENV, $resource) {
+  var eventEndpoint = ENV.apiEndpoint + '/api/event-types';
+
+  return $resource(eventEndpoint,
+    {},
+    {
+      getType: {
+        method: 'GET',
+        // params: { slug: '@slug' },
+        url: eventEndpoint + '/:slug',
+      }
+    }
+  );
+
+})
+
+
+.factory('xEvent', function(ENV, $resource) {
+  var eventEndpoint = ENV.apiEndpoint + '/api/event/:id';
+
+  return $resource(eventEndpoint,
+    { id: '@id' },
+    {
+      get: {
+        method: 'GET',
+        // params: { typeslug: '@typeslug' },
+        url: eventEndpoint + '/:typeslug/:eventid/:eventslug'
+      }
+    }
+
+  );
+
+})
 
 
 ;
-
-

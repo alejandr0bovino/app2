@@ -6,51 +6,21 @@
 
     <section class="theme-main__section col-md-9">
       <header class="theme-main__section__header">
-        <h1 ng-bind-html="headerTitle" class="theme-main__section__header__title">h1</h1>
+        <h1 class="theme-main__section__header__title">h1</h1>
 
         <p ng-if="headerSubtitle" class="theme-main__section__header__subtitle">
-          <em ng-bind-html="headerSubtitle">h2</em>
+          <em>h2</em>
         </p>
       </header>
 
       <br>
+
       <div ng-include src="'include/login.continue.tpl.html'"></div>
     </section>
   </div>
 
   <div ng-if="isAuthenticated()">
-    <br><br>
-
-    <div style="background: aqua">
-      <input type="file" ngf-select="" ng-model="file" name="file" accept="image/*" required="">
-    </div>
-
-    <br><br>
-
- <!--    <div style="background: aquamarine">
-    <div ngf-select ng-model="files" style="font-size: 2rem; padding: 1rem; background: red">Upload picture</div>
-
-    <br><br>    <br><br>    <br><br>
-    </div> -->
-    <br><br>    <br>
-    <button style="background:blue" class="btn btn-lg btn-block btn-5" ngf-select ng-model="file" ng-show="!myImage" ngf-change="fileChange()">Select from your computer</button>
-
-
-    {{ filename }}
-
-    <br><br>
-
-    <img ngf-src="file" ngf-accept="'image/*'" width="100">
-
-    <br><br>
-
-    <button  ng-click="upload(file)">Submit</button>
-
-
-
-    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-
-    <br><br><br><br>
+    <div class="fadeY" ui-view></div>
   </div>
 </div>
 

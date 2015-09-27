@@ -437,11 +437,11 @@
           @media (min-width: $screen-sm-min) {
             background-color: $n-bg1-color;
             border-color: $n-bg1-color;
-                        width :52px;
+            width :52px;
             height: 52px;
           }
 
-          max-width: 100%;
+          // max-width: 100%;
           border-width: 1px;
           border-style: solid;
 
@@ -487,6 +487,7 @@
             float: left;
             margin-right: 1rem;
             // text-align: right
+            line-height: 4.2;
           }
         }
 
@@ -497,7 +498,7 @@
 
             @media (max-width: $screen-xs-max){
               // width: 25%;
-              font-size: .8125rem;
+              // font-size: .8125rem;
               margin-left: .5rem;
             }
 

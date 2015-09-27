@@ -1,157 +1,123 @@
 angular.module( 'ngBoilerplate.test2', [
-  'ngFileUpload',
+  // 'ngFileUpload',
   // 'ngImgCrop',
 ])
 
 
-.config(function config( $stateProvider ) {
-  $stateProvider.state( 'test2', {
-    url: '/test2',
+// .config(function config( $stateProvider ) {
+//   $stateProvider.state( 'test2', {
+//     url: '/test2',
+//     views: {
+//       "main": {
+//         controller: 'Test2Ctrl',
+//         templateUrl: 'test2/test2.tpl.html'
+//       }
+//     },
+//     data: {}
+//   });
+
+// })
+
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  // $urlRouterProvider.otherwise('/test2');
+
+  $stateProvider
+
+  .state('test2', {
+    // abstract: true,
+    url: "/test2",
+
     views: {
       "main": {
-        controller: 'Test2Ctrl',
-        templateUrl: 'test2/test2.tpl.html'
+        templateUrl: "test2/test2.tpl.html",
+        controller: 'mainCtrl',
       }
-    },
-    data: {}
-  });
+    }
+  })
 
+//   .state('showcase', {
+//     url: "",
+// templateUrl: "test2/showcase.tpl.html",
+// // views: {
+// //       "ccc": {
+// //         templateUrl: "test2/showcase.tpl.html",
+// //         // controller: 'mainCtrl',
+// //       }
+// //     }
+//   })
+    .state('test2.category', {
+      url: "^/test2/:category",
+
+      // views: {
+      //   "cc": {
+          templateUrl: "test2/subcategory.tpl.html",
+          controller: 'categoryCtrl',
+        // }
+      // }
+    })
+    .state('test2.category.subcategory', {
+      url: "/:subcategory",
+      templateUrl: "test2/product.tpl.html",
+      controller: 'productCtrl',
+    });
 })
 
-.controller( 'Test2Ctrl', function Test2Ctrl($rootScope, $scope, apImageHelper, Upload, ENV, growl ) {
 
-  function dataURItoBlob(dataURI) {
-    var byteString,
-    mimestring;
+.controller('mainCtrl', ['$scope', '$http',
+  function($scope, $http) {
+    $scope.categories = [];
 
-    if(dataURI.split(',')[0].indexOf('base64') !== -1 ) {
-      byteString = atob(dataURI.split(',')[1]);
-    } else {
-      byteString = decodeURI(dataURI.split(',')[1]);
-    }
+    $http.get('assets/test1.json').success(function(data) {
+      $scope.categories = data;
+      // console.log($scope.categories);
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
 
-    mimestring = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    var content = [];
-    for (var i = 0; i < byteString.length; i++) {
-      content[i] = byteString.charCodeAt(i);
-    }
-
-    return new Blob([new Uint8Array(content)], {type: mimestring});
   }
+])
+
+.controller('categoryCtrl', ['$scope', '$stateParams',
+  function($scope, $stateParams) {
+
+    angular.forEach($scope.categories, function(value, key) {
+      console.log(key);
+      console.log(value);
+      if (key === $stateParams.category) {
+        console.log("si");
+      } else {
+        console.log("no");
+      }
+    });
 
 
 
+    $scope.category = $stateParams.category;
+    // $scope.subCats = _.find($scope.categories, { "url": $stateParams.category }).subCats;
+    $scope.subCats = [];
 
-
-
-
-
-
-    $scope.myImage='';
-    $scope.myCroppedImage='';
-
-
-
-    var handleFileSelect=function(evt) {
-      var file=evt.currentTarget.files[0];
-      var reader = new FileReader();
-      reader.onload = function (evt) {
-        $scope.$apply(function($scope){
-          $scope.myImage=evt.target.result;
-        });
-      };
-      reader.readAsDataURL(file);
-    };
-    angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
-
-
-
-
-    $scope.upload = function () {
-
-      var file = dataURItoBlob($scope.myCroppedImage);
-      console.log(file);
-
-      var upload = Upload.upload({
-        url: ENV.apiEndpoint + '/api/user/upload-file',
-        method: 'POST',
-        file: file,
-        fields: {type: 'picture'},
-
-       })
-       .success(function (data, status, headers, config) {
-            growl.success("n");
-        })
-       .error(function (data, status, headers, config) {
-
-      });
-
-    };
-
-
-
-    ///////////
-
-
-
-
-
- $scope.leftCanvas = {
-    src: null,
-    image: null,
-    frame: null,
-    scale: null,
-    offset: null
-  };
-
-  $scope.rightCanvas = {
-    src: null,
-    image: null,
-    frame: null,
-    scale: null,
-    offset: null
-  };
-
-  $scope.zoomIn = function() {
-    $scope.leftCanvas.scale *= 1.2;
-  };
-
-  $scope.zoomOut = function() {
-    $scope.leftCanvas.scale /= 1.2;
-  };
-
-  $scope.crop = function() {
-    var canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 1500, height: 1500});
-    // $scope.rightCanvas.src = canvasData.dataURI;
-  };
-
-
-  $scope.upload2 = function () {
-    if ($scope.leftCanvas.image !== null ) {
-
-      var canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 400, height: 400});
-
-
-      var file = dataURItoBlob(canvasData.dataURI);
-      console.log(file);
-
-      var upload = Upload.upload({
-        url: ENV.apiEndpoint + '/api/user/upload-file',
-        method: 'POST',
-        file: file,
-        fields: {type: 'picture'},
-
-       })
-       .success(function (data, status, headers, config) {
-            growl.success("n");
-        })
-       .error(function (data, status, headers, config) {
-
-      });
+    if ($scope.categories.length) {
+    $scope.subCats = $scope.categories.filter(function(e) {
+      return e.url == $stateParams.category;
+    })[0].subCats;
     }
-  };
-})
+    console.log($scope.subCats);
+  }
+])
+.controller('productCtrl', ['$scope', '$stateParams',
+  function($scope, $stateParams) {
+    $scope.subcategory = $stateParams.subcategory;
+    // $scope.products = _.find($scope.subCats, { "url": $stateParams.subcategory}).products;
 
+    if ($scope.subCats.length) {
+      $scope.products = $scope.subCats.filter(function(e) {
+        return e.url == $stateParams.subcategory;
+      })[0].products;
+    }
+  }
+])
 ;
 

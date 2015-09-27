@@ -1,10 +1,9 @@
-<div ui-view="">
+<h1>Showcase</h1>
+<div ui-view="cc">
 <ul>
   <li class="text-center thumbnail list-inline" ng-repeat=" category in categories">
     <img src="{{category.imgUrl}}" alt="" />
-    <a ui-sref="test2.category({category: category.url})">{{category.title}}</a>
+    <a ui-sref="showcase.category({category: category.url})">{{category.title}}</a>
   </li>
 </ul>
 </div>
-
-

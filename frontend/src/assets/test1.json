@@ -1,0 +1,77 @@
+[
+  {
+    "title" : "category1",
+    "url" : "category1",
+    "imgUrl" : "http://lorempixel.com/200/200",
+    "subCats" : [
+        {
+          "title" : "subCat1",
+          "url" : "subCat1",
+          "imgUrl" : "http://lorempixel.com/200/200",
+          "products" : [
+              {
+                "title" : "product1",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              },
+              {
+                "title" : "product2",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              }
+            ]
+        },
+        {
+          "title" : "subCat2",
+          "url" : "subCat2",
+          "imgUrl" : "http://lorempixel.com/200/200",
+          "products" : [
+              {
+                "title" : "product3",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              },
+              {
+                "title" : "product4",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              }
+            ]
+        }
+      ]
+  },
+  {
+    "title" : "category2",
+    "url" : "category2",
+    "imgUrl" : "http://lorempixel.com/200/200",
+    "subCats" : [
+        {
+          "title" : "subCat3",
+          "url" : "subCat3",
+          "imgUrl" : "http://lorempixel.com/200/200",
+          "products" : [
+              {
+                "title" : "product5",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              },
+              {
+                "title" : "product6",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              }
+            ]
+        },
+        {
+          "title" : "subCat4",
+          "url" : "subCat4",
+          "imgUrl" : "http://lorempixel.com/200/200",
+          "products" : [
+              {
+                "title" : "product7",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              },
+              {
+                "title" : "product8",
+                "imgUrl" : "http://lorempixel.com/200/200"
+              }
+            ]
+        }
+      ]
+
+  }
+]

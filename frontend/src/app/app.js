@@ -3,6 +3,7 @@ angular.module( 'ngBoilerplate', [
   'templates-app',
   'templates-ui',
   'ui.router',
+  'ui.bootstrap',
   'ngAnimate',
   // 'ngTouch',
   'ngSanitize',
@@ -27,7 +28,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.user.service',
 ])
 
-.constant("requireAuth", ['events.list', 'contacts.list'])
+.constant("requireAuth", ['events.list', 'contacts.list', 'test1'])
 
 .config( function myAppConfig (ENV, $locationProvider, $stateProvider, $urlRouterProvider, $authProvider, growlProvider, cfpLoadingBarProvider) {
   $urlRouterProvider.otherwise('/');
@@ -35,6 +36,9 @@ angular.module( 'ngBoilerplate', [
   $urlRouterProvider.rule(function($injector, $location) {
     var path = $location.path();
     var hasTrailingSlash = path[path.length-1] === '/';
+
+    console.log(path);
+    console.log(hasTrailingSlash);
 
     if(hasTrailingSlash) {
       var newPath = path.substr(0, path.length - 1);
@@ -100,8 +104,8 @@ angular.module( 'ngBoilerplate', [
   growlProvider.globalDisableCloseButton(true);
 })
 
-.run(['$rootScope', '$state', '$stateParams', 'Permission', '$q', 'User',  'authenticate', '$auth',
-  function ($rootScope,   $state,   $stateParams, Permission, $q, User, authenticate, $auth) {
+.run(['$rootScope', '$state', '$stateParams', 'Permission', '$q', 'User',  'authenticate', '$auth', 'growl',
+  function ($rootScope,   $state,   $stateParams, Permission, $q, User, authenticate, $auth, growl) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 

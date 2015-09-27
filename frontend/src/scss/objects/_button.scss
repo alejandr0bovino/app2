@@ -107,7 +107,7 @@
       right: -1.5rem;
       // bottom: .05rem;
       // font-weight: normal;
-      bottom: 0.15rem;
+      bottom: 0.2rem;
       font-size: .85rem;
     }
   }
@@ -347,4 +347,28 @@
   }
 
   border: none;
+}
+
+
+
+
+
+.btn-nav {
+  @include themify() {
+    color: $fg2-color;
+
+    &:hover {
+      color: $fg2-color;
+    }
+
+    &:focus,
+    &:active,
+    &.active {
+      color: $fg2-color;
+    }
+  }
+
+  background-color: transparent;
+  border: none;
+  font-size: 2rem; padding: 0; line-height: 1;
 }

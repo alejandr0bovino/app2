@@ -1,0 +1,8 @@
+<h3>Product</h3>
+<a ui-sref="^">back</a>
+<ul>
+  <li class="text-center thumbnail list-inline" ng-repeat="product in products">
+    <img src="{{product.imgUrl}}" alt="" />
+    <a href="#">{{product.title}}</a>
+  </li>
+</ul>

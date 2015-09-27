@@ -1,0 +1,49 @@
+<aside class="theme-main__aside col-md-3">
+  <div class=" text-right">
+    <button class="btn btn-nav" style="font-size: 2rem; padding: 0; line-height: 1" ui-sref="test1.type({slug: type.slug})">
+      <i class="fa fa-angle-left"></i>
+    </button>
+
+
+  <h3 style="margin-top: 1rem; margin-bottom: .5rem"><a ui-sref="test1.type({slug: type.slug})">{{ type.name }}</a></h3>
+
+  <div style="font-size: .875rem">
+    <i class="fa fa-user-secret"></i>&nbsp;
+    {{ xevent.author }}
+  </div>
+
+
+  <div style="font-size: .875rem">
+    <i class="fa fa-clock-o"></i>&nbsp;
+    03/06/02
+  </div>
+
+  <div style="font-size: .875rem">
+    <i class="fa fa-tag"></i>&nbsp;
+    <em>
+      <a href="#">Conference</a>,
+      <a href="#">CSS</a>
+    </em>
+  </div>
+   </div>
+</aside>
+
+<section class="theme-main__section col-md-9">
+
+
+
+  <header class="theme-main__section__header">
+  <figure style="margin-bottom: 1.5rem"><img ng-src="assets/img/{{xevent.cover}}" class="img-responsive gc" style="opacity: .9; border-radius: 2px"></figure>
+
+    <h1 class="theme-main__section__header__title">{{ xevent.title }}</h1>
+
+    <!-- <p class="theme-main__section__header__subtitle">
+      40/98/32
+    </p> -->
+
+    <hr style="margin: .5rem 0 0">
+  </header>
+
+
+  <div ng-bind-html="xevent.abstract"></div>
+</section>

@@ -31,6 +31,7 @@ require('./config/express')(app);
 require('./app/routes/admin/users')(app);
 require('./app/routes/auth')(app);
 require('./app/routes/api/event')(app);
+require('./app/routes/api/eventType')(app);
 require('./app/routes/api/user')(app);
 
 
