@@ -28,7 +28,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.user.service',
 ])
 
-.constant("requireAuth", ['events.list', 'contacts.list', 'test1'])
+.constant("requireAuth", ['events.types', 'contacts.list', 'test1'])
 
 .config( function myAppConfig (ENV, $locationProvider, $stateProvider, $urlRouterProvider, $authProvider, growlProvider, cfpLoadingBarProvider) {
   $urlRouterProvider.otherwise('/');
