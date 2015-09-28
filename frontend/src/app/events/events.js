@@ -121,7 +121,7 @@ angular.module( 'ngBoilerplate.events', [])
     {
       get: {
         method: 'GET',
-        url: eventEndpoint + '/:typeslug/:eventid/:eventslug'
+        url: eventEndpoint + '/:typeslug/:eventid/:eventslug',
         ignoreLoadingBar: true,
       }
     }
