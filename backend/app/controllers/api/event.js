@@ -3,6 +3,7 @@ var EventType = mongoose.model("EventType");
 var Event = mongoose.model("Event");
 
 exports.getTypes = function (req, res) {
+  setTimeout(function(){
   EventType.find()
     .populate('events')
     .exec(function(err, obj) {
@@ -12,6 +13,7 @@ exports.getTypes = function (req, res) {
         res.json(obj);
       }
     });
+  }, 3000);
 };
 exports.getType = function (req, res) {
   EventType.findOne({ slug: req.params.slug })
@@ -31,23 +33,6 @@ exports.getType = function (req, res) {
 
 
 /////
-
-// exports.getEvent = function (req, res) {
-//   Event.findById(req.params.id)
-//     .populate('eventType')
-//     .exec(function(err, obj) {
-//       if (err) {
-//         // return res.send(400, { message: err });
-//         res.status(400).send(err);
-//       } else {
-//         if (obj) {
-//           res.json(obj);
-//         } else {
-//           return res.status(400).send({ message: 'Event not found' });
-//         }
-//       }
-//     });
-// };
 
 
 

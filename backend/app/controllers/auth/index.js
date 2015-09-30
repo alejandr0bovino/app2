@@ -83,6 +83,26 @@ exports.signup = function (req, res) {
   // }, 5000);
 };
 
+exports.unlinkProvider = function(req, res) {
+  var provider = req.body.provider;
+  var providers = ['facebook', 'foursquare', 'google', 'github', 'instagram',
+    'linkedin', 'live', 'twitter', 'twitch', 'yahoo'];
+
+  if (providers.indexOf(provider) === -1) {
+    return res.status(400).send({ message: 'Unknown OAuth Provider' });
+  }
+
+  User.findById(req.user, function(err, user) {
+    if (!user) {
+      return res.status(400).send({ message: 'User Not Found' });
+    }
+    user[provider] = undefined;
+    user.pendingUpdate = undefined;
+    user.save(function() {
+      res.status(200).end();
+    });
+  });
+};
 
 exports.connectGoogle = function(req, res) {
   var accessTokenUrl = 'https://accounts.google.com/o/oauth2/token';
@@ -294,7 +314,6 @@ exports.connectFacebook = function(req, res) {
   });
 };
 
-
 exports.connectTwitter = function(req, res) {
   var requestTokenUrl = 'https://api.twitter.com/oauth/request_token';
   var accessTokenUrl = 'https://api.twitter.com/oauth/access_token';
@@ -413,24 +432,5 @@ exports.connectTwitter = function(req, res) {
   }
 };
 
-
-exports.unlinkProvider = function(req, res) {
-  var provider = req.body.provider;
-  var providers = ['facebook', 'foursquare', 'google', 'github', 'instagram',
-    'linkedin', 'live', 'twitter', 'twitch', 'yahoo'];
-
-  if (providers.indexOf(provider) === -1) {
-    return res.status(400).send({ message: 'Unknown OAuth Provider' });
-  }
-
-  User.findById(req.user, function(err, user) {
-    if (!user) {
-      return res.status(400).send({ message: 'User Not Found' });
-    }
-    user[provider] = undefined;
-    user.pendingUpdate = undefined;
-    user.save(function() {
-      res.status(200).end();
-    });
-  });
+exports.connectGithub = function(req, res) {
 };

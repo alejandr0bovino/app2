@@ -106,7 +106,7 @@ angular.module( 'ngBoilerplate.events', [])
       getType: {
         method: 'GET',
         url: eventEndpoint + '/:slug',
-        ignoreLoadingBar: true,
+        // ignoreLoadingBar: true,
       }
     }
   );
@@ -122,7 +122,7 @@ angular.module( 'ngBoilerplate.events', [])
       get: {
         method: 'GET',
         url: eventEndpoint + '/:typeslug/:eventid/:eventslug',
-        ignoreLoadingBar: true,
+        // ignoreLoadingBar: true,
       }
     }
   );
