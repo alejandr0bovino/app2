@@ -49,6 +49,11 @@ module.exports = function (app) {
    */
   app.post('/auth/twitter', auth.connectTwitter);
 
+
+
+  app.post('/auth/github', auth.connectGithub);
+
+
   /*
    |--------------------------------------------------------------------------
    | Unlink Provider

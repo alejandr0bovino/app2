@@ -91,6 +91,16 @@ angular.module( 'ngBoilerplate', [
     // redirectUri: ENV.oauthRedirectUri,
   });
 
+  $authProvider.github({
+    url: ENV.apiEndpoint + '/auth/github',
+    authorizationEndpoint: 'https://github.com/login/oauth/authorize',
+    redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
+    optionalUrlParams: ['scope'],
+    scope: ['user:email'],
+    scopeDelimiter: ' ',
+    type: '2.0',
+    popupOptions: { width: 1020, height: 618 }
+  });
   ///
 
   if(window.history && window.history.pushState){
