@@ -23,10 +23,13 @@ exports.put = function (req, res) {
   // setTimeout(function() {
   if (req.body.pendingUpdate === 'empty') {
     User.findOne({ email: req.body.email }, function(err, existingUser) {
+
+      // solo twitter (no provee email en connect)
       if (existingUser) {
         return res.status(409).send({ message: 'Email is already taken' });
       }
 
+      // todos
       User.findOne({ userName: req.body.userName }, function(err, existingUser){
         if (existingUser) {
           return res.status(409).send({ message: 'Username is already taken' });

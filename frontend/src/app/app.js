@@ -59,47 +59,28 @@ angular.module( 'ngBoilerplate', [
 
   $authProvider.facebook({
     clientId: ENV.facebookClientId,
-    // redirectUri: ENV.oauthRedirectUri + '/',
     url: ENV.apiEndpoint + '/auth/facebook',
-    // authorizationEndpoint: 'https://www.facebook.com/dialog/oauth',
-    // scope: 'email',
-    // scopeDelimiter: ',',
-    // requiredUrlParams: ['display', 'scope'],
-    // display: 'popup',
-    // type: '2.0',
-    // popupOptions: { width: 481, height: 269 }
   });
 
   $authProvider.google({
     clientId: ENV.googleClientId,
-    // redirectUri: ENV.oauthRedirectUri,
     url: ENV.apiEndpoint + '/auth/google',
-    // authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-    // scope: ['profile', 'email'],
-    // scopePrefix: 'openid',
-    // scopeDelimiter: ' ',
-    // requiredUrlParams: ['scope'],
-    // optionalUrlParams: ['display'],
-    // display: 'popup',
-    // type: '2.0',
-    // popupOptions: { width: 452, height: 633 }
   });
 
   $authProvider.twitter({
     url: ENV.apiEndpoint + '/auth/twitter',
-    // type: '1.0',
-    // redirectUri: ENV.oauthRedirectUri,
   });
 
   $authProvider.github({
     url: ENV.apiEndpoint + '/auth/github',
-    authorizationEndpoint: 'https://github.com/login/oauth/authorize',
-    redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
-    optionalUrlParams: ['scope'],
-    scope: ['user:email'],
-    scopeDelimiter: ' ',
-    type: '2.0',
-    popupOptions: { width: 1020, height: 618 }
+    clientId: ENV.githubClientId,
+    // authorizationEndpoint: 'https://github.com/login/oauth/authorize',
+    // redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
+    // optionalUrlParams: ['scope'],
+    // scope: ['user:email'],
+    // scopeDelimiter: ' ',
+    // type: '2.0',
+    // popupOptions: { width: 1020, height: 618 }
   });
   ///
 

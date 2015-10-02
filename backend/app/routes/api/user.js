@@ -29,6 +29,7 @@ module.exports = function (app) {
 
   app.post('/api/user/reset-password', user.resetPasswordPost);
   app.put('/api/user/reset-password', user.resetPasswordPut);
+
   app.put('/api/user/update-password', helpers.ensureAuthenticated, user.updatePassword);
   app.put('/api/user/remove-picture', helpers.ensureAuthenticated, user.removePicture);
 

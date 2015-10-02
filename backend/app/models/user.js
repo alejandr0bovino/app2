@@ -24,6 +24,7 @@ var UserSchema = new Schema({
   facebook: String,
   google: String,
   twitter: String,
+  github: String,
 
   profile: {
     name: { type: String, default: '', trim: true },
@@ -42,7 +43,7 @@ var UserSchema = new Schema({
     },
   },
 
-  pendingUpdate: { type: String, enum: ['google', 'facebook', 'twitter'] },
+  pendingUpdate: { type: String, enum: ['google', 'facebook', 'twitter', 'github'] },
   pendingConfirmation: Boolean,
 });
 

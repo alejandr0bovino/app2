@@ -12,11 +12,6 @@ angular.module( 'ngBoilerplate.user.PublicUserCtrl', [
     userAll.$promise.then(function(users) {
       $scope.userAll = users;
     });
-
-    // var $header = $('#profile-picture'),
-    // bg = $header.data('bg');
-
-    // $header.css('background-image', 'url(' + bg + ')');
   }
 
 })

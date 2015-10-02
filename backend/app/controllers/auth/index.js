@@ -169,8 +169,6 @@ exports.connectGoogle = function(req, res) {
 
           // login
           if (existingUser) {
-            // return res.send({ token: token });
-            // console.log("login")
             return res.send({ token: helpers.createToken(existingUser) });
           }
 
@@ -293,7 +291,6 @@ exports.connectFacebook = function(req, res) {
             // NO EXISTE TAMAÑO 400 X 400 ///////
 
             user.profile.picture.original = 'https://graph.facebook.com/v2.2/' + profile.id + '/picture?width=200&height=200';
-            // user.profile.picture.medium = user.profile.picture.medium;
             user.profile.picture.medium =  user.profile.picture.original;
             user.profile.picture.small = 'https://graph.facebook.com/v2.2/' + profile.id + '/picture?width=50&height=50';
             user.email = profile.email;
@@ -437,8 +434,8 @@ exports.connectGithub = function(req, res) {
   var userApiUrl = 'https://api.github.com/user';
   var params = {
     code: req.body.code,
-    // client_id: req.body.clientId,
-    client_id: config.github.clientId,
+    client_id: req.body.clientId,
+    // client_id: config.github.clientId,
     client_secret: config.github.clientSecret,
     redirect_uri: req.body.redirectUri
   };
@@ -467,7 +464,7 @@ exports.connectGithub = function(req, res) {
             user.picture = user.picture || profile.avatar_url;
             user.displayName = user.displayName || profile.name;
             user.save(function() {
-              var token = createJWT(user);
+              var token = helpers.createToken(user)
               res.send({ token: token });
             });
           });
@@ -475,18 +472,45 @@ exports.connectGithub = function(req, res) {
       } else {
         // Step 3b. Create a new user account or return an existing one.
         User.findOne({ github: profile.id }, function(err, existingUser) {
+
+          // login
           if (existingUser) {
-            var token = createJWT(existingUser);
+            var token = helpers.createToken(existingUser)
             return res.send({ token: token });
           }
-          var user = new User();
-          user.github = profile.id;
-          user.picture = profile.avatar_url;
-          user.displayName = profile.name;
-          user.save(function() {
-            var token = createJWT(user);
-            res.send({ token: token });
+
+
+
+
+          User.findOne({ email: profile.email}, function(err, existingUser) {
+            if (existingUser) {
+              return res.status(409).send({ message: 'There is a user already registered with this Github account email.' });
+            }
+
+            // console.log("connect")
+
+            var user = new User();
+
+            user.email = profile.email;
+            user.pendingUpdate = 'github';
+            user.github = profile.id;
+            user.profile.name = profile.name;
+            user.profile.picture.original = profile.avatar_url;
+            user.profile.picture.small = profile.avatar_url;
+            user.profile.picture.medium = profile.avatar_url;
+            user.profile.location = profile.location;
+            // user.profile.website = profile.blog;
+            user.save(function() {
+              var token = helpers.createToken(user);
+              // res.send({ token: token });
+              res.send({
+                token: token,
+                connect: true
+              });
+            });
+
           });
+
         });
       }
     });
