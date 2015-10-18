@@ -7,14 +7,25 @@
     <div class="m-user--header__c2">
       <ul class="m-user--header__data" ng-if="!public_user.pendingUpdate">
         <li class="ellipsis">
-           <a href ui-sref="user.profile" ng-if="isAuthenticated() && public_user.userName === user.userName" class="label label-danger" style="font-size: .6rem; vertical-align: middle">EDIT</a>
-           <span ng-bind="public_user.userName"></span>
+         <span ng-bind="public_user.userName"></span>
         </li>
 
         <li class="ellipsis" ng-if="public_user.profile.location.length">
           <span><i class="fa fa-map-marker"></i> {{ public_user.profile.location }}</span>
         </li>
       </ul>
+
+      <ul class="m-user--header__data visible-xs">
+        <li>
+          <div class="m-user--header__profile__edit">
+            <a href ui-sref="user.profile" ng-if="isAuthenticated() && public_user.userName === user.userName" class="label label-primary" style="font-size: .6rem; vertical-align: middle">EDIT</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="m-user--header__profile__edit hidden-xs">
+      <a href ui-sref="user.profile" ng-if="isAuthenticated() && public_user.userName === user.userName" class="label label-danger" style="font-size: .6rem; vertical-align: middle">EDIT</a>
     </div>
   </header>
 

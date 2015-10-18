@@ -75,7 +75,7 @@ angular.module( 'ngBoilerplate', [
     url: ENV.apiEndpoint + '/auth/github',
     clientId: ENV.githubClientId,
     // authorizationEndpoint: 'https://github.com/login/oauth/authorize',
-    // redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
+    redirectUri: ENV.baseUrl
     // optionalUrlParams: ['scope'],
     // scope: ['user:email'],
     // scopeDelimiter: ' ',
