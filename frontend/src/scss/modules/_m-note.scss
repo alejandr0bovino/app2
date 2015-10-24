@@ -1,7 +1,7 @@
 @mixin m-note() {
   .m-note {
     @media (min-width: $screen-md-min) {
-      margin: 2rem 0 0 2rem;
+      margin-top: 2rem
     }
   }
 }

@@ -11,22 +11,9 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
       document.getElementById('passwordResetSendSubmit').click();
     };
     $scope.passwordResetSend = function(){
-
+      document.getElementById('email').blur();
       document.querySelector('.js-btn-unfocus').blur();
-
-      // User.resetPasswordPost({
-      //   email: $scope.email,
-      //   url: ENV.baseUrl + '/' + $state.href('user.password_reset.choose')
-      // }, function(response) {
-      //   $state.go('user.password_reset.email_sent', {sent: true});
-      // }, function(response){
-      //   if (typeof response.data.message != 'undefined') {
-      //     growl.warning(response.data.message, {
-      //       ttl: 10000
-      //     });
-      //   }
-      // });
-
+      $scope.passwordResetSendForm.$setPristine();
 
       var reset = User.resetPasswordPost({
         email: $scope.email,
@@ -51,7 +38,6 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
       );
 
       return promise;
-
     };
 
     $scope.resetpasswordResetSendForm = function(){

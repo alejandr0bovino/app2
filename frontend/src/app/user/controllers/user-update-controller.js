@@ -26,6 +26,7 @@ angular.module( 'ngBoilerplate.user.UpdateCtrl', [
     $scope.updateInfo = function() {
       document.querySelector('.js-btn-unfocus').blur();
       $scope.updateInfoForm.$setPristine();
+
       var updatex = User.update({
         userName: $scope.userName,
         password: $scope.password,

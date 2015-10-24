@@ -20,11 +20,9 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
     //
 
-    $scope.myFunction = function() {
+    $scope.updateUserEnter = function() {
       document.getElementById('updateUserSubmit').click();
     };
-
-    //
 
     $scope.updateUser = function() {
       document.getElementById('location').blur();
@@ -59,9 +57,11 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
       return promise;
     };
-    $scope.myFunction2 = function() {
+
+    $scope.updatePasswordEnter = function() {
       document.getElementById('updatePasswordSubmit').click();
     };
+
     $scope.updatePassword = function() {
 
       document.getElementById('oldPassword').blur();

@@ -140,7 +140,7 @@
     </div>
   </div>
 
-  <form method="post" name="updateUserForm" ng-enter="myFunction()">
+  <form method="post" name="updateUserForm" ng-enter="updateUserEnter()">
     <div class="form-group" ng-class="{ 'has-error' : updateUserForm.name.$invalid && updateUserForm.name.$dirty }">
       <label class="control-label" for="name">Full name:</label>
       <input type="text" class="form-control" id="name" name="name" ng-model="user.profile.name" ng-minlength="5" required>
@@ -171,7 +171,7 @@
   <div ng-if="!user.pendingUpdate">
     <br><hr>
     <!-- <form method="post" ng-submit="updatePassword()" name="updatePasswordForm"> -->
-    <form name="updatePasswordForm" ng-enter="myFunction2()">
+    <form name="updatePasswordForm" ng-enter="updatePasswordEnter()">
       <div ng-init="$parent.updatePasswordForm = updatePasswordForm"></div>
 
       <div class="form-group" ng-class="{ 'has-error' : updatePasswordForm.oldPassword.$invalid && updatePasswordForm.oldPassword.$dirty }">
