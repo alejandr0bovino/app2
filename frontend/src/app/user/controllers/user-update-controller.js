@@ -18,13 +18,7 @@ angular.module( 'ngBoilerplate.user.UpdateCtrl', [
     });
 
 
-
-    $scope.updateInfoEnter = function() {
-      document.getElementById('updateInfoSubmit').click();
-    };
-
     $scope.updateInfo = function() {
-      document.querySelector('.js-btn-unfocus').blur();
       $scope.updateInfoForm.$setPristine();
 
       var updatex = User.update({

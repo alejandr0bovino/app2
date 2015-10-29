@@ -140,10 +140,11 @@
     </div>
   </div>
 
-  <form method="post" name="updateUserForm" ng-enter="updateUserEnter()">
+  <!-- <form method="post" name="updateUserForm" id="updateUserForm" form-usable> -->
+  <form method="post" name="updateUserForm" form-usable>
     <div class="form-group" ng-class="{ 'has-error' : updateUserForm.name.$invalid && updateUserForm.name.$dirty }">
       <label class="control-label" for="name">Full name:</label>
-      <input type="text" class="form-control" id="name" name="name" ng-model="user.profile.name" ng-minlength="5" required>
+      <input type="text" class="form-control js-form-blur"  name="name" ng-model="user.profile.name" ng-minlength="5" required>
       <div class="help-block" ng-if="updateUserForm.name.$dirty" ng-messages="updateUserForm.name.$error">
         <div ng-message="required">You must enter your name.</div>
         <div ng-message="minlength">Your name is too short.</div>
@@ -152,7 +153,7 @@
 
     <div class="form-group" ng-class="{ 'has-error' : updateUserForm.location.$invalid && updateUserForm.location.$dirty }">
       <label class="control-label" for="location">Location:</label>
-      <input type="text" class="form-control" id="location" name="location" ng-model="user.profile.location" ng-minlength="5" required>
+      <input type="text" class="form-control js-form-blur" name="location" ng-model="user.profile.location" ng-minlength="5" required>
       <div class="help-block" ng-if="updateUserForm.location.$dirty" ng-messages="updateUserForm.location.$error">
         <div ng-message="required">You must enter your location.</div>
         <div ng-message="minlength">Your location is too short.</div>
@@ -160,9 +161,7 @@
     </div>
 
     <div class="c-form__action--update">
-      <!-- <button id="updateUserSubmit" type="submit" class="btn btn-default" ng-disabled="updateUserForm.$invalid || updateUserForm.$pristine">Update Information</button> -->
-
-      <button id="updateUserSubmit" type="button" class="btn btn-default--progress"
+      <button type="button" class="btn btn-default--progress js-form-submit"
        ng-disabled="updateUserForm.$invalid || updateUserForm.$pristine"
        progress-button="updateUser()" pb-style="top-line">Update information</button>
     </div>
@@ -170,13 +169,13 @@
 
   <div ng-if="!user.pendingUpdate">
     <br><hr>
-    <!-- <form method="post" ng-submit="updatePassword()" name="updatePasswordForm"> -->
-    <form name="updatePasswordForm" ng-enter="updatePasswordEnter()">
+    <!-- <form name="updatePasswordForm" id="updatePasswordForm" form-usable> -->
+    <form name="updatePasswordForm" form-usable>
       <div ng-init="$parent.updatePasswordForm = updatePasswordForm"></div>
 
       <div class="form-group" ng-class="{ 'has-error' : updatePasswordForm.oldPassword.$invalid && updatePasswordForm.oldPassword.$dirty }">
         <label class="control-label" for="oldPassword">Old password:</label>
-        <input class="form-control" type="password" id="oldPassword" name="oldPassword" ng-model="user.oldPassword" ng-minlength="8" required>
+        <input class="form-control js-form-blur" type="password" name="oldPassword" ng-model="user.oldPassword" ng-minlength="8" required>
         <div class="help-block text-danger" ng-if="updatePasswordForm.oldPassword.$dirty" ng-messages="updatePasswordForm.oldPassword.$error">
           <div ng-message="required">Old password is required.</div>
           <div ng-message="minlength">Your old password must be 8 characters in length.</div>
@@ -188,7 +187,7 @@
 
         <div  style="position: relative">
           <div class="input-group input-group--password-team">
-            <input class="form-control" type="{{showPassword ? 'text' : 'password'}}" id="newPassword" name="newPassword" ng-model="user.newPassword" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required>
+            <input class="form-control js-form-blur" type="{{showPassword ? 'text' : 'password'}}" name="newPassword" ng-model="user.newPassword" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required>
             <span class="input-group-addon">
               <switch ng-model="showPassword"></switch>
             </span>
@@ -200,7 +199,7 @@
       <div class="form-group" ng-class="{ 'has-error' : updatePasswordForm.confirmPassword.$invalid && updatePasswordForm.confirmPassword.$dirty }">
         <label class="control-label" for="confirmPassword">Verify password:</label>
 
-        <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" ng-model="user.confirmPassword"
+        <input class="form-control js-form-blur" type="password" name="confirmPassword" ng-model="user.confirmPassword"
           password-match="user.newPassword" required>
 
         <div class="help-block text-danger" ng-if="updatePasswordForm.confirmPassword.$dirty" ng-messages="updatePasswordForm.confirmPassword.$error">
@@ -210,8 +209,7 @@
       </div>
 
       <div class="c-form__action--update">
-        <!-- <button class="btn btn-default" ng-disabled="updatePasswordForm.$invalid || updatePasswordForm.$pristine">Update Password</button> -->
-        <button id="updatePasswordSubmit" type="button" class="btn btn-default--progress"
+        <button type="button" class="btn btn-default--progress js-form-submit"
          ng-disabled="updatePasswordForm.$invalid || updatePasswordForm.$pristine"
          progress-button="updatePassword()" pb-style="top-line">Update password</button>
       </div>

@@ -2,16 +2,13 @@ angular.module( 'ngBoilerplate.user.ConnectCtrl', [
 
 ])
 
-.controller( 'ConnectCtrl', function ConnectCtrl( $rootScope, $scope, $auth, $state, User, growl, go, resA, $timeout) {
+.controller( 'ConnectCtrl', function ConnectCtrl( $rootScope, $scope, $auth, $state, User, growl, go, resA, $timeout, $filter) {
   $scope.authenticate = function(provider) {
 
     $auth.authenticate(provider)
       .then(function(response) {
-        growl.success('Connected with:  <b>' + provider + '</b>');
+        growl.success('<b>' + $filter('capitalize')(provider) + '</b> account connected.');
 
-        // User.getUser().success(function(data) {
-        //   $rootScope.user = data;
-        // });
         User.get(function(data){
           $rootScope.user = data;
         }, function(data){
@@ -28,9 +25,16 @@ angular.module( 'ngBoilerplate.user.ConnectCtrl', [
         // if (typeof response.data.message != 'undefined') {
         //   growl.error(response.data.message);
         // }
-        growl.error(response.data ? response.data.message : 'Could not connect <b>' + provider + '</b> account');
+        growl.error(response.data ? response.data.message : 'Could not connect <b>' + $filter('capitalize')(provider) + '</b> account');
       });
   };
 
 })
+
+.filter('capitalize', function() {
+   return function(token) {
+      return token.charAt(0).toUpperCase() + token.slice(1);
+   };
+})
+
 ;

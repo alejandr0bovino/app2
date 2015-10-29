@@ -106,7 +106,6 @@ angular.module( 'ngBoilerplate.events', [])
       getType: {
         method: 'GET',
         url: eventEndpoint + '/:slug',
-        // ignoreLoadingBar: true,
       }
     }
   );

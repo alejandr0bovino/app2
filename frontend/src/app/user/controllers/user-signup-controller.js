@@ -2,17 +2,11 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
 ])
 
-.controller( 'SignupCtrl', function SignupCtrl(ENV, $rootScope, $timeout, $scope, $http, $auth, $state, User, growl, resA ) {
+.controller( 'SignupCtrl', function SignupCtrl(ENV, $rootScope, $timeout, $scope, $http, $auth, $state, User, growl, resA, formFactory ) {
   if (resA) {
     $state.go('user.profile');
   } else {
-    $scope.signupEnter = function() {
-      document.getElementById('signupSubmit').click();
-    };
-
     $scope.signup = function() {
-      // document.querySelector('.js-btn-unfocus').blur();
-      // $scope.blurExpression = true;
       $scope.signupForm.$setPristine();
       $scope.btnDisabled = true;
 
@@ -68,6 +62,9 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
             });
             $scope.btnDisabled = false;
             $scope.email = '';
+
+            formFactory.enableElements();
+            document.querySelector('input[name="email"]').focus();
           }
         }
       );

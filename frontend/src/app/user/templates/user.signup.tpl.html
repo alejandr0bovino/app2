@@ -17,9 +17,9 @@
 
   <h3 class="theme-main__section__title">Or sign up</h3>
   <!--   <form method="post" ng-submit="signup()" name="signupForm"> -->
-  <form method="post" name="signupForm" ng-enter="signupEnter()">
+  <form method="post" name="signupForm" form-usable>
     <div class="form-group" ng-class="{ 'has-error' : signupForm.name.$invalid && signupForm.name.$dirty }">
-      <input class="form-control" type="text" name="name" ng-model="name" placeholder="Full name …" ng-minlength="5" required>
+      <input class="form-control js-form-blur" type="text" name="name" ng-model="name" placeholder="Full name …" ng-minlength="5" required>
       <div class="help-block text-danger" ng-if="signupForm.name.$dirty" ng-messages="signupForm.name.$error">
         <div ng-message="required">You must enter your full name.</div>
         <div ng-message="minlength">Your full name is too short.</div>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group" ng-class="{ 'has-error' : signupForm.email.$invalid && signupForm.email.$dirty }">
-      <input class="form-control" type="email" id="email" name="email" ng-model="email"
+      <input class="form-control js-form-blur" type="email" name="email" ng-model="email"
       placeholder="Email …" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" email-available>
       <div class="help-block text-danger" ng-if="signupForm.email.$dirty" ng-messages="signupForm.email.$error">
         <div ng-message="pattern">Your email address is invalid.</div>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="form-group" ng-class="{ 'has-error' : signupForm.userName.$invalid && signupForm.userName.$dirty }">
-      <input class="form-control" type="text" name="userName" ng-model="userName" placeholder="Username …" ng-minlength="5" ng-maxlength="32" username-available required ng-pattern="/^[a-zA-Z0-9]*$/">
+      <input class="form-control js-form-blur" type="text" name="userName" ng-model="userName" placeholder="Username …" ng-minlength="5" ng-maxlength="32" username-available required ng-pattern="/^[a-zA-Z0-9]*$/">
       <div class="help-block text-danger" ng-if="signupForm.userName.$dirty" ng-messages="signupForm.userName.$error">
         <div ng-message="required">You must enter your username.</div>
         <div ng-message="minlength">Your username is too short.</div>
@@ -51,7 +51,7 @@
     <!-- <div class="form-group" ng-class="{ 'has-error' : signupForm.password.$invalid && signupForm.password.$dirty }"> -->
     <div class="form-group" style="position: relative">
       <div class="input-group input-group--password-team">
-        <input class="form-control" type="{{showPassword ? 'text' : 'password'}}" name="password" ng-model="password" placeholder="Password …"
+        <input class="form-control js-form-blur" type="{{showPassword ? 'text' : 'password'}}" name="password" ng-model="password" placeholder="Password …"
           pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required>
         <span class="input-group-addon">
           <switch ng-model="showPassword"></switch>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="form-group" ng-class="{ 'has-error' : signupForm.confirmPassword.$invalid && signupForm.confirmPassword.$dirty }">
-      <input class="form-control" type="password" name="confirmPassword" ng-model="confirmPassword" placeholder="Confirm password …"
+      <input class="form-control js-form-blur" type="password" name="confirmPassword" ng-model="confirmPassword" placeholder="Confirm password …"
       password-match="password" required>
 
       <div class="help-block text-danger" ng-if="signupForm.confirmPassword.$dirty" ng-messages="signupForm.confirmPassword.$error">
@@ -81,8 +81,7 @@
     </p>
 
     <div class="form-group">
-      <!-- <button type="submit" ng-disabled="signupForm.$invalid" class="btn btn-block btn-default">Sign up</button> -->
-      <button id="signupSubmit" type="button" class="btn btn-block btn-default--progress-2"
+      <button type="button" class="btn btn-block btn-default--progress-2 js-form-submit"
       ng-disabled="signupForm.$invalid || btnDisabled"
       progress-button="signup()">{{singupBtnText}}</button>
     </div>

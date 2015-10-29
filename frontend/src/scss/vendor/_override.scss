@@ -376,9 +376,12 @@ __________________________________*/
       top: inherit;
 
       @media (max-width: $screen-xs-max) {
-        bottom: 1rem;
-        left: 1.5rem;
-        right: 1.5rem;
+        // bottom: 1rem;
+        // left: 1.5rem;
+        // right: 1.5rem;
+        top: 0;
+        left: 0;
+        right: 0;
       }
 
       @media (min-width: $screen-sm-min) {
@@ -404,6 +407,10 @@ __________________________________*/
   > .growl-item.ng-enter,
   > .growl-item.ng-leave {
     @include transition(none);
+    @media (max-width: $screen-xs-max) {
+      // @include transition(none);
+    }
+
     @include animation-timing-function($default-transition-function1);
   }
 
@@ -417,28 +424,53 @@ __________________________________*/
   }
 
   > .growl-item.ng-enter {
-    @include animation-name(slideInUp);
+    @media (max-width: $screen-xs-max) {
+      @include animation-name(slideInDownFromTop);
+    }
+
+    @media (min-width: $screen-sm-min) {
+      @include animation-name(slideInUpFromBottom);
+    }
+
     @include animation-duration($default-transition-duration1);
   }
 
   > .growl-item.ng-leave {
-    @include animation-name(slideInDown);
+    @media (max-width: $screen-xs-max) {
+      @include animation-name(slideInUpToTop);
+    }
+
+    @media (min-width: $screen-sm-min) {
+      @include animation-name(slideInDownToBottom);
+    }
+
     @include animation-duration($default-transition-duration2);
   }
 
   .growl-item.icon > .growl-message {
+    @media (max-width: $screen-xs-max) {
+      padding-top: 1.4rem;
+      padding-bottom: 1.4rem;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+    }
     margin-left: 0;
-    padding: .7rem 1.5rem .7rem 3.25rem;
+    // padding: .7rem 1.5rem .7rem 3.25rem;
+    padding-right: 1.5rem;
+    padding-left: 3.25rem;
 
     line-height: 1.4;
     font-family: $sans-serif;
-    font-weight: bold;
   }
 
   .icon:before {
     @extend %fa;
     @media (max-width: $screen-xs-max) {
-      line-height: 2.9;
+      // line-height: 2.9;
+      line-height: 4.5;
     }
 
     @media (min-width: $screen-sm-min) {

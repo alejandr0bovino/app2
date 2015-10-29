@@ -15,20 +15,21 @@ angular.module( 'ngBoilerplate', [
   'angular-growl',
   'angular-progress-button-styles',
   //
-  'ngBoilerplate.test1',
-  'ngBoilerplate.test2',
+  // 'ngBoilerplate.test1',
+  // 'ngBoilerplate.test2',
   'ngBoilerplate.home',
   'ngBoilerplate.about',
   'ngBoilerplate.events',
   'ngBoilerplate.contacts',
   'ngBoilerplate.user',
+  //
   'ngBoilerplate.utils.service',
   'ngBoilerplate.authenticate.service',
   'ngBoilerplate.shell.service',
   'ngBoilerplate.user.service',
 ])
 
-.constant("requireAuth", ['events.types', 'contacts.list', 'test1'])
+.constant("requireAuth", ['events.types', 'contacts.list'])
 
 .config( function myAppConfig (ENV, $locationProvider, $stateProvider, $urlRouterProvider, $authProvider, growlProvider, cfpLoadingBarProvider) {
   $urlRouterProvider.otherwise('/');
@@ -90,7 +91,7 @@ angular.module( 'ngBoilerplate', [
 
   ///
 
-  growlProvider.globalTimeToLive(4500);
+  growlProvider.globalTimeToLive(1000);
   growlProvider.globalDisableCountDown(true);
   growlProvider.globalDisableCloseButton(true);
 })

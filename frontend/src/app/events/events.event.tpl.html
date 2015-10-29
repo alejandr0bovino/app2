@@ -1,11 +1,9 @@
 <aside class="theme-main__aside col-md-3">
-  <div class=" text-right">
-    <button class="btn btn-nav" style="font-size: 2rem; padding: 0; line-height: 1" ui-sref="events.type({slug: type.slug})">
-      <i class="fa fa-angle-left"></i>
-    </button>
-
-
-  <h3 style="margin-top: 1rem; margin-bottom: .5rem"><a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a></h3>
+  <h4>
+    <a ui-sref="events.types">Events</a>
+    /
+    <a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a>
+  </h4>
 
   <div style="font-size: .875rem">
     <i class="fa fa-user-secret"></i>&nbsp;
@@ -25,25 +23,27 @@
       <a href="#">CSS</a>
     </em>
   </div>
-   </div>
+
 </aside>
 
 <section class="theme-main__section col-md-9">
-
-
-
   <header class="theme-main__section__header">
-  <figure style="margin-bottom: 1.5rem"><img ng-src="assets/img/{{xevent.cover}}" class="img-responsive gc" style="opacity: .9; border-radius: 2px; width: 100%"></figure>
-
-    <h1 class="theme-main__section__header__title">{{ xevent.title }}</h1>
+    <h1 class="theme-main__section__header__title"  ng-bind-html="xevent.title"></h1>
 
     <!-- <p class="theme-main__section__header__subtitle">
       40/98/32
     </p> -->
 
+
     <hr style="margin: .5rem 0 0">
   </header>
 
 
-  <div ng-bind-html="xevent.abstract"></div>
+  <div>
+    <figure style="margin-left: 1.5rem; width: 10rem;" class="pull-right">
+      <img ng-src="assets/img/{{xevent.cover}}" class="img-responsive img-rounded gc" style="opacity: .9">
+    </figure>
+
+    <div ng-bind-html="xevent.abstract"></div>
+  </div>
 </section>

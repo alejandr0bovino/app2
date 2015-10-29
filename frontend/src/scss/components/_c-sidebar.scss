@@ -151,6 +151,9 @@
     }
 
     > a {
+      @include safari() {
+        letter-spacing: -.04rem
+      }
       @media (max-width: $screen-xs-max) {
         @include themify {
           color: $fg2-color;
@@ -162,24 +165,15 @@
 
       @media (min-width: $screen-sm-min) {
         color: $n-fg-color;
-        // font-size: .875rem;
         font-size: .9rem;
       }
+
       float: left;
       text-transform: uppercase;
 
       &.active {
         cursor: default;
       }
-
-      // > .fa {
-      //   @media (min-width: $screen-sm-min) {
-      //     font-size: .75rem;
-      //   }
-      //   margin-right: .125rem;
-      //   min-width: 1rem;
-      //   text-align: center;
-      // }
     }
 
     > button {

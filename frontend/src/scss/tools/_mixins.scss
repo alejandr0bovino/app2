@@ -2,22 +2,22 @@
   @each $theme, $map in $themes {
     $bg-color: map-fetch($themes, $theme "bg") !global;
     $bg1-color: map-fetch($themes, $theme "bg1") !global;
-    $bg2-color: map-fetch($themes, $theme "bg2") !global;    
-    
-    $fg-color: map-fetch($themes, $theme "fg") !global; 
+    $bg2-color: map-fetch($themes, $theme "bg2") !global;
+
+    $fg-color: map-fetch($themes, $theme "fg") !global;
     $fg1-color: map-fetch($themes, $theme "fg1") !global;
     $fg2-color: map-fetch($themes, $theme "fg2") !global;
-    
+
     // $primary-color: map-fetch($themes, $theme "primary") !global;
 
     .#{$theme} &  {
       @content;
     }
-        
+
     $bg-color: null !global;
     $bg1-color: null !global;
     $bg2-color: null !global;
-    
+
     $fg-color: null !global;
     $fg1-color: null !global;
     $fg2-color: null !global;
@@ -34,3 +34,9 @@
     &:-ms-input-placeholder { color: $color; }
 }
 
+
+@mixin safari() {
+    _::-webkit-:not(:root:root), & {
+        @content
+    }
+}

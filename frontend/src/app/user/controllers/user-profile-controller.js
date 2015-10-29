@@ -4,7 +4,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   'rzModule'
 ])
 
-.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, resA, $timeout, $modal ) {
+.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, resA, $timeout, $modal, formFactory ) {
   if (!resA) {
     $state.go('user.login');
   } else {
@@ -20,14 +20,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
     //
 
-    $scope.updateUserEnter = function() {
-      document.getElementById('updateUserSubmit').click();
-    };
-
     $scope.updateUser = function() {
-      document.getElementById('location').blur();
-      document.getElementById('name').blur();
-
       $scope.user.oldPassword = '';
       $scope.user.newPassword = '';
       $scope.user.confirmPassword = '';
@@ -37,7 +30,6 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         $scope.updatePasswordForm.$setPristine();
       }
 
-
       var updatex = User.update({
         name: $scope.user.profile.name,
         location: $scope.user.profile.location
@@ -45,10 +37,11 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
       var promise = updatex.$promise.then(
         function(response) {
-          growl.success("Profile updated");
-
+          // formFactory.enableElements(document.getElementById('updateUserForm'));
+          formFactory.enableElements();
           $rootScope.initialUser = null;
           $rootScope.user = response.user;
+          growl.success("Profile updated");
         },
         function(response) {
           console.log(response.status);
@@ -58,22 +51,12 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
       return promise;
     };
 
-    $scope.updatePasswordEnter = function() {
-      document.getElementById('updatePasswordSubmit').click();
-    };
-
     $scope.updatePassword = function() {
-
-      document.getElementById('oldPassword').blur();
-      document.getElementById('newPassword').blur();
-      document.getElementById('confirmPassword').blur();
-
       $scope.user.profile.location = $rootScope.user.profile.location;
       $scope.user.profile.name = $rootScope.user.profile.name;
 
       $scope.updateUserForm.$setPristine();
       $scope.updatePasswordForm.$setPristine();
-
 
       var updatex = User.updatePassword({
         oldPassword: $scope.user.oldPassword,
@@ -84,12 +67,15 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
       promise.then(
         function success(response) {
-         growl.success("Password updated");
-         $scope.user.oldPassword = '';
-         $scope.user.newPassword = '';
-         $scope.user.confirmPassword = '';
+          // formFactory.enableElements(document.getElementById('updatePasswordForm'));
+          formFactory.enableElements();
+          $scope.user.oldPassword = '';
+          $scope.user.newPassword = '';
+          $scope.user.confirmPassword = '';
+          growl.success("Password updated");
         },
         function error(response) {
+          formFactory.enableElements(document.getElementById('updatePasswordForm'));
           growl.error(response.data.message);
           $scope.user.oldPassword = '';
         }

@@ -1,5 +1,8 @@
 // bootstrap
 .btn {
+  @include safari() {
+    letter-spacing: -.04rem
+  }
   // padding: .4rem 2rem;
   padding: .31rem 2rem .21rem;
   // font-size: .875rem;

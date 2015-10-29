@@ -1,20 +1,11 @@
 angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
-
 ])
 
-.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $stateParams, $state, $scope, $timeout, User, resA, growl) {
+.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $state, $scope, $timeout, User, resA, growl) {
   if (resA) {
     $state.go('user.profile');
   } else {
-    // $scope.email_sent = false;
-    $scope.passwordResetSendEnter = function() {
-      document.getElementById('passwordResetSendSubmit').click();
-    };
     $scope.passwordResetSend = function(){
-      document.getElementById('email').blur();
-      document.querySelector('.js-btn-unfocus').blur();
-      $scope.passwordResetSendForm.$setPristine();
-
       var reset = User.resetPasswordPost({
         email: $scope.email,
         url: ENV.baseUrl + '/' + $state.href('user.password_reset.choose')
@@ -39,15 +30,8 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
 
       return promise;
     };
-
-    $scope.resetpasswordResetSendForm = function(){
-      document.querySelector('input[name="email"]').blur();
-      // document.querySelector('button[type="submit"]').focus();
-    };
-
   }
 })
-
 
 .controller( 'PasswordResetEmailSentCtrl', function PasswordResetBeginCtrl(ENV, $stateParams, $state, $scope, User, resA, growl) {
   if (resA) {
@@ -59,10 +43,7 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
       $stateParams.sent = null;
     }
   }
-
 })
-
-
 
 .controller( 'PasswordResetChooseCtrl', function PasswordResetChooseCtrl($stateParams, $state, $scope, $timeout, User, growl, resA, $auth) {
   if (resA) {
@@ -72,35 +53,8 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
   if ($stateParams.token === null || $stateParams.token === '') {
     $state.go('home');
   }
-  // $scope.inputType = 'password';
-
-  $scope.passwordResetChooseEnter = function() {
-    document.getElementById('passwordResetChooseSubmit').click();
-  };
 
   $scope.passwordResetChoose = function(){
-    // User.resetPasswordPut({
-    //   token: $stateParams.token,
-    //   newPassword: $scope.newPassword
-    // }, function(response) {
-    //   growl.success("Password reset successfully, yo can login now.");
-    //   $state.go('user.login');
-    // }, function(response){
-    //   if (typeof response.data.message != 'undefined') {
-    //     if (response.data.message == 'Token has expired') {
-    //       $scope.newPassword = '';
-    //       $scope.confirmPassword = '';
-    //       $scope.passwordResetChooseForm.$setPristine();
-    //       growl.error('Reset password token has expired,<br> please <a href="' + $state.href('user.password_reset.begin') + '">request a new one</a>.');
-    //     } else {
-    //       growl.error(response.data.message);
-    //     }
-    //   }
-    // });
-      document.querySelector('.js-btn-unfocus').blur();
-    // $scope.btnDisabled = true;
-    // $scope.passwordResetChooseForm.$setPristine();
-
      var reset = User.resetPasswordPut({
         token: $stateParams.token,
         newPassword: $scope.newPassword
@@ -116,7 +70,7 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
             $timeout(function() {
               growl.success("Password reset successfully, yo can login now.");
             }, 750);
-          }, 2000);
+          }, 1500);
         },
         function(response) {
           $scope.newPassword = '';
@@ -131,8 +85,6 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
       );
 
       return promise;
-
-
   };
 })
 

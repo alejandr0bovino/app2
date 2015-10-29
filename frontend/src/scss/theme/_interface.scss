@@ -33,14 +33,6 @@
   }
 }
 
-
-
-// body {
-//   cursor: default;
-// }
-
-
-
 .loading {
   overflow: hidden;
 }
@@ -48,7 +40,6 @@
 a:focus {
   outline: none;
 }
-
 
 
 .www {
@@ -85,11 +76,13 @@ a:focus {
   }
   @media (min-width: $screen-md-min) {
     @include themify() {
+      @include safari() {
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba($bg2-color, .25), rgba(0, 0, 0, 0));
+      }
+
       background-color: $bg-color;
-      background-image: -moz-linear-gradient(180deg, transparent, $bg1-color, transparent); // FF 3.6+
-      background-image: -webkit-linear-gradient(180deg, transparent, $bg1-color, transparent); // Safari 5.1+, Chrome 10+
-      background-image: -o-linear-gradient(180deg, transparent, $bg1-color, transparent); // Opera 11.10
-      background-image: linear-gradient(180deg, transparent, $bg1-color, transparent); // Standard, IE10
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), $bg1-color, rgba(0, 0, 0, 0));
+
       background-position: 25%;
       background-repeat: repeat-y;
       background-size: 1px 1px;
@@ -100,6 +93,17 @@ a:focus {
     position: absolute;
   }
 }
+
+// _::-webkit-:not(:root:root), .zzz {
+//   @media (min-width: $screen-md-min) {
+//     @include themify() {
+//       background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(216, 216, 216, .25), rgba(0, 0, 0, 0));
+//     }
+//   }
+// }
+
+
+
 
 // .theme-dark,
 // .theme-light {

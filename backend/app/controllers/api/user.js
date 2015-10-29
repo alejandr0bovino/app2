@@ -56,7 +56,7 @@ exports.put = function (req, res) {
       res.status(200).send({user: user});
     });
   });
-  // }, 500);
+  // }, 3500);
 };
 
 
@@ -127,6 +127,8 @@ exports.confirmRegistrationPut = function (req, res) {
 
 
 exports.updatePassword = function (req, res) {
+  // setTimeout(function(){
+
   User.findById(req.user, '+password', function(err, user) {
     if (!user) {
       return res.status(400).send({ message: 'User not found' });
@@ -146,6 +148,8 @@ exports.updatePassword = function (req, res) {
       }
     });
   });
+
+// }, 3000)
 };
 
 exports.resetPasswordPost = function (req, res) {
@@ -174,6 +178,8 @@ exports.resetPasswordPost = function (req, res) {
       userName: user.userName,
       resetPasswordUrl: req.body.url + token
     };
+
+    // console.log(locals);
 
     mailer.sendOne('password_reset', locals, function (err, responseStatus, html, text) {
       res.status(200).end();

@@ -17,7 +17,8 @@ angular.module('ngBoilerplate.user', [
   'ngBoilerplate.user.emailAvailable',
   'ngBoilerplate.user.usernameAvailable',
   'ngBoilerplate.user.passwordStrength',
-  'ngBoilerplate.user.passwordMatch'
+  'ngBoilerplate.user.passwordMatch',
+  'ngBoilerplate.user.formUsable'
 ])
 
 .config(function config( $stateProvider, $urlRouterProvider ) {
@@ -25,7 +26,6 @@ angular.module('ngBoilerplate.user', [
 
   $stateProvider
     .state('user', {
-      //abstract: true,
       url: '/user',
       views: {
         "main": {
@@ -108,11 +108,6 @@ angular.module('ngBoilerplate.user', [
         params: {
           email: null
         },
-        // resolve: {
-        //   resA: function(authenticate) {
-        //     return authenticate.islogged();
-        //   },
-        // },
         views: {
           "": {
             controller: 'ConfirmCtrl',
@@ -255,24 +250,45 @@ angular.module('ngBoilerplate.user', [
       data: { pageTitle: 'User' }
     })
 
-    ;
+  ;
 
 })
 
+.factory('formFactory', function($timeout) {
+  return {
+    // enableElements: function (element) {
+      enableElements: function () {
+      // var blurElements = element.querySelectorAll('.js-form-blur');
+      var blurElements = document.querySelectorAll('.js-form-blur');
 
+      var forEach = function (array, callback, scope) {
+        for (var i = 0; i < array.length; i++) {
+          callback.call(scope, i, array[i]);
+        }
+      };
 
-.directive('ngEnter', function () {
-  return function (scope, element, attrs) {
-    element.bind("keydown", function (event) {
-      if(event.which === 13) {
-        // scope.$apply(function (){
-          scope.$eval(attrs.ngEnter);
-        // });
-
-        event.preventDefault();
-      }
-    });
+      // $timeout(function(){
+      forEach(blurElements, function (index, element) {
+        angular.element(element).attr('disabled', false);
+        // element.disabled = false;
+      });
+      // }, 100);
+    }
   };
 })
+
+// .directive('ngEnter', function () {
+//   return function (scope, element, attrs) {
+//     element.bind("keydown", function (event) {
+//       if(event.which === 13) {
+//         // scope.$apply(function (){
+//           scope.$eval(attrs.ngEnter);
+//         // });
+
+//         event.preventDefault();
+//       }
+//     });
+//   };
+// })
 
 ;
