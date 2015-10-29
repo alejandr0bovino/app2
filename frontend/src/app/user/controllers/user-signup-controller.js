@@ -72,13 +72,13 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
       return promise;
     };
 
-    $scope.name = "imagenes";
-    $scope.email = "imagenes43@gmail.com";
-    $scope.userName = "imagenes43";
-    $scope.password = "lsjE55::::3:fsfsx";
-    $scope.confirmPassword = "lsjE55::::3:fsfsx";
     $scope.singupBtnText = 'Send';
 
+    // $scope.name = "imagenes";
+    // $scope.email = "imagenes43@gmail.com";
+    // $scope.userName = "imagenes43";
+    // $scope.password = "lsjE55::::3:fsfsx";
+    // $scope.confirmPassword = "lsjE55::::3:fsfsx";
   }
 })
 

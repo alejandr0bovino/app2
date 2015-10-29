@@ -1,7 +1,4 @@
 <aside class="theme-main__aside col-md-3">
-  <!-- <button class="btn btn-nav" ui-sref="events.types">
-    <i class="fa fa-angle-left"></i>
-  </button> -->
   <h4>
     <a ui-sref="events.types">Events</a>
   </h4>
@@ -16,21 +13,15 @@
     </p>
   </header>
 
-
   <ul>
     <li class="text-center thumbnail list-inline" ng-repeat="subCat in subCats">
-      <!-- <img src="{{subCat.imgUrl}}" alt=""> -->
       <a ui-sref="events.category.subcategory({category: category, subcategory: subCat.url})" class="btn btn-block">{{category}} - {{subCat.title}}</a>
     </li>
   </ul>
 
-
-
-        <ul ng-show="type.events.length"  style="margin-bottom: .5rem">
-        <li ng-repeat="event in type.events">
-          <a class="effect" ui-sref="events.event({typeSlug: type.slug, eventID:event._id, eventSlug: event.slug})">{{ event.title}} <small><em>by {{ event.author }}</em></small></a>
-        </li>
-      </ul>
-</div>
-
+  <ul ng-show="type.events.length"  style="margin-bottom: .5rem">
+    <li ng-repeat="event in type.events">
+      <a class="effect" ui-sref="events.event({typeSlug: type.slug, eventID:event._id, eventSlug: event.slug})">{{ event.title}} <small><em>by {{ event.author }}</em></small></a>
+    </li>
+  </ul>
 </section>

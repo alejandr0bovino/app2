@@ -37,6 +37,6 @@
 
 @mixin safari() {
     _::-webkit-:not(:root:root), & {
-        @content
+        @content;
     }
 }
