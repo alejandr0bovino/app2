@@ -75,14 +75,9 @@ angular.module( 'ngBoilerplate', [
   $authProvider.github({
     url: ENV.apiEndpoint + '/auth/github',
     clientId: ENV.githubClientId,
-    // authorizationEndpoint: 'https://github.com/login/oauth/authorize',
     redirectUri: ENV.baseUrl
-    // optionalUrlParams: ['scope'],
-    // scope: ['user:email'],
-    // scopeDelimiter: ' ',
-    // type: '2.0',
-    // popupOptions: { width: 1020, height: 618 }
   });
+
   ///
 
   if(window.history && window.history.pushState){
@@ -91,7 +86,7 @@ angular.module( 'ngBoilerplate', [
 
   ///
 
-  growlProvider.globalTimeToLive(1000);
+  growlProvider.globalTimeToLive(5000);
   growlProvider.globalDisableCountDown(true);
   growlProvider.globalDisableCloseButton(true);
 })
