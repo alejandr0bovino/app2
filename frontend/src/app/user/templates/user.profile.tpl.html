@@ -8,8 +8,8 @@
       </button>
 
       <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a href="#" ng-click="uploadPicture()">{{$parent.removePictureEnabled ? "Change picture" : "Add picture"}}</a></li>
-        <li role="menuitem" ng-show="$parent.removePictureEnabled"><a href="#" ng-click="removePicture()">Remove</a></li>
+        <li role="menuitem"><a href="#" ng-click="uploadImage('picture')">{{$parent.removePictureEnabled ? "Change picture" : "Add picture"}}</a></li>
+        <li role="menuitem" ng-show="$parent.removePictureEnabled"><a href="#" ng-click="removeImage('picture')">Remove</a></li>
         <li class="divider" role="presentation"></li>
         <li role="menuitem"><a href="#">Cancel</a></li>
       </ul>
@@ -43,13 +43,13 @@
     <ul class="m-user--header__data visible-xs">
       <li>
         <div class="m-user--header__cover__edit">
-          <button type="button" ng-click="uploadCover()">
+          <button type="button" ng-click="uploadImage('cover')">
             <i class="fa fa-photo"></i> {{ $parent.removeCoverEnabled ? "Change cover" : "Add cover"}}
           </button>
 
           <span ng-if="$parent.removeCoverEnabled">
             <i>|</i>
-            <button type="button" ng-click="removeCover()">Remove</button>
+            <button type="button" ng-click="removeImage('cover')">Remove</button>
           </span>
         </div>
       </li>
@@ -57,13 +57,13 @@
   </div>
 
   <div class="m-user--header__cover__edit hidden-xs">
-    <button type="button" ng-click="uploadCover()">
+    <button type="button" ng-click="uploadImage('cover')">
       <i class="fa fa-photo"></i> {{ $parent.removeCoverEnabled ? "Change cover" : "Add cover"}}
     </button>
 
     <span ng-if="$parent.removeCoverEnabled">
       <i>|</i>
-      <button type="button" ng-click="removeCover()">Remove</button>
+      <button type="button" ng-click="removeImage('cover')">Remove</button>
     </span>
   </div>
 </header>
@@ -108,22 +108,32 @@
             <i class="fa fa-google-plus"></i> <span>Google</span>
             </div>
           </button>
-
       </li>
 
       <li class="list-group-item">
-
-          <button class="btn btn-block btn-xunlink" ng-if="user.twitter" ng-click="unlink('twitter')" ng-disabled="user.pendingUpdate">
+        <button class="btn btn-block btn-xunlink" ng-if="user.twitter" ng-click="unlink('twitter')" ng-disabled="user.pendingUpdate">
           <div>
             <i class="fa fa-twitter"></i> <span>Twitter</span> <i class="fa fa-check-circle-o"></i>
-            </div>
-          </button>
-          <button class="btn btn-block btn-xunlink" ng-if="!user.twitter" ng-click="link('twitter')" ng-disabled="user.pendingUpdate">
+          </div>
+        </button>
+        <button class="btn btn-block btn-xunlink" ng-if="!user.twitter" ng-click="link('twitter')" ng-disabled="user.pendingUpdate">
           <div>
             <i class="fa fa-twitter"></i> <span>Twitter</span>
-            </div>
-          </button>
+          </div>
+        </button>
+      </li>
 
+      <li class="list-group-item">
+        <button class="btn btn-block btn-xunlink" ng-if="user.github" ng-click="unlink('github')" ng-disabled="user.pendingUpdate">
+          <div>
+            <i class="fa fa-github"></i> <span>Github</span> <i class="fa fa-check-circle-o"></i>
+          </div>
+        </button>
+        <button class="btn btn-block btn-xunlink" ng-if="!user.github" ng-click="link('github')" ng-disabled="user.pendingUpdate">
+          <div>
+            <i class="fa fa-github"></i> <span>Github</span>
+          </div>
+        </button>
       </li>
     </ul>
 

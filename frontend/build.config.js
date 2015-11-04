@@ -10,7 +10,7 @@ module.exports = {
   },
   vendor_files: {
     js: [
-      'vendor/angular/angular.js',
+      'vendor/angular/angular.min.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.min.js',
       'vendor/angular-resource/angular-resource.js',
@@ -37,9 +37,9 @@ module.exports = {
       'vendor/angular-progress-button-styles/dist/angular-progress-button-styles.css',
       'vendor/angularjs-slider/dist/rzslider.min.css'
     ],
-    admin: [
-      'vendor/ng-admin/build/*.*',
-      'vendor/angular-deferred-bootstrap/angular-deferred-bootstrap.min.js'
-    ]
+    // admin: [
+    //   'vendor/ng-admin/build/*.*',
+    //   'vendor/angular-deferred-bootstrap/angular-deferred-bootstrap.min.js'
+    // ]
   },
 };

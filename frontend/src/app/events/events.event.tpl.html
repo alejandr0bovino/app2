@@ -1,9 +1,5 @@
 <aside class="theme-main__aside col-md-3">
-  <h4>
-    <a ui-sref="events.types">Events</a>
-    /
-    <a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a>
-  </h4>
+
 
   <div style="font-size: .875rem">
     <i class="fa fa-user-secret"></i>&nbsp;
@@ -29,7 +25,11 @@
 <section class="theme-main__section col-md-9">
   <header class="theme-main__section__header">
     <h1 class="theme-main__section__header__title"  ng-bind-html="xevent.title"></h1>
-
+  <h4>
+    <a ui-sref="events.types">Events</a>
+    /
+    <a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a>
+  </h4>
     <!-- <p class="theme-main__section__header__subtitle">
       40/98/32
     </p> -->

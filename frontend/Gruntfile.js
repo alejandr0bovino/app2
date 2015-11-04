@@ -168,23 +168,23 @@ module.exports = function ( grunt ) {
           }
         ]
       },
-      build_admin:{
-        files: [
-          {
-            src: [ '**' ],
-            dest: '<%= build_dir %>/admin/',
-            cwd: 'src/admin',
-            expand: true
-          },
-          {
-            src: [ '<%= vendor_files.admin %>' ],
-            dest: '<%= build_dir %>/admin/vendor/',
-            cwd: '.',
-            expand: true,
-            flatten: true
-          }
-       ]
-      }
+      // build_admin:{
+      //   files: [
+      //     {
+      //       src: [ '**' ],
+      //       dest: '<%= build_dir %>/admin/',
+      //       cwd: 'src/admin',
+      //       expand: true
+      //     },
+      //     {
+      //       src: [ '<%= vendor_files.admin %>' ],
+      //       dest: '<%= build_dir %>/admin/vendor/',
+      //       cwd: '.',
+      //       expand: true,
+      //       flatten: true
+      //     }
+      //  ]
+      // }
     },
 
     /**
@@ -445,10 +445,10 @@ module.exports = function ( grunt ) {
       },
 
 
-      admin: {
-        files: [ 'src/admin/app.js' ],
-        tasks: ['copy:build_admin'],
-      }
+      // admin: {
+      //   files: [ 'src/admin/app.js' ],
+      //   tasks: ['copy:build_admin'],
+      // }
     },
 
 
@@ -501,7 +501,7 @@ module.exports = function ( grunt ) {
     'copy:build_appjs',
     'copy:build_vendorjs',
     'copy:build_vendorcss',
-    'copy:build_admin',
+    // 'copy:build_admin',
     // 'concat:build_css',
     'index:build'
   ]);
@@ -522,13 +522,13 @@ module.exports = function ( grunt ) {
   grunt.registerTask( 'default', 'serve' );
 
   // admin
-  grunt.registerTask('serve_admin', function () {
-    grunt.task.run([
-      'build',
-      'connect:livereload',
-      'delta:admin'
-    ]);
-  });
+  // grunt.registerTask('serve_admin', function () {
+  //   grunt.task.run([
+  //     'build',
+  //     'connect:livereload',
+  //     'delta:admin'
+  //   ]);
+  // });
 
  // development
   grunt.registerTask('serve', function () {

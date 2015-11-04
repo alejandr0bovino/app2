@@ -142,13 +142,15 @@ exports.connectGoogle = function(req, res) {
 
             user.google = profile.sub;
             user.profile.name = user.profile.name || profile.name;
-            user.profile.picture.original = user.profile.picture.original || profile.picture.replace('sz=50', 'sz=400');
-            // user.profile.picture.medium = user.profile.picture.medium || profile.picture.replace('sz=50', 'sz=200');
+
+            if (!user.profile.picture.original || user.profile.picture.original == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default.png") {
+              user.profile.picture.original = profile.picture.replace('sz=50', 'sz=400')
+            }
+
             if (!user.profile.picture.medium || user.profile.picture.medium == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png") {
               user.profile.picture.medium = profile.picture.replace('sz=50', 'sz=200')
             }
 
-            // user.profile.picture.small = user.profile.picture.small || profile.picture;
             if (!user.profile.picture.small || user.profile.picture.small == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default-small.png") {
               user.profile.picture.small = profile.picture;
             }
@@ -246,7 +248,9 @@ exports.connectFacebook = function(req, res) {
             user.facebook = profile.id;
             user.profile.name = user.profile.name || profile.name;
 
-            user.profile.picture.original = user.profile.picture.original || 'https://graph.facebook.com/v2.2/' + profile.id + '/picture?width=200&height=200';
+            if (!user.profile.picture.original || user.profile.picture.original == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default.png") {
+              user.profile.picture.original = 'https://graph.facebook.com/v2.2/' + profile.id + '/picture?width=200&height=200'
+            }
 
             // NO EXISTE TAMAÑO 400 X 400 ///////
             if (!user.profile.picture.medium || user.profile.picture.medium == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png") {
@@ -376,9 +380,9 @@ exports.connectTwitter = function(req, res) {
               user.twitter = profile.id;
               user.profile.name = user.profile.name || profile.name;
 
-              // user.picture = user.picture || profile.profile_image_url.replace('_normal', '');
-
-              user.profile.picture.original = user.profile.picture.original ||  profile.profile_image_url.replace('normal', '400x400');
+              if (!user.profile.picture.original || user.profile.picture.original == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default.png") {
+                user.profile.picture.original = profile.profile_image_url.replace('normal', '400x400');
+              }
 
               if (!user.profile.picture.medium || user.profile.picture.medium == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png") {
                 user.profile.picture.medium = profile.profile_image_url.replace('normal', '200x200');
@@ -461,12 +465,31 @@ exports.connectGithub = function(req, res) {
               return res.status(400).send({ message: 'User not found' });
             }
             user.github = profile.id;
-            user.picture = user.picture || profile.avatar_url;
-            user.displayName = user.displayName || profile.name;
+            user.profile.name = user.profile.name || profile.name;
+
+            if (!user.profile.picture.original || user.profile.picture.original == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default.png") {
+              user.profile.picture.original = profile.avatar_url;
+            }
+
+            if (!user.profile.picture.medium || user.profile.picture.medium == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default-medium.png") {
+              user.profile.picture.medium = profile.avatar_url;
+            }
+
+            if (!user.profile.picture.small || user.profile.picture.small == "https://s3.amazonaws.com/app2-uploads/user/picture/default/default-small.png") {
+              user.profile.picture.small = profile.avatar_url;
+            }
+
+            user.profile.location = profile.location;
             user.save(function() {
-              var token = helpers.createToken(user)
-              res.send({ token: token });
+              var token = helpers.createToken(user);
+              res.send({
+                token: token,
+                user: user
+              });
             });
+
+
+
           });
         });
       } else {

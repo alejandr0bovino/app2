@@ -27,7 +27,8 @@
 
     @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
       &.modal-dialog-upload--sm {
-        width: 388px;
+        // width: 388px;
+        width: 394px;
       }
       &.modal-dialog-upload--lg {
         width: 768px;
@@ -36,7 +37,8 @@
 
     @media (min-width: $screen-md-min) {
       &.modal-dialog-upload--sm {
-        width: 454px;
+        // width: 454px;
+        width: 457px;
       }
       &.modal-dialog-upload--lg {
         width: 900px;

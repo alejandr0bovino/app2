@@ -19,11 +19,11 @@
       margin: 0 auto;
     }
     @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-      width: 340px;
+      // width: 340px;
       height: 340px;
     }
     @media (min-width: $screen-md-min) {
-      width: 400px;
+      // width: 400px;
       height: 400px;
     }
 
@@ -262,7 +262,7 @@
   }
 }
 
-.c-upload__loading-cover {
+.c-upload__loading-holder {
   @include themify() {
     background-color: rgba($fg2-color, .75);
   }
