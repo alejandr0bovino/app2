@@ -133,8 +133,6 @@
   }
 
   position: relative;
-  // padding-top: .31rem;
-  // padding-bottom: .21rem;
 
   line-height: 1.42857143; // normal
 
@@ -148,16 +146,15 @@
     height: 100%;
   }
 
-  &.progress-button-style-fill.state-success .content,
-  &.progress-button-style-fill.state-error .content {
-    // @include transform(translateY(-1.75rem));
-    @include transform(translateY(-115%));
+  // &.progress-button-style-fill.state-success .content,
+  // &.progress-button-style-fill.state-error .content {
+  //   @include transform(translateY(-105%));
 
-    &::before,
-    &::after {
-      top: 110%;
-    }
-  }
+  //   &::before,
+  //   &::after {
+  //     top: 110%;
+  //   }
+  // }
 }
 
 //

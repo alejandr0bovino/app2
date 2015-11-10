@@ -28,8 +28,11 @@
       text-transform: uppercase;
 
       > .fa {
+        @include themify() {
+          color: $bg2-color
+        }
         margin-right: .25rem;
-        opacity: .75
+        // opacity: .75
       }
     }
       // .m-featured__time {
@@ -44,6 +47,9 @@
       // font-family: $headings-font-family-bold;
 
       > .fa {
+        @include themify() {
+          color: $bg2-color
+        }
         margin-left: .25rem
       }
     }

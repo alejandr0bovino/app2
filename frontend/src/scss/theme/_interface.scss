@@ -124,16 +124,16 @@ a:focus {
     color: $fg2-color;
 
     a { color: $fg2-color;
-      // border-bottom-color: $bg2-color;
+      border-bottom-color: $bg2-color;
     }
 
     hr { border-color: $bg2-color }
   }
 
-  // a {
-  //   border-bottom-width: 1px;
-  //   border-bottom-style: dotted
-  // }
+  a {
+    border-bottom-width: 1px;
+    border-bottom-style: dotted
+  }
 }
 
 
@@ -145,11 +145,11 @@ a:focus {
 
   a {
     color: inherit;
-    // @include themify() {
-    //   border-bottom-color: $bg2-color;
-    // }
-    // border-bottom-width: 1px;
-    // border-bottom-style: dotted
+    @include themify() {
+      border-bottom-color: $bg1-color;
+    }
+    border-bottom-width: 1px;
+    border-bottom-style: solid
   }
 }
 
