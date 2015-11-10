@@ -28,33 +28,37 @@
           }
         }
 
-        // > .fa {
-          // @media (min-width: $screen-sm-min) {
-          //   &:first-child {
-          //     margin-right: .5rem;
-          //   }
-          // }
+        padding-left: .75rem;
+        padding-right: .75rem;
 
-          ////// &:last-child {
-          //////   @media (max-width: $screen-xs-max) {
-          //////     vertical-align: .25rem
-          //////   }
-
-          //////   margin-left: .5rem;
-          //////   font-size: .8rem;
-          ////// }
-        // }
+        > .fa {
+          margin-right: .25rem;
+        }
       }
     }
   }
 
   .m-list--2 {
     padding-left: 0;
-    list-style: none;
+
+    li {
+      list-style: none;
+
+      > ul {
+        padding-left: 1rem;
+
+        > li > a::before {
+          display: none
+        }
+      }
+    }
 
     a {
       &::before {
         @extend %fa;
+        @include themify() {
+          color: $bg2-color;
+        }
         margin-right: .5rem;
         content: '\f105';
       }

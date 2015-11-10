@@ -6,11 +6,13 @@
     <title ng-bind="pageTitle"></title>
     <base href="/">
     <link rel="shortcut icon" href="assets/favicon.ico">
-    <!-- <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,300,300italic,400italic,600,600italic'> -->
 
-    <!--<script src="//use.edgefonts.net/ubuntu.js"></script>-->
-    <!-- <link href='https://fonts.googleapis.com/css?family=Ropa+Sans|Ubuntu:400,500' rel='stylesheet' type='text/css'> -->
-    <link href='https://fonts.googleapis.com/css?family=Signika|Ropa+Sans' rel='stylesheet' type='text/css'>
+    <!--<link href='https://fonts.googleapis.com/css?family=Actor|Source+Sans+Pro:400,600,400italic,600italic,300,300italic' rel='stylesheet'>-->
+
+
+    <link href='https://fonts.googleapis.com/css?family=Actor|Source+Sans+Pro:300,300italic,400,400italic,600,600italic|Dosis:400,500,600,700' rel='stylesheet' type='text/css'>
+
+
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -68,15 +70,15 @@
               <a href ui-sref="contacts.list" ng-class="{active: $state.includes('contacts')}"><i class="fa fa-street-view"></i> Contacts</a>
             </li>
 
-            <li >
+            <li>
               <a href ui-sref="about" ui-sref-active="active">
                 <i class="fa fa-info-circle"></i>
                 About
               </a>
             </li>
 
-            <li ui-sref-active="active">
-              <a href ui-sref="userpage({username: 'username'})">
+            <li>
+              <a href ui-sref="userpage({username: 'username'})" ui-sref-active="active">
                 <i class="fa fa-user"></i>
                 User
               </a>

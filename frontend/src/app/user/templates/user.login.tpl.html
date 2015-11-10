@@ -1,6 +1,5 @@
 <aside class="theme-main__aside col-md-3">
-  <h3 ng-bind-html="headerTitle" class="hidden-xs hidden-sm"></h3>
-  <h3 ng-bind-html="headerTitle" class="visible-xs visible-sm" style="margin: 0"></h3>
+  <h3  class="theme-main__aside__title" ng-bind-html="headerTitle"></h3>
 
   <p class="text-uppercase visible-md visible-lg" style="line-height: 1.4">Don´t have an account&nbsp;?</p>
 
@@ -10,7 +9,7 @@
 </aside>
 
 <section class="theme-main__section col-md-9">
-  <h3 class="theme-main__section__title fix-line-height">Connect your social network</h3>
+  <h3 class="theme-main__section__title">Connect your social network</h3>
 
   <div ui-view="connect"></div>
   <br class="visible-md visible-lg">
@@ -30,7 +29,7 @@
 
     <p class="text-center">
       <small>
-        <a href ui-sref="user.password_reset.begin" style="text-decoration: underline">Recover password</a>.
+        <a href ui-sref="user.password_reset.begin">Recover password</a>.
       </small>
     </p>
 
@@ -41,7 +40,7 @@
     <p class="text-center">
       <small>
         Don't have an account yet?
-        <a href ui-sref="user.signup" style="text-decoration: underline">Sign up</a>.
+        <a href ui-sref="user.signup">Sign up</a>.
       </small>
     </p>
   </form>

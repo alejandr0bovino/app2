@@ -75,8 +75,9 @@
 
 
     line-height: 1.25;
-    // font-family: $headings-font-family;
     text-shadow: 1px 1px 0 lighten($n-bg-color, 20);
+    font-family: $headings-font-family-bold;
+
     color: $n-fg2-color;
 
     > li {
@@ -252,7 +253,6 @@
         margin-top: 1rem;
         border: none;
         text-align: center;
-        font-family: $headings-font-family;
 
         .divider {
           margin-top: .5rem;
@@ -330,8 +330,6 @@
         padding: 0;
         background: none;
         border: none;
-
-        font-family: $headings-font-family;
 
         &:focus {
           outline: none;

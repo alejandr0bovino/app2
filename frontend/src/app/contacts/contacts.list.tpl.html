@@ -1,22 +1,21 @@
+<!-- <header class="theme-main__section__header">
+  <h1 ng-bind-html="headerTitle" class="theme-main__section__header__title"></h1>
 
-  <header class="theme-main__section__header">
-    <h1 ng-bind-html="headerTitle" class="theme-main__section__header__title"></h1>
+  <p ng-if="headerSubtitle" class="theme-main__section__header__subtitle">
+    <em ng-bind-html="headerSubtitle"></em>
+  </p>
+</header> -->
 
-    <p ng-if="headerSubtitle" class="theme-main__section__header__subtitle">
-      <em ng-bind-html="headerSubtitle"></em>
-    </p>
-  </header>
-
-  <div class="panel panel-default" id="contacts-list">
-    <div class="panel-heading">
-      <h3 class="panel-title">All contacts</h3>
-    </div>
-
-    <div class="panel-body">
-      <ul class="m-list--2">
-        <li ng-repeat="contact in contacts">
-          <a ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
-        </li>
-      </ul>
-    </div>
+<div class="panel panel-default" id="contacts-list">
+  <div class="panel-heading">
+    <h3 class="panel-title">All contacts</h3>
   </div>
+
+  <div class="panel-body">
+    <ul class="m-list--2">
+      <li ng-repeat="contact in contacts">
+        <a ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

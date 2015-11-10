@@ -1,3 +1,16 @@
+
+// @font-face {
+//     font-family: 'League Gothic';
+//     src: url('#{$font-path}/leaguegothic-italic-webfont.eot');
+//     src: url('#{$font-path}/leaguegothic-italic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('#{$font-path}/leaguegothic-italic-webfont.woff') format('woff'),
+//          url('#{$font-path}/leaguegothic-italic-webfont.ttf') format('truetype'),
+//          url('#{$font-path}/leaguegothic-italic-webfont.svg#league_gothic_italicregular') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+
+// }
+
 @mixin html-font-size($size){
   @if $size == 16 {
     html {
@@ -49,11 +62,12 @@ body {
   font-size: inherit;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
   // font-weight: 400;
-  // font-weight: 600;
+  // font-weight: 700;
   line-height: 1.25;
-  font-family: $headings-font-family;
+  font-family: $headings-font-family-bold;
   text-transform: uppercase;
 
   // _::-webkit-:not(:root:root), & {
@@ -62,8 +76,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+// b, strong { font-weight: 600 }
 
-
+// h1,h2,h3,h4,h5,h6 {
+// b, strong { font-weight: 700 }}
 
 h1 { font-size: $font-size-h1; }
 h2 { font-size: $font-size-h2; }
@@ -74,8 +90,8 @@ h6 { font-size: $font-size-h6; }
 
 
 label {
-  font-family: $headings-font-family;
-  font-weight: 400;
+  // font-family: $headings-font-family-bold;
+  font-weight: normal;
   text-transform: uppercase;
 
   // _::-webkit-:not(:root:root), & {
@@ -95,6 +111,7 @@ a:hover {
 
 .theme-main {
   @extend %type-reset;
+  font-weight: 300;
 }
 
 
@@ -104,10 +121,10 @@ a:hover {
 
 
 .theme-main__section {
-  .fix-line-height {
-    line-height: 1.6;
-    display: block;
-  }
+  // .fix-line-height {
+  //   line-height: 1.6;
+  //   display: block;
+  // }
 
   &__header__title {
     .fa {

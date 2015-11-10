@@ -69,15 +69,15 @@ password-strength {
     // }
     @media (max-width: $screen-xs-max) {
       height: 34px;
-      padding-right: 3.65rem;
+      padding-right: 3.9rem;
     }
     @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
       height: 36px;
-      padding-right: 3.35rem;
+      padding-right: 3.6rem;
     }
     @media (min-width: $screen-md-min) {
       height: 39px;
-      padding-right: 3.25rem;
+      padding-right: 3.4rem;
     }
 
     position: absolute;

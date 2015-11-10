@@ -2,19 +2,19 @@
 
 <section class="theme-main__section col-md-9">
   <header class="theme-main__section__header">
-    <h1  class="theme-main__section__header__title">Events</h1>
+    <h2 class="theme-main__section__header__title">Events</h2>
 
     <p class="theme-main__section__header__subtitle">
       <em>example</em>
     </p>
   </header>
 
-  <ul class="list-unstyled">
+  <ul class="m-list--2">
     <li ng-repeat="type in types" ng-class="{'disabled': !type.events.length}">
       <h4><a ui-sref="#" ng-if="type.events.length == 0" class="btn disabled" style="padding: 0; font-size: 1.125rem; line-height: 1.25; border: none">{{type.name}}</a></h4>
       <h4><a ui-sref="events.type({slug: type.slug})" ng-if="type.events.length > 0">{{type.name}}</a></h4>
 
-      <ul ng-show="type.events.length"  style="margin-bottom: .5rem">
+      <ul ng-show="type.events.length">
         <li ng-repeat="event in type.events">
           <a class="effect" ui-sref="events.event({typeSlug: type.slug, eventID:event._id, eventSlug: event.slug})">{{ event.title}} <small><em>by {{ event.author }}</em></small></a>
         </li>

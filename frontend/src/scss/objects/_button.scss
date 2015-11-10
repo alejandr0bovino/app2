@@ -1,16 +1,18 @@
 // bootstrap
 .btn {
-  @include safari() {
-    letter-spacing: -.04rem
-  }
-  // padding: .4rem 2rem;
-  padding: .31rem 2rem .21rem;
-  // font-size: .875rem;
-  // font-size: .9rem;
+  // @include safari() {
+  //   letter-spacing: -.04rem
+  // }
+
+  // padding: .3rem 2rem;
+   padding: .3rem 1rem;
+
   font-size: 1rem;
-  font-family: $headings-font-family;
+  // font-family: $headings-font-family-bold;
+  // font-weight: bold;
+  // font-weight: 500;
+  // letter-spacing: $btn-letter-spacing;
   text-transform: uppercase;
-  font-weight: bold;
 
   &:focus,
   &:active:focus,
@@ -32,15 +34,16 @@
 .btn-group-lg > .btn,
 .btn-lg {
   padding: .5rem 2rem;
-  // font-size: 1.125rem;
+
   font-size: 1.225rem;
 }
 
 .btn-group-sm > .btn,
 .btn-sm {
-  // font-size: .7rem
   font-size: .8rem
 }
+
+//
 
 .btn-default {
   @include themify() {
@@ -62,10 +65,6 @@
   }
 }
 
-
-
-
-
 .btn-default--progress {
   @extend .btn-default;
 
@@ -73,7 +72,6 @@
     .content {
       &:after,
       &:before {
-        // color: lighten($fg-color, 40);
         color: $fg2-color
       }
     }
@@ -84,6 +82,9 @@
   }
 
   position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  // letter-spacing: $btn-letter-spacing;
   letter-spacing: inherit;
   line-height: 1.42857143; // normal
 
@@ -98,7 +99,7 @@
   }
 
   .progress-inner {
-    height: 3px;
+    height: 2px;
     top: -1px;
   }
 
@@ -109,9 +110,7 @@
       margin-left: 0;
       left: inherit;
       right: -1.5rem;
-      // bottom: .05rem;
-      // font-weight: normal;
-      bottom: 0.2rem;
+      bottom: 0.1rem;
       font-size: .85rem;
     }
   }
@@ -124,35 +123,29 @@
     .content {
       &:after,
       &:before {
-        // color: lighten($fg-color, 40);
         color: $fg2-color
       }
     }
 
     .progress-inner {
-      // background-color: lighten($fg-color, 40);
       background-color: darken($bg-color, 15);
     }
   }
 
   position: relative;
-  // padding-top: .0915rem;
-  // padding-bottom: .0915rem;
-  padding-top: .31rem;
-  padding-bottom: .21rem;
+  // padding-top: .31rem;
+  // padding-bottom: .21rem;
 
   line-height: 1.42857143; // normal
-  // line-height: 2.129;
-
 
   border-width: 1px;
   border-style: solid;
 
+  // letter-spacing: $btn-letter-spacing;
   letter-spacing: inherit;
 
   .progress-inner {
     height: 100%;
-    // top: -1px;
   }
 
   &.progress-button-style-fill.state-success .content,
@@ -167,14 +160,7 @@
   }
 }
 
-
-
-
-
-
-
-
-
+//
 
 .btn-1 {
   background-color: transparent;
@@ -187,9 +173,6 @@
   }
 
   &.active {
-    // background-color: $n-fg-color;
-    // border-color: $n-fg-color;
-    // color: $n-bg-color;
     background-color: $n-bg1-color;
     border-color: $n-bg1-color;
     color: $n-fg-color;
@@ -209,15 +192,11 @@
   }
 
   &.active {
-    // background-color: $n-fg-color;
     background-color: $n-bg1-color;
-    // border-color: $n-fg-color;
     border-color: $n-bg1-color;
-    // color: $n-bg-color;
     color: $n-fg-color
   }
 }
-
 
 
 .btn-5 {
@@ -254,7 +233,6 @@
   }
 }
 
-
 .btn-5--progress {
   @extend .btn-5;
 
@@ -274,14 +252,9 @@
   border-width: 1px;
   border-style: solid;
 
+  // letter-spacing: $btn-letter-spacing;
   letter-spacing: inherit;
 }
-
-
-
-
-
-
 
 
 
@@ -298,15 +271,11 @@
       background-color: transparent;
       color: $bg2-color;
     }
-    // &[disabled],
-    // &[disabled]:hover {
-    //   color: $bg2-color;
-    // }
   }
 
   border: none;
   font-size: .9rem;
-  font-weight: normal;
+  // font-weight: normal;
 }
 
 .btn-xlink {
@@ -321,17 +290,11 @@
       border-color: transparent;
       color: $fg-color;
     }
-
-
-    // &[disabled],
-    // &[disabled]:hover {
-    //   color: $bg2-color;
-    // }
   }
 
   border: none;
   font-size: .9rem;
-  font-weight: normal;
+  // font-weight: normal;
 }
 
 .btn-xupdate {
@@ -356,9 +319,7 @@
   border: none;
 }
 
-
-
-
+//
 
 .btn-nav {
   @include themify() {

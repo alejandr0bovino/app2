@@ -267,7 +267,7 @@ module.exports = function ( grunt ) {
 
     jshint: {
       src: [
-        '<%= app_files.js %>'
+        'src/**/*.js', '!src/assets/**/*.js', '!src/admin/**/*.js', '!src/common/component/canvas-ext.js'
       ],
       gruntfile: [
         'Gruntfile.js'
@@ -280,7 +280,8 @@ module.exports = function ( grunt ) {
         sub: true,
         boss: true,
         eqnull: true,
-        es5: true
+        es5: true,
+        // ignores: ['src/common/component/canvas-ext.js']
       },
       globals: {}
     },

@@ -2,11 +2,11 @@
 
 .input-group-addon {
   @include themify {
+    background-color: $bg-color;
     border-color: $bg1-color;
   }
 
   padding: .35rem .75rem;
-
   background-color: transparent;
 
   .has-error & {
@@ -14,13 +14,14 @@
   }
 
   .switch {
-    @media (max-width: $screen-xs-max) {
-      vertical-align: -.6rem;
-    }
+    // @media (max-width: $screen-xs-max) {
+    //   vertical-align: -.6rem;
+    // }
 
-    @media (min-width: $screen-sm-min) {
-      vertical-align: -.5rem;
-    }
+    // @media (min-width: $screen-sm-min) {
+    //   vertical-align: -.5rem;
+    // }
+    vertical-align: -.55rem;
   }
 }
 

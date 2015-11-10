@@ -1,25 +1,21 @@
 <aside class="theme-main__aside col-md-3">
-  <h4>
+  <h3 class="theme-main__aside__title">
     <a ui-sref="events.types">Events</a>
-  </h4>
+  </h3>
 </aside>
 
 <section class="theme-main__section col-md-9">
   <header class="theme-main__section__header">
-    <h1  class="theme-main__section__header__title">{{type.name}}</h1>
-
-    <p class="theme-main__section__header__subtitle">
-      <em>example</em>
-    </p>
+    <h2  class="theme-main__section__header__title">{{type.name}}</h2>
   </header>
 
-  <ul>
+  <ul class="m-list--2">
     <li class="text-center thumbnail list-inline" ng-repeat="subCat in subCats">
       <a ui-sref="events.category.subcategory({category: category, subcategory: subCat.url})" class="btn btn-block">{{category}} - {{subCat.title}}</a>
     </li>
   </ul>
 
-  <ul ng-show="type.events.length"  style="margin-bottom: .5rem">
+  <ul class="m-list--2" ng-show="type.events.length">
     <li ng-repeat="event in type.events">
       <a class="effect" ui-sref="events.event({typeSlug: type.slug, eventID:event._id, eventSlug: event.slug})">{{ event.title}} <small><em>by {{ event.author }}</em></small></a>
     </li>

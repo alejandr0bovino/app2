@@ -1,25 +1,26 @@
 <div class="www clearfix">
   <aside class="theme-main__aside col-md-3">
-    <h3><a href="#">Topic example</a></h3>
+    <h3 class="theme-main__aside__title"><a href="#">Topic example</a></h3>
 
-    <div>
-      <i class="fa fa-clock-o"></i>&nbsp;
-      03/06/02
-    </div>
+    <div style="font-size: .9rem">
+      <div>
+        <i class="fa fa-clock-o"></i>&nbsp;
+        03/06/02
+      </div>
 
-    <div>
-      <i class="fa fa-tag"></i>&nbsp;
-      <em>
-        <a href="#">HTML</a>,
-        <a href="#">CSS</a>,
-        <a href="#">JavaScript</a>
-      </em>
+      <div>
+        <i class="fa fa-tag"></i>&nbsp;
+        <em>
+          <a href="#">Conference</a>,
+          <a href="#">CSS</a>
+        </em>
+      </div>
     </div>
   </aside>
 
   <article class="theme-main__section col-md-9">
     <header class="theme-main__section__header">
-      <h1 ng-bind-html="headerTitle" class="theme-main__section__header__title"></h1>
+      <h2 ng-bind-html="headerTitle" class="theme-main__section__header__title"></h2>
 
       <p ng-if="headerSubtitle" class="theme-main__section__header__subtitle">
         <em ng-bind-html="headerSubtitle"></em>

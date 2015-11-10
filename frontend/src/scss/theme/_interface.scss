@@ -123,10 +123,17 @@ a:focus {
 
     color: $fg2-color;
 
-    a { color: $fg2-color }
+    a { color: $fg2-color;
+      // border-bottom-color: $bg2-color;
+    }
 
     hr { border-color: $bg2-color }
   }
+
+  // a {
+  //   border-bottom-width: 1px;
+  //   border-bottom-style: dotted
+  // }
 }
 
 
@@ -136,7 +143,14 @@ a:focus {
     color: $fg2-color;
   }
 
-  a { color: inherit }
+  a {
+    color: inherit;
+    // @include themify() {
+    //   border-bottom-color: $bg2-color;
+    // }
+    // border-bottom-width: 1px;
+    // border-bottom-style: dotted
+  }
 }
 
 

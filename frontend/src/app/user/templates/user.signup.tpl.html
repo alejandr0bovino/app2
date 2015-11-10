@@ -1,6 +1,5 @@
 <aside class="theme-main__aside col-md-3">
-  <h3 ng-bind-html="headerTitle" class="hidden-xs hidden-sm"></h3>
-  <h3 ng-bind-html="headerTitle" class="visible-xs visible-sm" style="margin: 0"></h3>
+  <h3  class="theme-main__aside__title" ng-bind-html="headerTitle"></h3>
 
   <p class="text-uppercase visible-md visible-lg" style="line-height: 1.4">Have an account ?</p>
 
@@ -10,7 +9,7 @@
 </aside>
 
 <section class="theme-main__section col-md-9">
-  <h3 class="theme-main__section__title fix-line-height">Connect your social network</h3>
+  <h3 class="theme-main__section__title">Connect your <b>social</b> network</h3>
 
   <div ui-view="connect"></div>
   <br class="visible-md visible-lg">
@@ -74,9 +73,9 @@
     <p class="text-center">
       <small>
         By clicking on Sign up, you agree to
-        <a href="#"  style="text-decoration: underline">terms & conditions</a>
+        <a href="#" >terms & conditions</a>
         and
-        <a href="#"  style="text-decoration: underline">privacy policy</a>.
+        <a href="#" >privacy policy</a>.
       </small>
     </p>
 
@@ -89,7 +88,7 @@
     <p class="text-center">
       <small>
         Already have an account?
-        <a href ui-sref="user.login" style="text-decoration: underline">Log in now</a>.
+        <a href ui-sref="user.login">Log in now</a>.
       </small>
     </p>
   </form>

@@ -1,38 +1,42 @@
 <aside class="theme-main__aside col-md-3">
+  <h3 class="theme-main__aside__title">
+    <a ui-sref="events.types">Events</a>
+    <span>/</span>
+    <a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a>
+  </h3>
 
+  <div style="font-size: .9rem">
+    <div>
+      <i class="fa fa-user-secret"></i>&nbsp;
+      {{ xevent.author }}
+    </div>
 
-  <div style="font-size: .875rem">
-    <i class="fa fa-user-secret"></i>&nbsp;
-    {{ xevent.author }}
+    <div>
+      <i class="fa fa-clock-o"></i>&nbsp;
+      03/06/02
+    </div>
+
+    <div>
+      <i class="fa fa-tag"></i>&nbsp;
+      <em>
+        <a href="#">Conference</a>,
+        <a href="#">CSS</a>
+      </em>
+    </div>
   </div>
-
-
-  <div style="font-size: .875rem">
-    <i class="fa fa-clock-o"></i>&nbsp;
-    03/06/02
-  </div>
-
-  <div style="font-size: .875rem">
-    <i class="fa fa-tag"></i>&nbsp;
-    <em>
-      <a href="#">Conference</a>,
-      <a href="#">CSS</a>
-    </em>
-  </div>
-
 </aside>
 
 <section class="theme-main__section col-md-9">
   <header class="theme-main__section__header">
     <h1 class="theme-main__section__header__title"  ng-bind-html="xevent.title"></h1>
-  <h4>
-    <a ui-sref="events.types">Events</a>
-    /
-    <a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a>
-  </h4>
     <!-- <p class="theme-main__section__header__subtitle">
-      40/98/32
+      <a ui-sref="events.types">Events</a>
+      <span style="margin: 0 .25rem;font-size: .75rem;opacity: .5;">/</span>
+      <a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a>
     </p> -->
+    <p class="theme-main__section__header__subtitle">
+      04/18/12
+    </p>
 
 
     <hr style="margin: .5rem 0 0">

@@ -22,8 +22,6 @@
       }
 
       &.sidebar-open::after {
-        // z-index: 1072;
-        // z-index: 1032;
         z-index: 1022;
         left: $theme-sidebar-width;
         width: 100%;
@@ -58,8 +56,6 @@
       background-color: $bg-color;
     }
 
-    // z-index: 1071;
-    // z-index: 1031;
     z-index: 1021;
     position: relative;
   }
@@ -72,8 +68,6 @@
     }
 
     @media (min-width: $screen-sm-min) {
-      // z-index: 1070;
-      // z-index: 1030;
       z-index: 1020;
       top: 0;
       left: 0;
@@ -81,7 +75,9 @@
       width: $theme-sidebar-width;
       height: 100%;
     }
-    font-family: $headings-font-family;
+    // font-family: $headings-font-family-bold;
+    font-family : $font-family-base;
+
 
     //
     a {
@@ -105,7 +101,7 @@
       background-color: $n-bg0-color;
       @include filter-gradient($n-bg0-color, $n-bg-color, vertical);
       @include background-image(linear-gradient(top, $n-bg0-color 0%, $n-bg-color 100%));
-      letter-spacing: -.5px;
+      // letter-spacing: -.5px;
 
       .tooltip {
         font-size: .625rem;
@@ -151,9 +147,9 @@
     }
 
     > a {
-      @include safari() {
-        letter-spacing: -.04rem
-      }
+      // @include safari() {
+      //   letter-spacing: -.04rem
+      // }
       @media (max-width: $screen-xs-max) {
         @include themify {
           color: $fg2-color;
@@ -174,6 +170,10 @@
       &.active {
         cursor: default;
       }
+
+      > b {
+        font-weight: 600
+      }
     }
 
     > button {
@@ -193,20 +193,6 @@
   }
 
   .theme-sidebar__toggle-sidebar {
-    // @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    //   &:before {
-    //     top: .1rem;
-    //   }
-    // }
-
-    // @media (min-width: $screen-md-min) {
-    //   &:before {
-    //     top: .15rem;
-    //   }
-    // }
-
-
-
     padding: 0;
 
     color: $n-fg-color;
@@ -270,9 +256,8 @@
     @media (min-width: $screen-sm-min) {
       margin-bottom: 3.75rem;
       line-height: 2.125;
-      // font-size: .875rem;
       font-size: .9rem;
-      font-weight: bold;
+      // font-weight: bold;
 
       a {
         display: inline-block;
@@ -317,7 +302,8 @@
           padding-left: .5rem;
           border-color: transparent;
           background-color: transparent;
-          font-size: .9rem
+          font-size: .9rem;
+          font-weight: bold;
         }
       }
     }
@@ -329,7 +315,8 @@
         > .btn {
           padding-left: 0;
           padding-right: 0;
-          letter-spacing: -.5px;
+          // letter-spacing: -.5px;
+          font-size: .9rem;
         }
       }
     }
@@ -358,12 +345,12 @@
       padding-top: .75rem;
 
       background-color: $n-bg0-color;
-      @include filter-gradient($n-bg0-color, $n-bg-color, vertical);
-      @include background-image(linear-gradient(top, $n-bg0-color 0%, $n-bg-color 100%));
+      // @include filter-gradient($n-bg0-color, $n-bg-color, vertical);
+      // @include background-image(linear-gradient(top, $n-bg0-color 0%, $n-bg-color 100%));
       font-size: .9rem;
+
       //// safari
       opacity: 0;
-
       .sidebar-open & {
         @include transition(opacity 0s linear 0s);
         opacity: 1;

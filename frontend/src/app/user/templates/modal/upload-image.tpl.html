@@ -3,7 +3,7 @@
     <div class="c-upload__outer {{type}}">
       <div growl inline="true" reference="111"></div>
 
-      <div class="c-upload__drop-box" ngf-drop ng-model="file" ng-show="!leftCanvas.src" ngf-drag-over-class="dragover" ngf-accept="'*.jpg,*.png'">
+      <div class="c-upload__drop-box" ngf-drop ng-model="file" ng-show="!leftCanvas.src" ngf-drag-over-class="dragover" ngf-accept="'*.jpg,*.png'" ngf-fix-orientation="false">
         <i class="fa fa-picture-o"></i>
 
         <p>
@@ -44,8 +44,8 @@
       <div class="c-upload__action__main">
         <button class="btn btn-lg btn-block btn-5--progress" id="nn" ng-show="nnn" progress-button="upload()" ng-disabled="!leftCanvas.src || uploaded">{{ uploadBtnText }}</button>
         <button class="btn btn-lg btn-block btn-5--progress" ng-show="leftCanvas.src && !nnn" ng-click="n()">{{ uploadBtnText }}</button>
-        <button class="btn btn-lg btn-block btn-5--progress visible-md visible-lg" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'">Select from your drive</button>
-        <button class="btn btn-lg btn-block btn-5--progress visible-xs visible-sm" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'">Select from your device</button>
+        <button class="btn btn-lg btn-block btn-5--progress visible-md visible-lg" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'" ngf-fix-orientation="false">Select from your drive</button>
+        <button class="btn btn-lg btn-block btn-5--progress visible-xs visible-sm" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'"ngf-fix-orientation="false">Select from your device</button>
 
         <button class="btn btn-lg btn-block invisible">placeholder</button>
       </div>

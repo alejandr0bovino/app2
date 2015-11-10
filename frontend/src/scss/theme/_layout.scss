@@ -12,18 +12,16 @@ body {
 
 .theme-main__aside {
   @media (max-width: $screen-sm-max) {
-    // padding-top: 1rem;
     padding-top: .75rem;
-    // padding-bottom: 1rem;
     padding-bottom: .75rem;
 
-    > h1:first-child,
-    > h2:first-child,
-    > h3:first-child,
-    > h4:first-child,
-    > h5:first-child {
-      margin-bottom: .625rem
-    }
+    // > h1:first-child,
+    // > h2:first-child,
+    // > h3:first-child,
+    // > h4:first-child,
+    // > h5:first-child {
+    //   margin-bottom: .625rem
+    // }
   }
 
   @media (min-width: $screen-md-min) {
@@ -31,15 +29,21 @@ body {
     padding: .75rem 2rem;
   }
 
-  > h1:first-child,
-  > h2:first-child,
-  > h3:first-child,
-  > h4:first-child,
-  > h5:first-child {
-    margin-top: 0;
-  }
+  // > h1:first-child,
+  // > h2:first-child,
+  // > h3:first-child,
+  // > h4:first-child,
+  // > h5:first-child {
+  //   margin-top: 0;
+  // }
 }
+  .theme-main__aside__title {
+    @media (max-width: $screen-sm-max) {
+      margin-bottom: 0
+    }
 
+    margin-top: 0
+  }
 
 
 
@@ -74,8 +78,7 @@ body {
 }
 
 .theme-main__section__header {
-
-    @media (max-width: $screen-sm-max) {
+  @media (max-width: $screen-sm-max) {
     margin-bottom: 1.5rem;
   }
 
