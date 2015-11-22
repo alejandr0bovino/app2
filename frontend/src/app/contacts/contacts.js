@@ -31,7 +31,7 @@ angular.module('ngBoilerplate.contacts', [
                     $scope.pleaseLogin = function() {
                       if (!authenticated) {
                         growl.warning(
-                          '<a href="' + $state.href('user.login') + '">Please <u>log in</u> to see contacts</a>.',
+                          '<a href="' + $state.href('user.signin') + '">Please log in to see contacts.</a>',
                           {
                             ttl: 20000,
                             disableCountDown: false,
@@ -59,8 +59,10 @@ angular.module('ngBoilerplate.contacts', [
             headerTitle: 'Contacts',
             headerSubtitle: 'example'
           },
-          onExit: function(growlMessages) {
-            growlMessages.destroyAllMessages();
+          onExit: function(growlMessages, $timeout) {
+            $timeout(function(){
+              growlMessages.destroyAllMessages();
+            }, 2000);
           }
         })
 

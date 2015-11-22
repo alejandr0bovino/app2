@@ -1,8 +1,8 @@
-angular.module( 'ngBoilerplate.user.LoginCtrl', [
+angular.module( 'ngBoilerplate.user.SigninCtrl', [
 
 ])
 
-.controller( 'LoginCtrl', function LoginCtrl($rootScope, $scope, $auth, $state, User, growl, resA, go) {
+.controller( 'SigninCtrl', function SigninCtrl($rootScope, $scope, $auth, $state, User, growl, resA, go) {
   if (resA) {
     $state.go('user.profile');
   } else {

@@ -4,7 +4,7 @@ angular.module( 'ngBoilerplate.user.UpdateCtrl', [
 
 .controller( 'UpdateCtrl', function UpdateCtrl( $rootScope, $timeout, $scope, $auth, $state, User, resA, growl, go) {
   if (!resA) {
-    $state.go('user.login');
+    $state.go('user.signin');
   } else {
 
     User.get(function(data){

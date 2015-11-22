@@ -65,7 +65,7 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
       promise.then(
         function(response) {
           $timeout(function() {
-            $state.go('user.login');
+            $state.go('user.signin');
 
             $timeout(function() {
               growl.success("Password reset successfully, yo can login now.");

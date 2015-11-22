@@ -6,7 +6,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
 .controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, resA, $timeout, $modal, formFactory ) {
   if (!resA) {
-    $state.go('user.login');
+    $state.go('user.signin');
   } else {
     User.get(function(data){
       $rootScope.initialUser = angular.copy(data);

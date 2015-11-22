@@ -2,8 +2,8 @@ angular.module('ngBoilerplate.user', [
   'ui.router',
   'ngMessages',
   'satellizer',
-  'ngBoilerplate.user.LoginCtrl',
-  'ngBoilerplate.user.LogoutCtrl',
+  'ngBoilerplate.user.SigninCtrl',
+  'ngBoilerplate.user.SignoutCtrl',
   'ngBoilerplate.user.SignupCtrl',
   'ngBoilerplate.user.ConnectCtrl',
   'ngBoilerplate.user.ProfileCtrl',
@@ -38,8 +38,8 @@ angular.module('ngBoilerplate.user', [
       data:{ pageTitle: 'User' }
     })
 
-      .state('user.login', {
-        url: '/log-in',
+      .state('user.signin', {
+        url: '/sign-in',
         resolve: {
           resA: function(authenticate) {
             return authenticate.islogged();
@@ -51,10 +51,10 @@ angular.module('ngBoilerplate.user', [
         },
         views: {
           "": {
-            controller: 'LoginCtrl',
-            templateUrl: 'user/templates/user.login.tpl.html'
+            controller: 'SigninCtrl',
+            templateUrl: 'user/templates/user.signin.tpl.html'
           },
-          'connect@user.login': {
+          'connect@user.signin': {
             controller: 'ConnectCtrl',
             templateUrl: 'user/templates/partial/user.connect.tpl.html'
           }
@@ -62,8 +62,8 @@ angular.module('ngBoilerplate.user', [
         data:{ pageTitle: 'Sign in' }
       })
 
-      .state('user.logout', {
-        url: '/log-out',
+      .state('user.signout', {
+        url: '/sign-out',
         resolve: {
           go: function(shell) {
             var referer = shell.getReferer();
@@ -72,7 +72,7 @@ angular.module('ngBoilerplate.user', [
         },
         views: {
           "": {
-            controller: 'LogoutCtrl',
+            controller: 'SignoutCtrl',
             templateUrl:  null
           },
         },

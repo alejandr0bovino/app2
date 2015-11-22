@@ -39,8 +39,8 @@ ______________________________________ */
 // MARGINS 2 EMS (global)
 
 h1, h2, h3 {
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 h4, h5, h6 {
@@ -235,9 +235,9 @@ hr {
   border: none;
   // font-family: $sans-serif;
 
-  a {
-    text-decoration: none;
-  }
+  // a {
+  //   text-decoration: none;
+  // }
 }
 
 .alert-success {
@@ -518,7 +518,6 @@ __________________________________*/
     opacity: .65;
     text-shadow: none;
 
-
     &:hover,
     &:focus {
       @include themify() {
@@ -533,7 +532,7 @@ __________________________________*/
 
     &:first-child {
       right: .4rem ;
-      top: .2rem;
+      top: .1rem;
       font-size: 1.15rem;
 
       + .close {

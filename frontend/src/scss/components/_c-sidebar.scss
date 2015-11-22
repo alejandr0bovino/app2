@@ -101,7 +101,7 @@
       background-color: $n-bg0-color;
       @include filter-gradient($n-bg0-color, $n-bg-color, vertical);
       @include background-image(linear-gradient(top, $n-bg0-color 0%, $n-bg-color 100%));
-      // letter-spacing: -.5px;
+      letter-spacing: -.5px;
 
       .tooltip {
         font-size: .625rem;
@@ -257,7 +257,7 @@
       margin-bottom: 3.75rem;
       line-height: 2.125;
       font-size: .9rem;
-      // font-weight: bold;
+      font-weight: bold;
 
       a {
         display: inline-block;

@@ -2,7 +2,7 @@
   "contacts":[
    {
       "id": 123,
-      "name": "Eve",
+      "name": "Contact 1",
       "items": [
         {
           "id": "a",
@@ -14,7 +14,7 @@
 
     {
       "id": 1,
-      "name": "Marie",
+      "name": "Contact 2",
       "items": [
         {
           "id": "a",
@@ -36,12 +36,12 @@
 
     {
       "id": 42,
-      "name": "Paul",
+      "name": "Contact 3",
       "items": [
         {
           "id": "a",
           "type": "blog",
-          "value": "http://rob.wordpress.com"
+          "value": "http://blog.com"
         },
         {
           "id": "b",

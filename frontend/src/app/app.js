@@ -199,7 +199,7 @@ angular.module( 'ngBoilerplate', [
 
     //
 
-    // if (toState.name == 'user.logout') {
+    // if (toState.name == 'user.signout') {
     //   if (fromState.name == 'user.profile' || fromState.name == 'userpage') {
     //     shell.setReferer('home');
     //   } else {

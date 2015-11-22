@@ -54,8 +54,6 @@
     }
 
     a {
-      border: none !important;
-
       &::before {
         @extend %fa;
         @include themify() {
