@@ -50,7 +50,7 @@ exports.login = function (req, res) {
 };
 
 exports.signup = function (req, res) {
-  setTimeout(function() {
+  // setTimeout(function() {
   User.findOne({ email: req.body.email }, function(err, existingUser) {
     if (existingUser) {
       return res.status(409).send({ message: 'Email is already taken' });
@@ -80,7 +80,7 @@ exports.signup = function (req, res) {
     });
 
   });
-  }, 2000);
+  // }, 2000);
 };
 
 exports.unlinkProvider = function(req, res) {
