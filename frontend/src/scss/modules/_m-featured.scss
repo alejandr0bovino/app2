@@ -36,7 +36,7 @@
       }
     }
       // .m-featured__time {
-      //   font-family: $headings-font-family-bold
+      //   font-family: $headings-font-family
       // }
   .m-featured__footer {
     font-size: .9rem;
@@ -44,7 +44,7 @@
   }
 
     .m-featured__read-more {
-      // font-family: $headings-font-family-bold;
+      // font-family: $headings-font-family;
 
       > .fa {
         @include themify() {

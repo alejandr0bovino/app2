@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
   // font-weight: 400;
   // font-weight: 700;
   line-height: 1.25;
-  font-family: $headings-font-family-bold;
+  font-family: $headings-font-family;
   text-transform: uppercase;
 
   // _::-webkit-:not(:root:root), & {
@@ -90,7 +90,7 @@ h6 { font-size: $font-size-h6; }
 
 
 label {
-  // font-family: $headings-font-family-bold;
+  // font-family: $headings-font-family;
   font-weight: normal;
   text-transform: uppercase;
 

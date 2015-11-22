@@ -76,21 +76,21 @@ $app2-base-font-size: 18; //[16, 18, 19]
 
 
 // $font-family-base: 'Source Sans Pro', sans-serif;
-// $headings-font-family-bold: 'Ropa Sans', sans-serif;
-// $headings-font-family-bold: 'Source Sans Pro', sans-serif;
+// $headings-font-family: 'Ropa Sans', sans-serif;
+// $headings-font-family: 'Source Sans Pro', sans-serif;
 
 // $f1: Karla;
 $f1: Dosis;
 // $f1: Actor;
 
-$headings-font-family-bold: '#{$f1}', sans-serif;
+$headings-font-family: '#{$f1}', sans-serif;
 
 
 
 // $font-family-base: 'Signika', sans-serif;
 
 
-$f2: Source Sans Pro;
+$f2: Abel;
 // $f2: Roboto Condensed;
 // $f2: Abel;
 // $f2: Dosis;
@@ -100,6 +100,9 @@ $font-family-base: '#{$f2}', sans-serif;
 
 // $sans-serif: "Helvetica Neue",Helvetica,Arial,sans-serif;
 $sans-serif: $font-family-base;
+
+$sidebar-font-family: $headings-font-family;
+
 
 
 $font-size-h1:          2.25rem;
