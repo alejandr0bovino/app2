@@ -53,7 +53,8 @@ exports.put = function (req, res) {
     }
 
     user.save(function(err) {
-      res.status(200).send({user: user});
+      // res.status(200).send({user: user});
+      res.send({user: user});
     });
   });
   // }, 3500);

@@ -24,7 +24,6 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.user',
   //
   'ngBoilerplate.utils.service',
-  'ngBoilerplate.authenticate.service',
   'ngBoilerplate.shell.service',
   'ngBoilerplate.user.service',
 ])
@@ -52,7 +51,7 @@ angular.module( 'ngBoilerplate', [
 
   //////////////
   $authProvider.signupUrl = ENV.apiEndpoint + '/auth/signup';
-  $authProvider.loginUrl  = ENV.apiEndpoint + '/auth/login';
+  $authProvider.loginUrl  = ENV.apiEndpoint + '/auth/signin';
   $authProvider.unlinkUrl = ENV.apiEndpoint + '/auth/unlink';
   $authProvider.logoutRedirect = null;
   $authProvider.loginOnSignup = false;
@@ -91,21 +90,20 @@ angular.module( 'ngBoilerplate', [
   growlProvider.globalDisableCloseButton(true);
 })
 
-.run(['$rootScope', '$state', '$stateParams', 'Permission', '$q', 'User',  'authenticate', '$auth', 'growl',
-  function ($rootScope,   $state,   $stateParams, Permission, $q, User, authenticate, $auth, growl) {
+.run(['$rootScope', 'ENV', '$state', '$stateParams', 'Permission', '$q', 'User', '$auth', 'growl',
+  function ($rootScope,  ENV, $state,   $stateParams, Permission, $q, User, $auth, growl) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 
-    $rootScope.env = 'development';
+    // $rootScope.env = ENV.name;
 
-
-    ///////
+    ///
 
     $rootScope.isAuthenticated = function() {
-      return authenticate.islogged();
+      return $auth.isAuthenticated();
     };
 
-    if (authenticate.islogged()) {
+    if ($auth.isAuthenticated()) {
       User.get(function(data){
         if (!angular.isDefined(data.email)) {
           $auth.logout()
@@ -136,13 +134,13 @@ angular.module( 'ngBoilerplate', [
 
     Permission
       .defineRole('Anonymous', function () {
-        if (!authenticate.islogged()) {
+        if (!$auth.isAuthenticated()) {
           return true;
         }
         return false;
       })
       .defineRole('User', function () {
-        if (authenticate.islogged()) {
+        if ($auth.isAuthenticated()) {
           return true;
         }
         return false;

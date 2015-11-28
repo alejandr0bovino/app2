@@ -2,8 +2,8 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
 ])
 
-.controller( 'SignupCtrl', function SignupCtrl(ENV, $rootScope, $timeout, $scope, $http, $auth, $state, User, growl, resA, formFactory ) {
-  if (resA) {
+.controller( 'SignupCtrl', function SignupCtrl(ENV, $rootScope, $timeout, $scope, $http, $auth, $state, User, growl, authenticated, formFactory ) {
+  if (authenticated) {
     $state.go('user.profile');
   } else {
     $scope.signup = function() {
@@ -21,10 +21,10 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
         {
           ignoreLoadingBar: true
         }
-      )
-      .then(function(response) {
-        return response;
-      });
+      );
+      // .then(function(response) {
+      //   return response;
+      // });
 
 
       promise.then(
@@ -65,7 +65,8 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
             $scope.email = '';
 
             formFactory.enableElements();
-            document.querySelector('input[name="email"]').focus();
+            formFactory.focusElement('email');
+            // document.querySelector('input[name="email"]').focus();
           }
         }
       );

@@ -10,8 +10,8 @@ angular.module( 'ngBoilerplate.events', [])
       }
     },
     resolve: {
-      authenticated: function(authenticate){
-        return authenticate.islogged();
+      authenticated: function($auth){
+        return $auth.isAuthenticated();
       },
     }
   })

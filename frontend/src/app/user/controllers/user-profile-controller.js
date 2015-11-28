@@ -4,8 +4,8 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   'rzModule'
 ])
 
-.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, resA, $timeout, $modal, formFactory ) {
-  if (!resA) {
+.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, authenticated, $timeout, $modal, formFactory ) {
+  if (!authenticated) {
     $state.go('user.signin');
   } else {
     User.get(function(data){

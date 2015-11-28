@@ -1,8 +1,8 @@
 angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
 ])
 
-.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $state, $scope, $timeout, User, resA, growl, formFactory) {
-  if (resA) {
+.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $state, $scope, $timeout, User, authenticated, growl, formFactory) {
+  if (authenticated) {
     $state.go('user.profile');
   } else {
     $scope.passwordResetSend = function(){
@@ -34,8 +34,8 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
   }
 })
 
-.controller( 'PasswordResetEmailSentCtrl', function PasswordResetBeginCtrl(ENV, $stateParams, $state, $scope, User, resA, growl) {
-  if (resA) {
+.controller( 'PasswordResetEmailSentCtrl', function PasswordResetBeginCtrl(ENV, $stateParams, $state, $scope, User, authenticated, growl) {
+  if (authenticated) {
     $state.go('user.profile');
   } else {
     if ($stateParams.sent === null) {
@@ -46,8 +46,8 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
   }
 })
 
-.controller( 'PasswordResetChooseCtrl', function PasswordResetChooseCtrl($stateParams, $state, $scope, $timeout, User, growl, resA, $auth) {
-  if (resA) {
+.controller( 'PasswordResetChooseCtrl', function PasswordResetChooseCtrl($stateParams, $state, $scope, $timeout, User, growl, authenticated, $auth) {
+  if (authenticated) {
     $auth.logout();
   }
 

@@ -31,7 +31,8 @@ exports.adminLogin = function (req, res) {
   });
 };
 
-exports.login = function (req, res) {
+exports.signin = function (req, res) {
+    // setTimeout(function() {
   User.findOne({ email: req.body.email }, '+password', function(err, user) {
     if (!user) {
       return res.status(401).send({ message: 'Wrong email and/or password' });
@@ -44,9 +45,14 @@ exports.login = function (req, res) {
       if (user.pendingConfirmation) {
         return res.status(401).send({ message: 'You need to confirm your registration' });
       }
-      res.send({ token: helpers.createToken(user) });
+      // res.send({ token: helpers.createToken(user) });
+      res.send({
+        token: helpers.createToken(user),
+        user: user
+      });
     });
   });
+  // }, 2000);
 };
 
 exports.signup = function (req, res) {

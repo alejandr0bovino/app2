@@ -13,7 +13,7 @@ var auth = require('auth');
 
 module.exports = function (app) {
   app.post('/auth/admin-login',  auth.adminLogin);
-  app.post('/auth/login',  auth.login);
+  app.post('/auth/signin',  auth.signin);
   app.post('/auth/signup', auth.signup);
   app.post('/auth/unlink', helpers.ensureAuthenticated, auth.unlinkProvider);
 

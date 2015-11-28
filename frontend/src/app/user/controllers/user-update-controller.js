@@ -2,8 +2,8 @@ angular.module( 'ngBoilerplate.user.UpdateCtrl', [
 
 ])
 
-.controller( 'UpdateCtrl', function UpdateCtrl( $rootScope, $timeout, $scope, $auth, $state, User, resA, growl, go) {
-  if (!resA) {
+.controller( 'UpdateCtrl', function UpdateCtrl( $rootScope, $timeout, $scope, $auth, $state, User, authenticated, growl, go) {
+  if (!authenticated) {
     $state.go('user.signin');
   } else {
 

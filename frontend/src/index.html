@@ -97,7 +97,7 @@
           </ul>
 
 
-          <ul class="theme-sidebar__menu2" ng-class="{'is-visible': !isAuthenticated()}" ng-if="!isAuthenticated()">
+          <ul class="theme-sidebar__menu2" ng-class="{'is-visible': !isAuthenticated()}" ng-show="!isAuthenticated()">
             <li>
               <button ui-sref="user.signup" ui-sref-active="active" class="btn btn-block btn-2" ng-click="$parent.xxx()">
                 Sign up
@@ -162,9 +162,7 @@
     <script src="<%= file %>"></script><% }); %>
     <script src="scripts/config.js"></script>
 
-
-
-    <script ng-if="env=='production'">
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

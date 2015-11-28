@@ -28,7 +28,6 @@ module.exports = {
       'vendor/angular-progress-button-styles/dist/angular-progress-button-styles.js',
       'vendor/angularjs-slider/dist/rzslider.min.js',
       'vendor/angular-canvas-ext/exif.min.js',
-      // 'vendor/angular-canvas-ext/angular-canvas-ext.js'
     ],
     css: [
       'vendor/angular-growl-v2/build/angular-growl.min.css',

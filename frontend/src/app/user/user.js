@@ -18,7 +18,7 @@ angular.module('ngBoilerplate.user', [
   'ngBoilerplate.user.usernameAvailable',
   'ngBoilerplate.user.passwordStrength',
   'ngBoilerplate.user.passwordMatch',
-  'ngBoilerplate.user.formUsable'
+  'ngBoilerplate.user.form'
 ])
 
 .config(function config( $stateProvider, $urlRouterProvider ) {
@@ -41,8 +41,8 @@ angular.module('ngBoilerplate.user', [
       .state('user.signin', {
         url: '/sign-in',
         resolve: {
-          resA: function(authenticate) {
-            return authenticate.islogged();
+          authenticated: function($auth){
+            return $auth.isAuthenticated();
           },
           go: function(shell) {
             var referer = shell.getReferer();
@@ -82,8 +82,8 @@ angular.module('ngBoilerplate.user', [
       .state('user.signup', {
         url: '/sign-up',
         resolve: {
-          resA: function(authenticate) {
-            return authenticate.islogged();
+          authenticated: function($auth){
+            return $auth.isAuthenticated();
           },
           go: function(shell) {
             var referer = shell.getReferer();
@@ -131,8 +131,8 @@ angular.module('ngBoilerplate.user', [
       .state('user.update', {
         url: '/update',
         resolve: {
-          resA: function(authenticate) {
-            return authenticate.islogged();
+          authenticated: function($auth){
+            return $auth.isAuthenticated();
           },
           go: function(shell) {
             var referer = shell.getReferer();
@@ -151,9 +151,9 @@ angular.module('ngBoilerplate.user', [
       .state('user.profile', {
         url: '/profile',
         resolve: {
-          resA: function(authenticate) {
-            return authenticate.islogged();
-          }
+          authenticated: function($auth){
+            return $auth.isAuthenticated();
+          },
         },
         views: {
           "": {
@@ -176,9 +176,9 @@ angular.module('ngBoilerplate.user', [
         abstract: true,
         url: '/password-reset',
         resolve: {
-          resA: function(authenticate) {
-            return authenticate.islogged();
-          }
+          authenticated: function($auth){
+            return $auth.isAuthenticated();
+          },
         },
         views: {
           "": {
@@ -254,28 +254,7 @@ angular.module('ngBoilerplate.user', [
 
 })
 
-.factory('formFactory', function($timeout) {
-  return {
-    // enableElements: function (element) {
-      enableElements: function () {
-      // var blurElements = element.querySelectorAll('.js-form-blur');
-      var blurElements = document.querySelectorAll('.js-form-blur');
 
-      var forEach = function (array, callback, scope) {
-        for (var i = 0; i < array.length; i++) {
-          callback.call(scope, i, array[i]);
-        }
-      };
-
-      // $timeout(function(){
-      forEach(blurElements, function (index, element) {
-        angular.element(element).attr('disabled', false);
-        // element.disabled = false;
-      });
-      // }, 100);
-    }
-  };
-})
 
 // .directive('ngEnter', function () {
 //   return function (scope, element, attrs) {

@@ -47,8 +47,9 @@ angular.module('ngBoilerplate.contacts', [
             }
           },
           resolve: {
-            authenticated: function(authenticate){
-              return authenticate.islogged();
+            authenticated: function($auth){
+              // return authenticate.islogged();
+              return $auth.isAuthenticated();
             },
             contacts: function(contacts){
               return contacts.all();
