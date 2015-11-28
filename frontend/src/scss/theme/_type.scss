@@ -1,18 +1,5 @@
-
-// @font-face {
-//     font-family: 'League Gothic';
-//     src: url('#{$font-path}/leaguegothic-italic-webfont.eot');
-//     src: url('#{$font-path}/leaguegothic-italic-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('#{$font-path}/leaguegothic-italic-webfont.woff') format('woff'),
-//          url('#{$font-path}/leaguegothic-italic-webfont.ttf') format('truetype'),
-//          url('#{$font-path}/leaguegothic-italic-webfont.svg#league_gothic_italicregular') format('svg');
-//     font-weight: normal;
-//     font-style: normal;
-
-// }
-
-@mixin html-font-size($size){
-  @if $size == 16 {
+// @mixin html-font-size($size){
+  @if $app2-base-font-size == 16 {
     html {
       @media (max-width: $screen-xs-max)                                  { font-size: 75% } // 12px
       // @media (max-width: $screen-xs-max)                                  { font-size: 100% } // 16px
@@ -22,7 +9,7 @@
     body {
       line-height: 1.625;
     }
-  } @else if $size == 18{
+  } @else if $app2-base-font-size == 18{
     html {
       @media (max-width: $screen-xs-max)                                  { font-size: 87.5% } // 14px
       @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  { font-size: 100% } // 16px
@@ -31,7 +18,7 @@
     body {
       line-height: 1.828;
     }
-  } @else if $size == 19 {
+  } @else if $app2-base-font-size == 19 {
     html {
       @media (max-width: $screen-xs-max)                                  { font-size: 100% } // 16px
       @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  { font-size: 112.5% } // 18px
@@ -50,9 +37,8 @@
       line-height: 1.828;
     }
   }
-}
-
-@include html-font-size($app2-base-font-size);
+// }
+// @include html-font-size($app2-base-font-size);
 
 body {
   -ms-text-size-adjust: 100%;
@@ -64,8 +50,7 @@ body {
 
 
 h1, h2, h3, h4, h5, h6 {
-  // font-weight: 400;
-  // font-weight: 700;
+  // font-weight: 600;
   line-height: 1.25;
   font-family: $headings-font-family;
   text-transform: uppercase;
@@ -76,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-b, strong { font-weight: 500 }
+// b, strong { font-weight: 500 }
 
 // h1,h2,h3,h4,h5,h6 {
 // b, strong { font-weight: 700 }}
@@ -90,8 +75,8 @@ h6 { font-size: $font-size-h6; }
 
 
 label {
-  // font-family: $headings-font-family;
-  font-weight: normal;
+  font-weight: 600;
+  font-family: $btn-font-family;
   text-transform: uppercase;
 
   // _::-webkit-:not(:root:root), & {
@@ -105,27 +90,14 @@ a:hover {
   text-decoration: none
 }
 
-
-
-
-
 .theme-main {
   @extend %type-reset;
   font-weight: 300;
 }
 
 
-// .theme-main__aside {
-//   font-family: $sans-serif;
-// }
-
 
 .theme-main__section {
-  // .fix-line-height {
-  //   line-height: 1.6;
-  //   display: block;
-  // }
-
   &__header__title {
     .fa {
       font-size: 1.575rem;
@@ -142,10 +114,6 @@ a:hover {
       font-size: 2rem;
     }
   }
-
-  // a {
-  //   text-decoration: underline
-  // }
 }
 
 

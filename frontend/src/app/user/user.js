@@ -56,7 +56,7 @@ angular.module('ngBoilerplate.user', [
           },
           'connect@user.signin': {
             controller: 'ConnectCtrl',
-            templateUrl: 'user/templates/partial/user.connect.tpl.html'
+            templateUrl: 'user/templates/include/user.connect.tpl.html'
           }
         },
         data:{ pageTitle: 'Sign in' }
@@ -97,7 +97,7 @@ angular.module('ngBoilerplate.user', [
           },
           'connect@user.signup': {
             controller: 'ConnectCtrl',
-            templateUrl: 'user/templates/partial/user.connect.tpl.html'
+            templateUrl: 'user/templates/include/user.connect.tpl.html'
           }
         },
         data:{ pageTitle: 'Sign up' }

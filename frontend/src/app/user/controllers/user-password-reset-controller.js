@@ -1,7 +1,7 @@
 angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
 ])
 
-.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $state, $scope, $timeout, User, resA, growl) {
+.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $state, $scope, $timeout, User, resA, growl, formFactory) {
   if (resA) {
     $state.go('user.profile');
   } else {
@@ -24,6 +24,7 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
             growl.warning(response.data.message, {
               ttl: 10000
             });
+            formFactory.enableElements();
           }
         }
       );

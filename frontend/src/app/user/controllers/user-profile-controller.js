@@ -40,7 +40,9 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           formFactory.enableElements();
           $rootScope.initialUser = null;
           $rootScope.user = response.user;
-          growl.success("Profile updated");
+          $timeout(function(){
+            growl.success("Profile updated");
+          }, 750);
         },
         function(response) {
           console.log(response.status);
@@ -71,12 +73,16 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           $scope.user.oldPassword = '';
           $scope.user.newPassword = '';
           $scope.user.confirmPassword = '';
-          growl.success("Password updated");
+          $timeout(function(){
+            growl.success("Password updated");
+          }, 750);
         },
         function error(response) {
           formFactory.enableElements(document.getElementById('updatePasswordForm'));
-          growl.error(response.data.message);
           $scope.user.oldPassword = '';
+          $timeout(function(){
+            growl.error(response.data.message);
+          }, 750);
         }
       );
 
@@ -455,6 +461,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
             $timeout(function(){
               $modalInstance.dismiss('cancel');
+
               $timeout(function(){
                 if (type == 'picture') {
                   $rootScope.removePictureEnabled = true;
@@ -463,9 +470,9 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
                   $rootScope.removeCoverEnabled = true;
                   growl.success('Cover updated');
                 }
-              }, 850);
+              }, 750);
             }, 2750);
-          }, 750);
+          }, 300);
         },
         function(response) {
           console.log(response.status);

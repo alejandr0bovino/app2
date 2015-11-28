@@ -7,7 +7,6 @@ angular.module( 'ngBoilerplate.user.formUsable', [
     restrict : "A",
     link : function(scope, element, attrs) {
       var submitBtn = element[0].querySelector('.js-form-submit'),
-          // blurElements = angular.element(element[0].querySelectorAll('.js-form-blur'));
           blurElements = document.querySelectorAll('.js-form-blur');
 
       element.bind("keydown", function (event) {
@@ -25,13 +24,10 @@ angular.module( 'ngBoilerplate.user.formUsable', [
           }
         };
 
-        // $timeout(function(){
         forEach(blurElements, function (index, element) {
-          // angular.element(element).attr('disabled', true);
           element.blur();
           element.disabled = true;
         });
-        // }, 100);
 
         submitBtn.blur();
       }

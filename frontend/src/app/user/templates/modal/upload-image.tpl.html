@@ -1,5 +1,5 @@
-<div class="c-modal" id="c-upload-{{type}}">
-  <div class="c-modal__content">
+<div class="c-modal-1" id="c-upload-{{type}}">
+  <div class="c-modal-1__content">
     <div class="c-upload__outer {{type}}">
       <div growl inline="true" reference="111"></div>
 
@@ -43,22 +43,22 @@
     <div class="c-upload__action">
       <div class="c-upload__action__main">
         <button class="btn btn-lg btn-block btn-5--progress" id="nn" ng-show="nnn" progress-button="upload()" ng-disabled="!leftCanvas.src || uploaded">{{ uploadBtnText }}</button>
-        <button class="btn btn-lg btn-block btn-5--progress" ng-show="leftCanvas.src && !nnn" ng-click="n()">{{ uploadBtnText }}</button>
-        <button class="btn btn-lg btn-block btn-5--progress visible-md visible-lg" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'" ngf-fix-orientation="false">Select from your drive</button>
-        <button class="btn btn-lg btn-block btn-5--progress visible-xs visible-sm" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'"ngf-fix-orientation="false">Select from your device</button>
+        <button class="btn btn-lg btn-block btn-5" ng-show="leftCanvas.src && !nnn" ng-click="n()">{{ uploadBtnText }}</button>
+        <button class="btn btn-lg btn-block btn-5 visible-md visible-lg" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'" ngf-fix-orientation="false">Select from your drive</button>
+        <button class="btn btn-lg btn-block btn-5 visible-xs visible-sm" ngf-select ng-model="file" ng-show="!leftCanvas.src" ngf-accept="'*.jpg,*.png'"ngf-fix-orientation="false">Select from your device</button>
 
         <button class="btn btn-lg btn-block invisible">placeholder</button>
       </div>
 
       <ul class="c-upload__action__complement">
         <li class="col-xs-6">
-          <button class="btn btn-lg btn-block btn-5--progress" ng-click="restart()" ng-disabled="!leftCanvas.src || uploadReady">
+          <button class="btn btn-lg btn-block btn-5" ng-click="restart()" ng-disabled="!leftCanvas.src || uploadReady">
             <span>Restart</span>
           </button>
         </li>
 
         <li class="col-xs-6">
-          <button class="btn btn-lg btn-block btn-5--progress" ng-click="cancel()" ng-disabled="uploadReady">
+          <button class="btn btn-lg btn-block btn-5" ng-click="cancel()" ng-disabled="uploadReady">
             <span>Cancel</span>
           </button>
         </li>

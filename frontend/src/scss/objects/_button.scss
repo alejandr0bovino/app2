@@ -1,14 +1,20 @@
 // bootstrap
+
+$padding-default: .469rem;
+$padding-lg: .4rem;
+
 .btn {
   // @include safari() {
   //   letter-spacing: -.04rem
   // }
 
-  // padding: .3rem 2rem;
-   padding: .3rem 1rem;
+    // padding: .3rem 2rem;
+   // padding: .3rem 1rem;
+   padding: $padding-default 1rem;
+
 
   font-size: 1rem;
-  // font-family: $headings-font-family;
+  font-family: $btn-font-family;
   // font-weight: bold;
   font-weight: 600;
   // letter-spacing: $btn-letter-spacing;
@@ -33,9 +39,12 @@
 
 .btn-group-lg > .btn,
 .btn-lg {
-  padding: .5rem 2rem;
+  // padding: .5rem 2rem;
 
-  font-size: 1.225rem;
+  // font-size: 1.225rem;
+    padding: $padding-lg 2rem;
+
+  font-size: 1.353333rem;
 }
 
 .btn-group-sm > .btn,
@@ -84,7 +93,6 @@
   position: relative;
   padding-left: 2rem;
   padding-right: 2rem;
-  // letter-spacing: $btn-letter-spacing;
   letter-spacing: inherit;
   line-height: 1.42857143; // normal
 
@@ -119,6 +127,7 @@
 .btn-default--progress-2 {
   @extend .btn-default;
 
+
   @include themify() {
     .content {
       &:after,
@@ -133,6 +142,7 @@
   }
 
   position: relative;
+  padding: 0;
 
   line-height: 1.42857143; // normal
 
@@ -144,6 +154,16 @@
 
   .progress-inner {
     height: 100%;
+  }
+
+  .content {
+    padding-top: $padding-default;
+    padding-bottom: $padding-default;
+    &::before,
+    &::after {
+      padding-top: $padding-default;
+      padding-bottom: $padding-default;
+    }
   }
 
   // &.progress-button-style-fill.state-success .content,
@@ -244,13 +264,24 @@
     }
   }
 
+
+
   position: relative;
+  padding: 0;
 
   border-width: 1px;
   border-style: solid;
 
   // letter-spacing: $btn-letter-spacing;
   letter-spacing: inherit;
+
+  .content {
+    padding: $padding-lg 2rem;
+    &::before,
+    &::after {
+      padding: $padding-lg 2rem;
+    }
+  }
 }
 
 

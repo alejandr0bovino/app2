@@ -31,29 +31,30 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
         function(response) {
           $timeout(function() {
             $scope.singupBtnText = 'Successfully signed up';
-          }, 100);
+          }, 300);
 
           var lEmail = angular.lowercase($scope.email);
 
-          User.confirmRegistrationPost({
-            email: lEmail,
-            url: ENV.baseUrl + $state.href('user.verified')
-          }, function(response) {
-
-            $timeout(function() {
-              $state.go('user.confirm', {email: lEmail});
-
+          User.confirmRegistrationPost(
+            {
+              email: lEmail,
+              url: ENV.baseUrl + $state.href('user.verified')
+            },
+            function(response) {
               $timeout(function() {
-                growl.success('Signed up: <b>' + $scope.email + '</b>');
-              }, 750);
-            }, 1500);
+                $state.go('user.confirm', {email: lEmail});
 
-
-          }, function(response) {
-            if (typeof response.data.message != 'undefined') {
-              growl.warning(response.data.message);
+                $timeout(function() {
+                  growl.success('Signed up: <b>' + $scope.email + '</b>');
+                }, 750);
+              }, 1500);
+            },
+            function(response) {
+              if (typeof response.data.message != 'undefined') {
+                growl.warning(response.data.message);
+              }
             }
-          });
+          );
         },
         function(response) {
           if (typeof response.data.message != 'undefined') {
@@ -74,11 +75,11 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
     $scope.singupBtnText = 'Send';
 
-    // $scope.name = "imagenes";
-    // $scope.email = "imagenes43@gmail.com";
-    // $scope.userName = "imagenes43";
-    // $scope.password = "lsjE55::::3:fsfsx";
-    // $scope.confirmPassword = "lsjE55::::3:fsfsx";
+    $scope.name = "imagenes";
+    $scope.email = "imagenes43@gmail.com";
+    $scope.userName = "imagenes43";
+    $scope.password = "lsjE55::::3:fsfsx";
+    $scope.confirmPassword = "lsjE55::::3:fsfsx";
   }
 })
 

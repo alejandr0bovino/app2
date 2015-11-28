@@ -38,7 +38,7 @@ angular.module( 'ngBoilerplate.user.UpdateCtrl', [
             $timeout(function() {
               growl.success("Registration completed successfully");
             }, 750);
-          }, 2000);
+          }, 1500);
         },
         function(response) {
           if (typeof response.data.message != 'undefined') {

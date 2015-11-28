@@ -76,7 +76,7 @@
 
     line-height: 1.25;
     text-shadow: 1px 1px 0 lighten($n-bg-color, 20);
-    font-family: $headings-font-family;
+
 
     color: $n-fg2-color;
 
@@ -94,7 +94,7 @@
       @media (min-width: $screen-sm-min) {
         font-size: 1.6rem;
       }
-
+      font-family: $headings-font-family;
       > span > a {
         color: $n-fg2-color;
       }
@@ -143,8 +143,8 @@
       min-height: 10rem;
     }
 
-      // background-color: rgba($n-bg1-color, .25);
-      background-color: rgba($n-bg-color,.25);
+    // background-color: rgba($n-bg1-color, .25);
+    background-color: rgba($n-bg-color,.25);
 
   }
 
@@ -155,30 +155,22 @@
       right: 0;
       bottom: 0;
       width: 100%;
-      padding: 0;
 
       > button {
         @include transition-timing-function($default-transition-function1);
         @include transition-duration($default-transition-duration1);
         @include transition-property(opacity, background-color);
-        // @include themify() {
-        //   border-color: $bg1-color;
-        // }
+
         position: absolute;
         left: 0;
         top: 0;
         right: 0;
         bottom: 0;
         width: 100%;
-        // padding: 0;
+        padding: 0;
 
-        // background-color: rgba($n-bg1-color, .25);
         background-color: transparent;
         border: none;
-        // border-color: $n-bg-color;
-        // border-width: 1px;
-        // border-style: solid;
-        // border: 1px solid $n-bg-color;
         border-radius: 50%;
 
         &:hover,
@@ -194,30 +186,32 @@
           outline: none;
         }
 
-
-
-        // border: none;
-        // background: none;
-
         > .fa {
           @include transition-timing-function($default-transition-function1);
           @include transition-duration($default-transition-duration1);
           @include transition-property(opacity);
 
           @media (max-width: $screen-xs-max) {
-            font-size: .85rem;
-            margin-left: -.425rem;
+            margin-top: -.7rem;
+            margin-left: -.75rem;
+
+            font-size: 1.5rem;
           }
           @media (min-width: $screen-sm-min) {
-            // font-size: 1.05rem;
-            margin-left: -.5rem;
+            margin-top: -1.5rem;
+            margin-left: -1.5rem;
+            padding: 0.75rem;
           }
-          bottom: 0.4rem;
+
           position: absolute;
 
+          text-shadow: 1px 1px 0 lighten($n-bg-color, 20);
+          font-size: 1.5rem;
+
+          background-color: rgba(black, .15);
+          border-radius: 50%;
 
           color: #dedede;
-          text-shadow: 1px 1px 0 lighten($n-bg-color, 20);
         }
       }
 
@@ -467,7 +461,7 @@
             border-radius: .125rem;
             font-size: .65rem;
             line-height: 1.75;
-            text-shadow: 1px 1px 0 $n-bg-color;
+            text-shadow: 1px 1px 0 $n-bg0-color;
             letter-spacing: .03rem;
 
             &:hover,

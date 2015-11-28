@@ -11,8 +11,8 @@
 
   .#{$theme}  {
     &::-webkit-scrollbar {
-      width:  .55em;
-      height: .55em;
+      width:  .5rem;
+      height: .5rem;
     }
 
     &::-webkit-scrollbar-track {
@@ -156,10 +156,6 @@ a:focus {
 
 
 .theme-footer {
-  @media (max-width: $screen-xs-max) {
-    display: none;
-  }
-
   @media (min-width: $screen-sm-min) {
     background-color: $n-bg0-color;
   }

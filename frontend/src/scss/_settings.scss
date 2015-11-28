@@ -56,69 +56,53 @@ $themes: (
   ),
 );
 
-
-
 $success: #5cb85c;
-$warning: #f0ad4e; $warning-light: saturate(lighten($warning, 15), 15);
+$warning: #f0ad4e;
+  $warning-light: saturate(lighten($warning, 15), 15);
 $danger:  #d9534f;
 $info:  #5C92B8;
 
 
 ////
-
-
 $font-path:         "fonts";
+$app2-base-font-size: 16; //[16, 18, 19]
 
-
-$app2-base-font-size: 18; //[16, 18, 19]
-
-
-
-
-// $font-family-base: 'Source Sans Pro', sans-serif;
-// $headings-font-family: 'Ropa Sans', sans-serif;
-// $headings-font-family: 'Source Sans Pro', sans-serif;
-
-// $f1: Karla;
-$f1: Dosis;
-// $f1: Actor;
-
-$headings-font-family: '#{$f1}', sans-serif;
+// $f1: Karla, Actor;
+// $f2: Signika, Roboto Condensed, Abel, Source Sans Pro, Ropa Sans
 
 
 
-// $font-family-base: 'Signika', sans-serif;
+// pairs (f1, f2)
+// Abel, Dosis
 
 
-$f2: Abel;
-// $f2: Roboto Condensed;
-// $f2: Abel;
-// $f2: Dosis;
-
-$font-family-base: '#{$f2}', sans-serif;
+// Roboto, Dosis
+// Lato, Dosis
 
 
-// $sans-serif: "Helvetica Neue",Helvetica,Arial,sans-serif;
-$sans-serif: $font-family-base;
+$f1: Pt Sans;
+$f2: Dosis;
 
-$sidebar-font-family: $headings-font-family;
+$font-family-base: '#{$f1}', sans-serif;
+$sans-serif: '#{$f1}', sans-serif;
 
+$headings-font-family: '#{$f2}', sans-serif;
+$sidebar-font-family: '#{$f2}', sans-serif;
+$btn-font-family: '#{$f2}', sans-serif;
 
 
 $font-size-h1:          2.25rem;
 $font-size-h2:          1.865rem;
-// $font-size-h3:          1.5rem;
-$font-size-h3:             1.334rem;
+$font-size-h3:          1.334rem;
 $font-size-h4:          1.125rem;
 $font-size-h5:          .875rem;
 $font-size-h6:          .75rem;
 
-
-
 //
+
 $btn-letter-spacing: .025rem;
-//
 
+//
 
 $theme-header-height: 3.8rem;
 $theme-header-line-height: 2.5;
