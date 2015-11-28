@@ -52,9 +52,9 @@ angular.module( 'ngBoilerplate.user.SigninCtrl', [
 
       promise.then(
         function(response) {
-          $timeout(function() {
-            $scope.singinBtnText = 'Successfully logged in';
-          }, 300);
+          // $timeout(function() {
+          //   $scope.singinBtnText = 'Successfully logged in';
+          // }, 300);
 
           $timeout(function() {
             $auth.setToken(response.data.token);
@@ -65,7 +65,7 @@ angular.module( 'ngBoilerplate.user.SigninCtrl', [
             $timeout(function() {
               growl.success("Logged in");
             }, 750);
-          }, 1500);
+          }, 1250);
         },
         function(response) {
           if (typeof response.data.message != 'undefined') {
@@ -85,7 +85,7 @@ angular.module( 'ngBoilerplate.user.SigninCtrl', [
     };
 
 
-    $scope.singinBtnText = 'Send';
+    // $scope.singinBtnText = 'Send';
 
     // $scope.email = "imagenes43@gmail.com";
     // $scope.password = "lsjE55::::3:fsfsx";
