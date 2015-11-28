@@ -86,8 +86,9 @@ angular.module( 'ngBoilerplate.user.SigninCtrl', [
 
 
     $scope.singinBtnText = 'Send';
-    $scope.email = "imagenes43@gmail.com";
-    $scope.password = "lsjE55::::3:fsfsx";
+
+    // $scope.email = "imagenes43@gmail.com";
+    // $scope.password = "lsjE55::::3:fsfsx";
   }
 })
 
