@@ -21,15 +21,16 @@ $n-fg2-color: #f9f9f9;
 ////
 
 $theme-light-bg: #f9f9f9;
-$theme-light-fg: #262527;
+// $theme-light-fg: #262527;
+$theme-light-fg: #333;
+
 
 $theme-dark-bg: #333;
 $theme-dark-fg: #bbb;
 
-$v1: 7.5;
-$v2: 25;
-$v3: 7.5;
-$v4: 25;
+$v1: 5;
+$v2: 15;
+
 $themes: (
   "theme-light": (
     "bg":       $theme-light-bg,
@@ -45,12 +46,12 @@ $themes: (
 
   "theme-dark": (
     "bg":       $theme-dark-bg,
-    "bg1":      lighten($theme-dark-bg, $v3),
-    "bg2":      lighten($theme-dark-bg, $v4),
+    "bg1":      lighten($theme-dark-bg, $v1),
+    "bg2":      lighten($theme-dark-bg, $v2),
 
     "fg":       $theme-dark-fg,
-    "fg1":      darken($theme-dark-fg, $v3),
-    "fg2":      darken($theme-dark-fg, $v4),
+    "fg1":      darken($theme-dark-fg, $v1),
+    "fg2":      darken($theme-dark-fg, $v2),
 
     // "primary":  $theme-dark-primary,
   ),
@@ -65,7 +66,7 @@ $info:  #5C92B8;
 
 ////
 $font-path:         "fonts";
-$app2-base-font-size: 18; //[16, 18, 19]
+$app2-base-font-size: 19; //[16, 18, 19]
 
 // $f1: Karla, Actor;
 // $f2: Signika, Roboto Condensed, Abel, Source Sans Pro, Ropa Sans
@@ -84,8 +85,6 @@ $f1: Pt Sans;
 $f2: Dosis;
 
 $font-family-base: '#{$f1}', sans-serif;
-$sans-serif: '#{$f1}', sans-serif;
-
 $headings-font-family: '#{$f2}', sans-serif;
 $sidebar-font-family: '#{$f2}', sans-serif;
 $btn-font-family: '#{$f2}', sans-serif;
@@ -102,10 +101,6 @@ $font-size-h6:          .75rem;
 
 $btn-letter-spacing: .025rem;
 
-//
-
-$theme-header-height: 3.8rem;
-$theme-header-line-height: 2.5;
 
 
 //

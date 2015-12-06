@@ -151,18 +151,18 @@ hr {
   @include transition(none);
   background-image: none !important;
   @include themify {
+    @include placeholder(lighten($fg-color, 50));
     border-color: $bg1-color;
     color: $fg2-color;
 
     &:focus {
       border-color: $bg2-color;
     }
-    @include placeholder($fg2-color);
   }
 
-  @media (max-width: $screen-xs-max) {
-    height: 34px;
-  }
+  // @media (max-width: $screen-xs-max) {
+  //   height: 34px;
+  // }
   @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
     height: 36px;
   }
@@ -208,7 +208,6 @@ hr {
     color: $danger;
   }
   font-size: .7rem;
-  // font-family: $sans-serif;
   line-height: 1.1;
 }
 
@@ -233,53 +232,23 @@ hr {
 
   padding: .5rem 1rem;
   border: none;
-  // font-family: $sans-serif;
-
-  // a {
-  //   text-decoration: none;
-  // }
 }
 
 .alert-success {
   background-color: $success;
-  // border-color: $success-light;
-  // color: $success;
-
-  // @include themify() {
-  //   a {
-  //     color: $success;
-  //   }
-  // }
 }
 
 .alert-warning {
   background-color: $warning;
-  // border-color: $warning-light;
-  // color: $warning;
-
-  // @include themify() {
-  //   a {
-  //     color: $warning;
-  //   }
-  // }
 }
 
 .alert-danger {
   background-color: $danger;
-  // border-color: $danger-light;
-  // color: $danger;
-
-  // @include themify() {
-  //   a {
-  //     color: $danger;
-  //   }
-  // }
 }
 
 ///
 
 .progress {
-  // @include transition(background-color $default-transition-duration1 $default-transition-function1);
   background-color: transparent;
   box-shadow: none;
 
@@ -310,7 +279,6 @@ hr {
 }
 
 .panel-title {
-  // font-size: 1.125rem;
   font-size: $font-size-h3
 }
 
@@ -339,7 +307,6 @@ hr {
     color: inherit;
 
     > .panel-title {
-      // margin-bottom: .5rem;
       margin-bottom: .625rem;
 
       a {
@@ -463,7 +430,7 @@ __________________________________*/
     padding-left: 3.25rem;
 
     line-height: 1.4;
-    font-family: $sans-serif;
+    font-family: $font-family-base;
     font-weight: 400;
   }
 

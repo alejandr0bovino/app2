@@ -1,10 +1,6 @@
 /* Bootstrap
 ______________________________________ */
 
-
-// .progress-bar-btw-danger-warning {
-//   background-color: #E5804F;
-// }
 .input-group--password-team {
   .input-group-addon {
     position: relative;
@@ -20,16 +16,7 @@ ______________________________________ */
 }
 
 password-strength {
-  // @extend %cf;
   display: block;
-  // margin: 0 -1.5rem;
-  // > .col-md-9 {
-  //   padding-left: 0;
-  // }
-
-  // > .col-md-3 {
-  //   padding-right: 0;
-  // }
 }
 
   .password-strength__help-block {
@@ -39,18 +26,10 @@ password-strength {
 
         &.is-valid {
           color: $bg2-color;
-          // > .fa {
-          //   color: lighten($success, 20);
-          // }
         }
       }
 
       &.is-valid {
-        > .fa {
-          // color: lighten($success, 20);
-          // color: lighten($success, 20);
-          // display: inline-block;
-        }
         > span {
           text-decoration: line-through;
         }
@@ -64,20 +43,17 @@ password-strength {
   }
 
   .password-strength__progress {
-    // @media (min-width: $screen-md-min) {
-      // padding-left: 0;
-    // }
     @media (max-width: $screen-xs-max) {
       height: 34px;
-      padding-right: 3.9rem;
+      padding-right: 3.6rem;
     }
     @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
       height: 36px;
-      padding-right: 3.6rem;
+      padding-right: 3.4rem;
     }
     @media (min-width: $screen-md-min) {
       height: 39px;
-      padding-right: 3.4rem;
+      padding-right: 3.2rem;
     }
 
     position: absolute;
@@ -88,27 +64,13 @@ password-strength {
 
     opacity: .15;
 
-    // line-height: 1.25;
-
     > .progress {
-      // @include themify() {
-      //   background-color: $bg1-color;
-      // }
-
       display: inline-block;
       margin-bottom: 0;
       height: 100%;
       width: 100%;
 
       border-radius: 2px;
-      // border-width: 1px;
-      // border-style: solid;
-
-      // > .progress-bar-danger {
-      //   @include themify() {
-      //     background-color: $fg2-color;
-      //   }
-      // }
 
       > .progress-bar-1 {
         @include themify() {
@@ -138,13 +100,4 @@ password-strength {
       }
 
     }
-
-
   }
-
-
-
-
-
-
-

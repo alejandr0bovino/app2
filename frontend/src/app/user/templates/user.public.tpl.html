@@ -10,8 +10,8 @@
          <span ng-bind="public_user.userName"></span>
         </li>
 
-        <li class="ellipsis sans-serif" ng-if="public_user.profile.location.length">
-          <span><i class="fa fa-map-marker"></i> {{ public_user.profile.location }}e</span>
+        <li class="ellipsis" ng-if="public_user.profile.location.length">
+          <span><i class="fa fa-map-marker"></i> {{ public_user.profile.location }}</span>
         </li>
       </ul>
 
@@ -30,18 +30,7 @@
   </header>
 
   <aside class="theme-main__aside theme-main__aside--connect col-md-3">
-    <h5 style="margin-bottom: 1rem">Latest</h5>
-
-    <!-- <ul class="media-list m-info-2">
-      <li class="media" ng-repeat="user in userAll" ng-if="user.userName!='admin' && user.userName!='username'">
-        <a href ui-sref="userpage({username: user.userName})">
-        <div class="media-left media-middle">
-          <img class="media-object" ng-src="{{ user.profile.picture.small }}" alt="64x64">
-        </div>
-        <div class="media-body media-middle" ng-bind="user.userName"></div>
-        </a>
-      </li>
-    </ul> -->
+    <!-- <h5 style="margin-bottom: 1rem">Latest</h5>
 
     <ul class="m-info-3">
       <li ng-repeat="user in userAll"
@@ -51,20 +40,10 @@
           <p class="m-info-3__body ellipsis" ng-bind="user.userName"></p>
         </a>
       </li>
-    </ul>
+    </ul> -->
   </aside>
 
   <section class="theme-main__section col-md-9">
-<!--     <ul class="list-group m-info">
-      <li class="list-group-item">
-        <p class="list-group-item-text" style="font-size: .9rem"><i class="fa fa-user" tooltip-placement="bottom" tooltip="Username"></i>&nbsp;&nbsp; {{ public_user.userName }}</h4></p>
-      </li>
-
-      <li class="list-group-item">
-        <p class="list-group-item-text" style="font-size: .9rem"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp; {{ public_user.email }}</h4></p>
-      </li>
-    </ul> -->
-
     <ul class="list-group m-info">
       <li class="list-group-item">
         <p class="list-group-item-text"><i class="fa fa-user"></i>&nbsp;&nbsp; {{ public_user.userName }}</h4></p>

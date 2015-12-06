@@ -6,11 +6,10 @@
     }
 
     @media (min-width: $screen-sm-min) {
-      // background-color: $bg1-color;
+      // background-color: darken($bg-color, 2.5);
       border-bottom-color: $bg1-color;
 
       color: $fg2-color;
-      // a { color: $fg2-color }
       a { color: inherit }
     }
 
@@ -23,7 +22,6 @@
   }
 
   @media (max-width: $screen-xs-max) {
-    // padding-bottom: 3.5rem;
     padding-bottom: 1.5rem;
   }
   @media (min-width: $screen-sm-min) {
@@ -32,8 +30,8 @@
   }
 
   @media (min-width: $screen-md-min) {
-    padding-top: 1rem;
-    padding-bottom: 1.5rem;
+    padding-top: .75rem;
+    padding-bottom: 1.25rem;
   }
 
   .m-featured {

@@ -4,7 +4,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   'rzModule'
 ])
 
-.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, authenticated, $timeout, $modal, formFactory ) {
+.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, authenticated, $timeout, $uibModal, formFactory ) {
   if (!authenticated) {
     $state.go('user.signin');
   } else {
@@ -144,7 +144,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
     //
 
     $scope.removeImage = function(type) {
-      var removePicture = $modal.open({
+      var removePicture = $uibModal.open({
         templateUrl: 'user/templates/modal/remove-image.tpl.html',
         controller: 'RemoveImageCtrl',
         backdrop: 'static',
@@ -159,7 +159,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
     $scope.uploadImage = function(type) {
       var x = type == 'cover' ? 'lg' : 'sm';
       var size = 'dialog-upload--' + x;
-      var uploadCover = $modal.open({
+      var uploadCover = $uibModal.open({
         templateUrl: 'user/templates/modal/upload-image.tpl.html',
         controller: 'UploadImageCtrl',
         backdrop: 'static',
@@ -174,7 +174,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   }
 })
 
-.controller('RemoveImageCtrl', function($rootScope, $scope, $modalInstance, growl, ENV, $timeout, User, type) {
+.controller('RemoveImageCtrl', function($rootScope, $scope, $uibModalInstance, growl, ENV, $timeout, User, type) {
   $timeout(function(){
     document.getElementById('removeImageSubmit').focus();
   }, 260);
@@ -191,7 +191,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         $rootScope.user = response.user;
 
         $timeout(function(){
-          $modalInstance.dismiss('cancel');
+          $uibModalInstance.dismiss('cancel');
           $timeout(function(){
             if (type == 'cover') {
               $rootScope.removeCoverEnabled = false;
@@ -212,14 +212,14 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
   };
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $uibModalInstance.dismiss('cancel');
   };
 
   $scope.type = type;
    // $scope.removeButtonText = 'Remove picture';
 })
 
-.controller('UploadImageCtrl', function($rootScope, $scope, $modalInstance, Upload, growl, ENV, $timeout, $window, apImageHelper, type) {
+.controller('UploadImageCtrl', function($rootScope, $scope, $uibModalInstance, Upload, growl, ENV, $timeout, $window, apImageHelper, type) {
   var wscreen;
   var uploadErrorMessage;
 
@@ -296,34 +296,29 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
             $scope.$broadcast('reCalcViewDimensions');
 
-            // $timeout(function(){
-              // $timeout(function(){
-                if (angular.isDefined(uploadErrorMessage)) {
-                  uploadErrorMessage.destroy();
-                }
-              // }, 1000);
+            if (angular.isDefined(uploadErrorMessage)) {
+              uploadErrorMessage.destroy();
+            }
 
-              $scope.leftCanvas = {
-                src: evt.target.result,
-              };
+            $scope.leftCanvas = {
+              src: evt.target.result,
+            };
 
-              if (type == 'cover') {
-                $scope.controlZoom = true;
+            if (type == 'cover') {
+              $scope.controlZoom = true;
+              $scope.controlDrag = true;
+            } else {
+              if (imageWidth == 400 && imageHeight == 400)  {
+                $scope.controlZoom = false;
+                $scope.controlDrag = false;
+              } else if (imageWidth == 400 || imageHeight == 400)  {
+                $scope.controlZoom = false;
                 $scope.controlDrag = true;
               } else {
-                if (imageWidth == 400 && imageHeight == 400)  {
-                  $scope.controlZoom = false;
-                  $scope.controlDrag = false;
-                } else if (imageWidth == 400 || imageHeight == 400)  {
-                  $scope.controlZoom = false;
-                  $scope.controlDrag = true;
-                } else {
-                  $scope.controlZoom = true;
-                  $scope.controlDrag = true;
-                }
+                $scope.controlZoom = true;
+                $scope.controlDrag = true;
               }
-
-            // }, 300);
+            }
           });
         } else {
           uploadErrorMessage = growl.error(
@@ -331,7 +326,6 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
             {
               referenceId: 111,
               ttl: 4000,
-              // disableCountDown: false,
               disableCloseButton: false
             }
           );
@@ -407,14 +401,14 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   });
 
   // $scope.zoomOut = function() {
-  //   $scope.leftCanvas.scale = $scope.leftCanvas.scale - 0.1;
-  // };
+    //   $scope.leftCanvas.scale = $scope.leftCanvas.scale - 0.1;
+    // };
 
-  // $scope.zoomIn = function() {
-  //   if ($scope.leftCanvas.scale < 3) {
-  //     $scope.leftCanvas.scale = $scope.leftCanvas.scale + 0.1;
-  //   }
-  // };
+    // $scope.zoomIn = function() {
+    //   if ($scope.leftCanvas.scale < 3) {
+    //     $scope.leftCanvas.scale = $scope.leftCanvas.scale + 0.1;
+    //   }
+    // };
 
 
   $scope.onSliderChange = function() {
@@ -430,14 +424,12 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
       var canvasData;
 
       if (type=='cover') {
-        // canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 2500, height: 886});
         canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 1500, height: 531});
       } else {
         canvasData = apImageHelper.cropImage($scope.leftCanvas.image, $scope.leftCanvas.frame, {width: 400, height: 400});
       }
 
       var file = apImageHelper.dataURItoBlob(canvasData.dataURI);
-      // var file = dataURItoBlob(canvasData.dataURI);
 
       var upload = Upload.upload({
         url: ENV.apiEndpoint + '/api/user/upload-file',
@@ -458,9 +450,10 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           $timeout(function(){
             $scope.uploaded = true;
             $scope.uploadBtnText = 'Uploaded successfully';
+            // $scope.$apply();
 
             $timeout(function(){
-              $modalInstance.dismiss('cancel');
+              $uibModalInstance.dismiss('cancel');
 
               $timeout(function(){
                 if (type == 'picture') {
@@ -472,7 +465,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
                 }
               }, 750);
             }, 2750);
-          }, 300);
+          }, 400);
         },
         function(response) {
           console.log(response.status);
@@ -484,7 +477,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $uibModalInstance.dismiss('cancel');
   };
 
   $scope.restart = function() {

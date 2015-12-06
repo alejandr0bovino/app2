@@ -1,7 +1,7 @@
 <aside class="theme-main__aside col-md-3">
   <h3  class="theme-main__aside__title" ng-bind-html="headerTitle"></h3>
 
-  <p class="text-uppercase visible-md visible-lg" style="line-height: 1.4">Don´t have an account&nbsp;?</p>
+  <p class="text-uppercase visible-md visible-lg">Don´t have an account&nbsp;?</p>
 
   <ul class="m-list--2 visible-md visible-lg">
     <li><a href ui-sref="user.signup">Sign up</a></li>
@@ -25,15 +25,6 @@
       <input class="form-control js-form-blur" type="password" name="password" ng-model="password" ng-minlength="8"  placeholder="Password …"  required>
     </div>
 
-    <p class="text-center">
-      <small>
-        <a class="link-1" href ui-sref="user.password_reset.begin">Recover password</a>.
-      </small>
-    </p>
-
-    <!-- <div class="form-group">
-      <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-block btn-default">Log in</button>
-    </div> -->
     <div class="form-group">
       <button type="button" class="btn btn-block btn-default--progress-2 js-form-submit"
       ng-disabled="signinForm.$invalid || btnDisabled"
@@ -41,6 +32,10 @@
     </div>
 
     <p class="text-center">
+      <small>
+        <a class="link-1" href ui-sref="user.password_reset.begin">Recover password</a>.
+      </small>
+      <br>
       <small>
         Don't have an account yet?
         <a class="link-1" href ui-sref="user.signup">Sign up</a>.

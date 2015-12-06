@@ -1,8 +1,4 @@
 @mixin c-modal-1 {
-  // .modal.fade .modal-dialog {
-  //   @include transition(transform $default-transition-duration1 $default-transition-function1);
-  // }
-
   .modal-backdrop {
     @include themify() {
       background-color: $fg2-color;
@@ -25,36 +21,10 @@
       margin-bottom: 0;
     }
 
-    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-      &.modal-dialog-upload--sm {
-        // width: 388px;
-        width: 394px;
-      }
-      &.modal-dialog-upload--lg {
-        width: 768px;
-      }
-    }
-
-    @media (min-width: $screen-md-min) {
-      &.modal-dialog-upload--sm {
-        // width: 454px;
-        width: 457px;
-      }
-      &.modal-dialog-upload--lg {
-        width: 900px;
-      }
-    }
-
     .modal.fade & {
       @include transition(transform $default-transition-duration1 $default-transition-function1);
     }
 
-
-    &.modal-dialog-upload {
-      .c-modal-1__content {
-        padding-bottom: .75rem;
-      }
-    }
   }
 
   .modal-content {
@@ -64,6 +34,37 @@
   }
 
   //
+
+
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      .modal-dialog-upload--sm {
+        width: 394px;
+      }
+      .modal-dialog-upload--lg {
+        width: 768px;
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      .modal-dialog-upload--sm {
+        width: 457px;
+      }
+      .modal-dialog-upload--lg {
+        width: 900px;
+      }
+    }
+
+    .modal-dialog-upload--sm,
+    .modal-dialog-upload--lg {
+      .c-modal-1__content {
+        padding-bottom: .75rem;
+      }
+    }
+
+
+
+//
 
 
 

@@ -1,6 +1,5 @@
 .ellipsis {
   white-space: nowrap;
-  // width: 100%;
   overflow: hidden;
   text-overflow:    ellipsis;
 }
@@ -11,7 +10,7 @@
 }
 
 .sans-serif {
-  font-family: $sans-serif;
+  font-family: $font-family-base;
 }
 
 .m-bottom-1 {

@@ -14,7 +14,7 @@ angular.module( 'ngBoilerplate.about', [
     data:{
       // pageClass: 'about',
       pageTitle: 'About',
-      headerTitle: 'The Elevator <small>For the impatient</small>',
+      headerTitle: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. <small>Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</small>',
       headerSubtitle: 'This example is a quick exercise to illustrate how the default'
     }
   });

@@ -29,24 +29,17 @@
 <section class="theme-main__section col-md-9">
   <header class="theme-main__section__header">
     <h1 class="theme-main__section__header__title"  ng-bind-html="xevent.title"></h1>
-    <!-- <p class="theme-main__section__header__subtitle">
-      <a ui-sref="events.types">Events</a>
-      <span style="margin: 0 .25rem;font-size: .75rem;opacity: .5;">/</span>
-      <a ui-sref="events.type({slug: type.slug})">{{ type.name }}</a>
-    </p> -->
+
     <p class="theme-main__section__header__subtitle">
       04/18/12
     </p>
-
-
-    <hr style="margin: .5rem 0 0">
   </header>
 
 
   <div>
-    <figure style="margin-left: 1.5rem; width: 10rem;" class="pull-right">
-      <!-- <img ng-src="assets/img/{{xevent.cover}}" class="img-responsive img-rounded gc" style="opacity: .9"> -->
-    </figure>
+    <!-- <figure style="margin-left: 1.5rem; width: 10rem;" class="pull-right">
+      <img ng-src="assets/img/{{xevent.cover}}" class="img-responsive img-rounded gc" style="opacity: .9">
+    </figure>-->
 
     <div ng-bind-html="xevent.abstract"></div>
   </div>

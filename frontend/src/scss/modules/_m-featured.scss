@@ -9,7 +9,6 @@
     margin-bottom: .625rem;
   }
 
-
     .m-featured__title {
       margin-top: 0;
 
@@ -24,37 +23,23 @@
     }
 
     .m-featured__metadata {
-      font-size: .9rem;
+      font-size: .8rem;
       text-transform: uppercase;
 
       > .fa {
-        // @include themify() {
-        //   color: $bg2-color
-        // }
         margin-right: .25rem;
-        // opacity: .75
       }
     }
-      // .m-featured__time {
-      //   font-family: $headings-font-family
-      // }
+
   .m-featured__footer {
     font-size: .9rem;
     text-transform: uppercase
   }
 
     .m-featured__read-more {
-      // font-family: $headings-font-family;
-
+      font-family: $headings-font-family;
       > .fa {
-        // @include themify() {
-        //   color: $bg2-color
-        // }
         margin-left: .25rem
       }
     }
-
-    // .m-featured__taxonomy {
-    //   float: right;
-    // }
 }

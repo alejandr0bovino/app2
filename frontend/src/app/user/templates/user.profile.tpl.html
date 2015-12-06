@@ -2,16 +2,14 @@
   <div class="m-user--header__c1">
     <img ng-src="{{ $parent.user.profile.picture.medium }}" class="m-user--header__picture img-circle">
 
-    <div class="m-user--header__picture__edit" dropdown is-open="status.isopen">
-      <button type="button" dropdown-toggle ng-disabled="disabled">
+    <div class="m-user--header__picture__edit" uib-dropdown is-open="status.isopen">
+      <button type="button" uib-dropdown-toggle ng-disabled="disabled">
         <i class="fa fa-camera"></i>
       </button>
 
       <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
         <li role="menuitem"><a href="#" ng-click="uploadImage('picture')">{{$parent.removePictureEnabled ? "Change picture" : "Add picture"}}</a></li>
         <li role="menuitem" ng-show="$parent.removePictureEnabled"><a href="#" ng-click="removeImage('picture')">Remove</a></li>
-        <li class="divider" role="presentation"></li>
-        <li role="menuitem"><a href="#">Cancel</a></li>
       </ul>
 
       <div class="arrow"></div>
@@ -78,7 +76,7 @@
       </li>
 
       <li class="list-group-item">
-        <label class="list-group-item-heading ">Username:</label>
+        <label class="list-group-item-heading">Username:</label>
         <p class="list-group-item-text">{{ user.userName }}</h4></p>
       </li>
     </ul>
@@ -171,9 +169,13 @@
     </div>
 
     <div class="c-form__action--update">
-      <button type="button" class="btn btn-default--progress js-form-submit"
-       ng-disabled="updateUserForm.$invalid || updateUserForm.$pristine"
-       progress-button="updateUser()" pb-style="top-line">Update information</button>
+      <!-- <button type="button" class="btn btn-default--progress js-form-submit"
+      ng-disabled="updateUserForm.$invalid || updateUserForm.$pristine"
+      progress-button="updateUser()" pb-style="top-line">Update information</button> -->
+
+       <button type="button" class="btn btn-default--progress-2 js-form-submit"
+      ng-disabled="updateUserForm.$invalid || updateUserForm.$pristine"
+      progress-button="updateUser()">Update information</button>
     </div>
   </form>
 
@@ -219,9 +221,12 @@
       </div>
 
       <div class="c-form__action--update">
-        <button type="button" class="btn btn-default--progress js-form-submit"
+        <!-- <button type="button" class="btn btn-default--progress js-form-submit"
          ng-disabled="updatePasswordForm.$invalid || updatePasswordForm.$pristine"
-         progress-button="updatePassword()" pb-style="top-line">Update password</button>
+         progress-button="updatePassword()" pb-style="top-line">Update password</button> -->
+       <button type="button" class="btn btn-default--progress-2 js-form-submit"
+      ng-disabled="updatePasswordForm.$invalid || updatePasswordForm.$pristine"
+      progress-button="updatePassword()">Update password</button>         
       </div>
     </form>
   </div>

@@ -1,23 +1,14 @@
 // bootstrap
 
-$padding-default: .469rem;
+$padding: .334rem;
 $padding-lg: .4rem;
 
 .btn {
-  // @include safari() {
-  //   letter-spacing: -.04rem
-  // }
-
-    // padding: .3rem 2rem;
-   // padding: .3rem 1rem;
-   padding: $padding-default 1rem;
-
+  padding: $padding 1rem;
 
   font-size: 1rem;
   font-family: $btn-font-family;
-  // font-weight: bold;
   font-weight: 600;
-  // letter-spacing: $btn-letter-spacing;
   text-transform: uppercase;
 
   &:focus,
@@ -39,12 +30,9 @@ $padding-lg: .4rem;
 
 .btn-group-lg > .btn,
 .btn-lg {
-  // padding: .5rem 2rem;
+  padding: $padding-lg 2rem;
 
-  // font-size: 1.225rem;
-    padding: $padding-lg 2rem;
-
-  font-size: 1.353333rem;
+  font-size: 1.25rem;
 }
 
 .btn-group-sm > .btn,
@@ -56,6 +44,7 @@ $padding-lg: .4rem;
 
 .btn-default {
   @include themify() {
+    // background-color: darken($bg-color, 5);
     background-color: $bg1-color;
     border-color: $bg1-color;
     color: $fg2-color;
@@ -148,8 +137,6 @@ $padding-lg: .4rem;
 
   border-width: 1px;
   border-style: solid;
-
-  // letter-spacing: $btn-letter-spacing;
   letter-spacing: inherit;
 
   .progress-inner {
@@ -157,12 +144,14 @@ $padding-lg: .4rem;
   }
 
   .content {
-    padding-top: $padding-default;
-    padding-bottom: $padding-default;
+    // padding-top: $padding;
+    // padding-bottom: $padding;
+    padding: $padding 1rem;
     &::before,
     &::after {
-      padding-top: $padding-default;
-      padding-bottom: $padding-default;
+      // padding-top: $padding;
+    // padding-bottom: $padding;
+    padding: $padding 1rem;
     }
   }
 
@@ -303,7 +292,6 @@ $padding-lg: .4rem;
 
   border: none;
   font-size: .9rem;
-  // font-weight: normal;
 }
 
 .btn-xlink {
@@ -322,7 +310,6 @@ $padding-lg: .4rem;
 
   border: none;
   font-size: .9rem;
-  // font-weight: normal;
 }
 
 .btn-xupdate {

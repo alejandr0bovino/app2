@@ -1,7 +1,7 @@
 <aside class="theme-main__aside col-md-3">
   <h3  class="theme-main__aside__title" ng-bind-html="headerTitle"></h3>
 
-  <p class="text-uppercase visible-md visible-lg" style="line-height: 1.4">Have an account ?</p>
+  <p class="text-uppercase visible-md visible-lg">Have an account ?</p>
 
   <ul class="m-list--2 visible-md visible-lg">
     <li><a href ui-sref="user.signin">Log in</a></li>
@@ -70,6 +70,12 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <button type="button" class="btn btn-block btn-default--progress-2 js-form-submit"
+      ng-disabled="signupForm.$invalid || signupForm.$pristine"
+      progress-button="signup()">{{singupBtnText}}</button>
+    </div>
+
     <p class="text-center">
       <small>
         By clicking on Sign up, you agree to
@@ -77,15 +83,7 @@
         and
         <a class="link-1" href="#" >privacy policy</a>.
       </small>
-    </p>
-
-    <div class="form-group">
-      <button type="button" class="btn btn-block btn-default--progress-2 js-form-submit"
-      ng-disabled="signupForm.$invalid || btnDisabled"
-      progress-button="signup()">{{singupBtnText}}</button>
-    </div>
-
-    <p class="text-center">
+      <br>
       <small>
         Already have an account?
         <a class="link-1" href ui-sref="user.signin">Log in now</a>.

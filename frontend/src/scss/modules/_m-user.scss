@@ -205,7 +205,7 @@
 
           position: absolute;
 
-          text-shadow: 1px 1px 0 lighten($n-bg-color, 20);
+          // text-shadow: 1px 1px 0 lighten($n-bg-color, 20);
           font-size: 1.5rem;
 
           background-color: rgba(black, .15);
@@ -320,21 +320,26 @@
 
       font-size: .9rem;
 
-      button {
-        padding: 0;
-        background: none;
-        border: none;
-
-        &:focus {
-          outline: none;
-        }
-      }
-
       > button {
         color: $n-fg2-color;
 
         > .fa {
           margin-right: .25rem;
+        }
+      }
+
+      button {
+        padding: 0;
+
+        font-family: $headings-font-family;
+        font-size: .9rem;
+        // text-transform: uppercase;
+
+        background: none;
+        border: none;
+
+        &:focus {
+          outline: none;
         }
       }
 

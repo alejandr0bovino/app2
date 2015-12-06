@@ -16,7 +16,6 @@
     "ng-file-upload": "^9.1.2",
     "angular-progress-button-styles": "~0.0.3",
     "angular-touch": "~1.4.3",
-    "angular-canvas-ext": "~0.0.9",
     "angularjs-slider": "~0.1.27"
   },
   "dependencies": {

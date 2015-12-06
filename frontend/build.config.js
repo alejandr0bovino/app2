@@ -27,7 +27,7 @@ module.exports = {
       'vendor/ng-file-upload/ng-file-upload.min.js',
       'vendor/angular-progress-button-styles/dist/angular-progress-button-styles.js',
       'vendor/angularjs-slider/dist/rzslider.min.js',
-      'vendor/angular-canvas-ext/exif.min.js',
+      // 'vendor/angular-canvas-ext/exif.min.js',
     ],
     css: [
       'vendor/angular-growl-v2/build/angular-growl.min.css',

@@ -1,39 +1,29 @@
-<div class="www clearfix">
+<div class="zzz clearfix">
   <aside class="theme-main__aside col-md-3">
-    <div class="panel panel-default hidden-xs hidden-sm">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          Most visited
-        </h3>
-      </div>
+    <div class="hidden-xs hidden-sm">
+      <h3 class="theme-main__aside__title">
+        Most visited
+      </h3>
 
-      <div class="panel-body">
-        <ul class="m-list--2">
-          <li ng-repeat="contact in contacts | limitTo:2" ui-sref-active="active">
-            <a ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
-          </li>
-        </ul>
-      </div>
+      <ul class="m-list--2">
+        <li ng-repeat="contact in contacts | limitTo:2" ui-sref-active="active">
+          <a ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
+        </li>
+      </ul>
     </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          Settings
-        </h3>
-      </div>
+    <h3 class="theme-main__aside__title">
+      Settings
+    </h3>
 
-      <div class="panel-body">
-        <ul class="m-list--2" style="margin-bottom: 0">
-          <li ng-class="{ active: $state.includes('contacts.list') }">
-            <a ui-sref="contacts.list" ng-click="pleaseLogin()">All Contacts</a>
-          </li>
-          <li>
-            <a href="#" ng-click="goToRandom()">Show random</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <ul class="m-list--2" style="margin-bottom: 0">
+      <li ng-class="{ active: $state.includes('contacts.list') }">
+        <a ui-sref="contacts.list" ng-click="pleaseLogin()">All Contacts</a>
+      </li>
+      <li>
+        <a href="#" ng-click="goToRandom()">Show random</a>
+      </li>
+    </ul>
   </aside>
 
   <section class="theme-main__section col-md-9">

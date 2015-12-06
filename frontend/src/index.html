@@ -27,7 +27,7 @@
       <div class="theme-sidebar__inner1">
         <div class="theme-sidebar__brand clearfix">
           <a ui-sref-active="active" href ui-sref="home">
-            <!-- <i class="fa fa-ticket"></i> --> <b>Test</b>app
+            <!-- <i class="fa fa-ticket"></i> --> Testapp
           </a>
 
           <button ng-click="toggleSidebar()" ng-class="{'is-open': isSidebarOpen}" class="theme-sidebar__toggle-sidebar js-toggle-sidebar hidden-xs"></button>
@@ -51,7 +51,7 @@
             <button class="m-user--sidebar__control__toggle-theme js-toggle-theme"  ng-class="{'is-toggled': !isThemeLight}"  ng-click="toggleTheme()"></button>
 
             <button class="m-user--sidebar__control__notification" ui-sref="user.update"
-            ng-class="{active: $state.includes('user.update')}" tooltip-placement="bottom" tooltip-html="Update<br> profile"
+            ng-class="{active: $state.includes('user.update')}" uib-tooltip-placement="bottom" uib-tooltip-html="Update<br> profile"
             ng-show="user.pendingUpdate"></button>
           </div>
         </div>

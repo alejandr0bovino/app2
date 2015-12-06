@@ -7,7 +7,7 @@
         {
           "id": "a",
           "type": "full name",
-          "value": "Eve Adamsdottir"
+          "value": "Ive Edamsdottir"
         }
       ]
     },
@@ -24,12 +24,12 @@
         {
           "id": "b",
           "type": "email",
-          "value": "yve@maili.com"
+          "value": "vemail@maili.com"
         },
         {
           "id": "c",
-          "type": "deporte preferido",
-          "value": "atletismo"
+          "type": "Deporte preferido",
+          "value": "Atletismo"
         }
       ]
     },

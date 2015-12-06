@@ -8,7 +8,7 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
   } else {
     $scope.signup = function() {
       $scope.signupForm.$setPristine();
-      $scope.btnDisabled = true;
+      // $scope.btnDisabled = true;
 
       var promise = $http.post(
         ENV.apiEndpoint + '/auth/signup',
@@ -61,7 +61,7 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
             growl.warning(response.data.message, {
               // ttl: 10000
             });
-            $scope.btnDisabled = false;
+            // $scope.btnDisabled = false;
             $scope.email = '';
 
             formFactory.enableElements();
@@ -76,11 +76,11 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
     $scope.singupBtnText = 'Send';
 
-    // $scope.name = "imagenes";
-    // $scope.email = "imagenes43@gmail.com";
-    // $scope.userName = "imagenes43";
-    // $scope.password = "lsjE55::::3:fsfsx";
-    // $scope.confirmPassword = "lsjE55::::3:fsfsx";
+    $scope.name = "imagenes";
+    $scope.email = "imagenes43@gmail.com";
+    $scope.userName = "imagenes43";
+    $scope.password = "lsjE55::::3:fsfsx";
+    $scope.confirmPassword = "lsjE55::::3:fsfsx";
   }
 })
 

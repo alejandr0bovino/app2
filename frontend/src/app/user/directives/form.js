@@ -1,11 +1,10 @@
 angular.module( 'ngBoilerplate.user.form', [])
 
-.directive('formUsable', function($timeout) {
+.directive('formUsable', function($timeout, formFactory) {
   return {
     restrict : "A",
     link : function(scope, element, attrs) {
-      var submitBtn = element[0].querySelector('.js-form-submit'),
-          blurElements = element[0].querySelectorAll('.js-form-blur');
+      var submitBtn = element[0].querySelector('.js-form-submit');
 
       element.bind("keydown", function (event) {
         if(event.which === 13) {
@@ -15,47 +14,32 @@ angular.module( 'ngBoilerplate.user.form', [])
       });
 
       submitBtn.addEventListener("click", function(){
-        var forEach = function (array, callback, scope) {
-          for (var i = 0; i < array.length; i++) {
-            callback.call(scope, i, array[i]);
-          }
-        };
-
-        forEach(blurElements, function (index, element) {
-          element.blur();
-          element.disabled = true;
-        });
-
-        submitBtn.blur();
+        formFactory.disableElements();
+        // submitBtn.blur();
+        // this.blur();
       });
     }
   };
 })
 
 .factory('formFactory', function($timeout) {
-  var forEach = function (array, callback, scope) {
-    for (var i = 0; i < array.length; i++) {
-      callback.call(scope, i, array[i]);
-    }
-  };
+  var blurElements = document.querySelectorAll('.js-form-blur');
 
   return {
     enableElements: function () {
-      var blurElements = document.querySelectorAll('.js-form-blur');
-
-
-
-      forEach(blurElements, function (index, element) {
-        angular.element(element).attr('disabled', false);
-      });
+      for (var i = 0; i < blurElements.length; i++) {
+        blurElements[i].disabled = false;
+      }
+    },
+    disableElements: function () {
+      for (var i = 0; i < blurElements.length; i++) {
+        blurElements[i].disabled = true;
+      }
     },
     clearElements: function () {
-      var blurElements = document.querySelectorAll('.js-form-blur');
-
-
-      forEach(blurElements, function (index, element) {
-        element.value = '';
-      });
+      for (var i = 0; i < blurElements.length; i++) {
+        blurElements[i].value = '';
+      }
     },
     focusElement: function (element) {
       element = element ? document.querySelector('input[name="'+element+'"]') : document.querySelector('.js-form-blur');

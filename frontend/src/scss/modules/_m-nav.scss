@@ -1,32 +1,13 @@
 @mixin m-nav() {
   .m-nav--2 {
     @extend %ul-reset;
-
-    // @include themify {
-    //   a:hover,
-    //   a:focus {
-    //     color: $fg1-color;
-    //   }
-    // }
-
     text-transform: uppercase;
 
     > li {
       margin-bottom: .5rem;
-      padding: 0 1rem;      
+      padding: 0 1rem;
 
       a {
-        // display: inline-block;
-        // @include transition(color $default-transition-duration1 $default-transition-function1);
-        // @include themify() {
-          // color: $bg2-color;
-
-          // &:hover,
-          // &:focus {
-          //   color: $bg1-color;
-          // }
-        // }
-        
         color: $n-fg-color;
 
         &:hover,
@@ -35,6 +16,6 @@
           text-decoration: none;
         }
       }
-    }    
+    }
   }
 }
