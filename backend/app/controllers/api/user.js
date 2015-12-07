@@ -19,16 +19,13 @@ exports.get = function (req, res) {
   });
 };
 
-exports.put = function (req, res) {
-  // setTimeout(function() {
+exports.put = function (req, res) {  
   if (req.body.pendingUpdate === 'empty') {
     User.findOne({ email: req.body.email }, function(err, existingUser) {
-
       // solo twitter (no provee email en connect)
       if (existingUser) {
         return res.status(409).send({ message: 'Email is already taken' });
       }
-
       // todos
       User.findOne({ userName: req.body.userName }, function(err, existingUser){
         if (existingUser) {
@@ -51,13 +48,13 @@ exports.put = function (req, res) {
     if (req.body.pendingUpdate === 'empty') {
       user.pendingUpdate = undefined;
     }
-
-    user.save(function(err) {
-      // res.status(200).send({user: user});
-      res.send({user: user});
-    });
-  });
-  // }, 3500);
+    setTimeout(function() {    
+      user.save(function(err) {
+        // res.status(200).send({user: user});
+        res.send({user: user});
+      });
+    }, 3500);
+  });  
 };
 
 
@@ -128,7 +125,7 @@ exports.confirmRegistrationPut = function (req, res) {
 
 
 exports.updatePassword = function (req, res) {
-  // setTimeout(function(){
+  setTimeout(function(){
 
   User.findById(req.user, '+password', function(err, user) {
     if (!user) {
@@ -150,7 +147,7 @@ exports.updatePassword = function (req, res) {
     });
   });
 
-// }, 3000)
+}, 3000)
 };
 
 exports.resetPasswordPost = function (req, res) {

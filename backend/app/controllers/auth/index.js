@@ -32,7 +32,7 @@ exports.adminLogin = function (req, res) {
 };
 
 exports.signin = function (req, res) {
-    // setTimeout(function() {
+    setTimeout(function() {
   User.findOne({ email: req.body.email }, '+password', function(err, user) {
     if (!user) {
       return res.status(401).send({ message: 'Wrong email and/or password' });
@@ -52,11 +52,11 @@ exports.signin = function (req, res) {
       });
     });
   });
-  // }, 2000);
+  }, 2000);
 };
 
 exports.signup = function (req, res) {
-  // setTimeout(function() {
+  setTimeout(function() {
   User.findOne({ email: req.body.email }, function(err, existingUser) {
     if (existingUser) {
       return res.status(409).send({ message: 'Email is already taken' });
@@ -86,7 +86,7 @@ exports.signup = function (req, res) {
     });
 
   });
-  // }, 2000);
+  }, 2000);
 };
 
 exports.unlinkProvider = function(req, res) {

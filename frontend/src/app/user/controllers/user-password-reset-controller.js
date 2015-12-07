@@ -24,7 +24,7 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
             growl.warning(response.data.message, {
               ttl: 10000
             });
-            formFactory.enableElements();
+            formFactory.enableElements($scope);
           }
         }
       );

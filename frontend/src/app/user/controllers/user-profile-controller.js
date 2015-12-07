@@ -23,8 +23,8 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
       $scope.user.oldPassword = '';
       $scope.user.newPassword = '';
       $scope.user.confirmPassword = '';
+      
       $scope.updateUserForm.$setPristine();
-
       if (angular.isDefined($scope.updatePasswordForm)) {
         $scope.updatePasswordForm.$setPristine();
       }
@@ -36,8 +36,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
       var promise = updatex.$promise.then(
         function(response) {
-          // formFactory.enableElements(document.getElementById('updateUserForm'));
-          formFactory.enableElements();
+          formFactory.enableElements($scope);
           $rootScope.initialUser = null;
           $rootScope.user = response.user;
           $timeout(function(){
@@ -45,6 +44,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           }, 750);
         },
         function(response) {
+          formFactory.enableElements($scope);
           console.log(response.status);
         }
       );
@@ -68,8 +68,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
       promise.then(
         function success(response) {
-          // formFactory.enableElements(document.getElementById('updatePasswordForm'));
-          formFactory.enableElements();
+          formFactory.enableElements($scope);
           $scope.user.oldPassword = '';
           $scope.user.newPassword = '';
           $scope.user.confirmPassword = '';
@@ -78,7 +77,8 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           }, 750);
         },
         function error(response) {
-          formFactory.enableElements(document.getElementById('updatePasswordForm'));
+          // formFactory.enableElements(document.getElementById('updatePasswordForm'));
+          formFactory.enableElements($scope);
           $scope.user.oldPassword = '';
           $timeout(function(){
             growl.error(response.data.message);

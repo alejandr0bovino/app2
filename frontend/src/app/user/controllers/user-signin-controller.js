@@ -31,7 +31,7 @@ angular.module( 'ngBoilerplate.user.SigninCtrl', [])
             // $scope.email = '';
             // $scope.password = '';
 
-            formFactory.enableElements();
+            formFactory.enableElements($scope);
             // formFactory.clearElements();
             // formFactory.focusElement();
           }

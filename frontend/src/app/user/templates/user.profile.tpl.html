@@ -3,7 +3,7 @@
     <img ng-src="{{ $parent.user.profile.picture.medium }}" class="m-user--header__picture img-circle">
 
     <div class="m-user--header__picture__edit" uib-dropdown is-open="status.isopen">
-      <button type="button" uib-dropdown-toggle ng-disabled="disabled">
+      <button type="button" uib-dropdown-toggle>
         <i class="fa fa-camera"></i>
       </button>
 
@@ -152,7 +152,7 @@
   <form method="post" name="updateUserForm" form-usable>
     <div class="form-group" ng-class="{ 'has-error' : updateUserForm.name.$invalid && updateUserForm.name.$dirty }">
       <label class="control-label" for="name">Full name:</label>
-      <input type="text" class="form-control js-form-blur"  name="name" ng-model="user.profile.name" ng-minlength="5" required>
+      <input type="text" class="form-control js-form-blur"  name="name" ng-model="user.profile.name" ng-minlength="5" ng-disabled="inputDisabled" required>
       <div class="help-block" ng-if="updateUserForm.name.$dirty" ng-messages="updateUserForm.name.$error">
         <div ng-message="required">You must enter your name.</div>
         <div ng-message="minlength">Your name is too short.</div>
@@ -161,7 +161,7 @@
 
     <div class="form-group" ng-class="{ 'has-error' : updateUserForm.location.$invalid && updateUserForm.location.$dirty }">
       <label class="control-label" for="location">Location:</label>
-      <input type="text" class="form-control js-form-blur" name="location" ng-model="user.profile.location" ng-minlength="5" required>
+      <input type="text" class="form-control js-form-blur" name="location" ng-model="user.profile.location" ng-minlength="5" ng-disabled="inputDisabled" required>
       <div class="help-block" ng-if="updateUserForm.location.$dirty" ng-messages="updateUserForm.location.$error">
         <div ng-message="required">You must enter your location.</div>
         <div ng-message="minlength">Your location is too short.</div>
@@ -179,15 +179,15 @@
     </div>
   </form>
 
-  <div ng-if="!user.pendingUpdate">
+  <div ng-hide="user.pendingUpdate">
     <br><hr>
-    <!-- <form name="updatePasswordForm" id="updatePasswordForm" form-usable> -->
     <form name="updatePasswordForm" form-usable>
       <div ng-init="$parent.updatePasswordForm = updatePasswordForm"></div>
 
       <div class="form-group" ng-class="{ 'has-error' : updatePasswordForm.oldPassword.$invalid && updatePasswordForm.oldPassword.$dirty }">
         <label class="control-label" for="oldPassword">Old password:</label>
-        <input class="form-control js-form-blur" type="password" name="oldPassword" ng-model="user.oldPassword" ng-minlength="8" required>
+        <input class="form-control js-form-blur" type="password" name="oldPassword" ng-model="user.oldPassword" ng-minlength="8" ng-disabled="inputDisabled" required>        
+
         <div class="help-block text-danger" ng-if="updatePasswordForm.oldPassword.$dirty" ng-messages="updatePasswordForm.oldPassword.$error">
           <div ng-message="required">Old password is required.</div>
           <div ng-message="minlength">Your old password must be 8 characters in length.</div>
@@ -199,7 +199,7 @@
 
         <div  style="position: relative">
           <div class="input-group input-group--password-team">
-            <input class="form-control js-form-blur" type="{{showPassword ? 'text' : 'password'}}" name="newPassword" ng-model="user.newPassword" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required>
+            <input class="form-control js-form-blur" type="{{showPassword ? 'text' : 'password'}}" name="newPassword" ng-model="user.newPassword" pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" ng-disabled="inputDisabled" required>
             <span class="input-group-addon">
               <switch ng-model="showPassword"></switch>
             </span>
@@ -212,7 +212,7 @@
         <label class="control-label" for="confirmPassword">Verify password:</label>
 
         <input class="form-control js-form-blur" type="password" name="confirmPassword" ng-model="user.confirmPassword"
-          password-match="user.newPassword" required>
+          password-match="user.newPassword" ng-disabled="inputDisabled" required>
 
         <div class="help-block text-danger" ng-if="updatePasswordForm.confirmPassword.$dirty" ng-messages="updatePasswordForm.confirmPassword.$error">
           <div ng-message="required">Verify password is required.</div>

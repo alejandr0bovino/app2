@@ -1,19 +1,21 @@
 .c-latest {
   @include themify() {
     @media (max-width: $screen-xs-max) {
-      color: $fg2-color;
-      a { color: inherit }
+      // color: $fg2-color;
+      // a { color: inherit }
     }
 
     @media (min-width: $screen-sm-min) {
       // background-color: darken($bg-color, 2.5);
       border-bottom-color: $bg1-color;
 
-      color: $fg2-color;
-      a { color: inherit }
+      // color: $fg2-color;
+      // a { color: inherit }
     }
 
     a {
+       color: inherit;
+
       &:hover,
       &:focus {
         text-decoration: none;
@@ -68,7 +70,7 @@
   @include themify() {
     @media (min-width: $screen-sm-min) {
       background-color: $bg-color;
-      color: $fg2-color;
+      // color: $fg2-color;
 
       a {
         color: inherit;

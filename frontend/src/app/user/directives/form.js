@@ -1,6 +1,6 @@
 angular.module( 'ngBoilerplate.user.form', [])
 
-.directive('formUsable', function($timeout, formFactory) {
+.directive('formUsable', function(formFactory) {
   return {
     restrict : "A",
     link : function(scope, element, attrs) {
@@ -14,27 +14,26 @@ angular.module( 'ngBoilerplate.user.form', [])
       });
 
       submitBtn.addEventListener("click", function(){
-        formFactory.disableElements();
-        // submitBtn.blur();
-        // this.blur();
+        formFactory.disableElements(scope);
+        // scope.inputDisabled = true;
       });
+      // scope.inputDisabled = false;
     }
   };
 })
 
-.factory('formFactory', function($timeout) {
+.factory('formFactory', function() {
   var blurElements = document.querySelectorAll('.js-form-blur');
 
   return {
-    enableElements: function () {
-      for (var i = 0; i < blurElements.length; i++) {
-        blurElements[i].disabled = false;
-      }
+    enableElements: function (scope) {
+      scope.inputDisabled = false;
     },
-    disableElements: function () {
-      for (var i = 0; i < blurElements.length; i++) {
-        blurElements[i].disabled = true;
-      }
+    disableElements: function (scope) {
+      // for (var i = 0; i < blurElements.length; i++) {
+      //   blurElements[i].disabled = true;
+      // }
+      scope.inputDisabled = true;
     },
     clearElements: function () {
       for (var i = 0; i < blurElements.length; i++) {
