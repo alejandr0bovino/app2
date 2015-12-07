@@ -4,7 +4,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
   'rzModule'
 ])
 
-.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, authenticated, $timeout, $uibModal, formFactory ) {
+.controller('ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, authenticated, $timeout, $uibModal ) {
   if (!authenticated) {
     $state.go('user.signin');
   } else {
@@ -36,7 +36,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
       var promise = updatex.$promise.then(
         function(response) {
-          formFactory.enableElements($scope);
+          $scope.inputDisabled = false;
           $rootScope.initialUser = null;
           $rootScope.user = response.user;
           $timeout(function(){
@@ -44,7 +44,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           }, 750);
         },
         function(response) {
-          formFactory.enableElements($scope);
+          $scope.inputDisabled = false;
           console.log(response.status);
         }
       );
@@ -68,7 +68,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
       promise.then(
         function success(response) {
-          formFactory.enableElements($scope);
+          $scope.inputDisabled = false;
           $scope.user.oldPassword = '';
           $scope.user.newPassword = '';
           $scope.user.confirmPassword = '';
@@ -77,8 +77,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           }, 750);
         },
         function error(response) {
-          // formFactory.enableElements(document.getElementById('updatePasswordForm'));
-          formFactory.enableElements($scope);
+          $scope.inputDisabled = false;
           $scope.user.oldPassword = '';
           $timeout(function(){
             growl.error(response.data.message);

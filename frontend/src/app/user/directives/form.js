@@ -1,6 +1,6 @@
 angular.module( 'ngBoilerplate.user.form', [])
 
-.directive('formUsable', function(formFactory) {
+.directive('formUsable', function() {
   return {
     restrict : "A",
     link : function(scope, element, attrs) {
@@ -14,36 +14,17 @@ angular.module( 'ngBoilerplate.user.form', [])
       });
 
       submitBtn.addEventListener("click", function(){
-        formFactory.disableElements(scope);
-        // scope.inputDisabled = true;
+        scope.inputDisabled = true;
       });
       // scope.inputDisabled = false;
     }
   };
 })
 
-.factory('formFactory', function() {
-  var blurElements = document.querySelectorAll('.js-form-blur');
+// .factory('formFactory', function() {
+//   var blurElements = document.querySelectorAll('.js-form-blur');
 
-  return {
-    enableElements: function (scope) {
-      scope.inputDisabled = false;
-    },
-    disableElements: function (scope) {
-      // for (var i = 0; i < blurElements.length; i++) {
-      //   blurElements[i].disabled = true;
-      // }
-      scope.inputDisabled = true;
-    },
-    clearElements: function () {
-      for (var i = 0; i < blurElements.length; i++) {
-        blurElements[i].value = '';
-      }
-    },
-    focusElement: function (element) {
-      element = element ? document.querySelector('input[name="'+element+'"]') : document.querySelector('.js-form-blur');
-      element.focus();
-    }
-  };
-})
+//   return {
+//   };
+// })
 ;

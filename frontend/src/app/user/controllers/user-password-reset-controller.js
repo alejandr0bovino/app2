@@ -1,7 +1,7 @@
 angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
 ])
 
-.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $state, $scope, $timeout, User, authenticated, growl, formFactory) {
+.controller( 'PasswordResetBeginCtrl', function PasswordResetBeginCtrl(ENV, $state, $scope, $timeout, User, authenticated, growl) {
   if (authenticated) {
     $state.go('user.profile');
   } else {
@@ -24,7 +24,7 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
             growl.warning(response.data.message, {
               ttl: 10000
             });
-            formFactory.enableElements($scope);
+            $scope.inputDisabled = false;
           }
         }
       );
@@ -77,6 +77,8 @@ angular.module( 'ngBoilerplate.user.PasswordResetCtrl', [
           $scope.newPassword = '';
           $scope.confirmPassword = '';
           $scope.passwordResetChooseForm.$setPristine();
+          $scope.inputDisabled = false;
+          
           if (response.data.message == 'Token has expired') {
             growl.error('Reset password token has expired,<br> please <a href="' + $state.href('user.password_reset.begin') + '">request a new one</a>.');
           } else {

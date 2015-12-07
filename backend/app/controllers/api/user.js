@@ -20,6 +20,7 @@ exports.get = function (req, res) {
 };
 
 exports.put = function (req, res) {  
+  setTimeout(function() {  
   if (req.body.pendingUpdate === 'empty') {
     User.findOne({ email: req.body.email }, function(err, existingUser) {
       // solo twitter (no provee email en connect)
@@ -48,13 +49,14 @@ exports.put = function (req, res) {
     if (req.body.pendingUpdate === 'empty') {
       user.pendingUpdate = undefined;
     }
-    setTimeout(function() {    
-      user.save(function(err) {
-        // res.status(200).send({user: user});
-        res.send({user: user});
-      });
-    }, 3500);
+      
+    user.save(function(err) {
+      // res.status(200).send({user: user});
+      res.send({user: user});
+    });    
   });  
+
+  }, 3500);
 };
 
 
@@ -151,6 +153,7 @@ exports.updatePassword = function (req, res) {
 };
 
 exports.resetPasswordPost = function (req, res) {
+   setTimeout(function(){
   User.findOne({ email: req.body.email }, function(err, user) {
     if (!user) {
       return res.status(400).send({ message: 'User not found' });
@@ -183,6 +186,8 @@ exports.resetPasswordPost = function (req, res) {
       res.status(200).end();
     });
   });
+
+  }, 3000);
 };
 
 exports.resetPasswordPut = function (req, res) {

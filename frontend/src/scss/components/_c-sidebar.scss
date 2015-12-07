@@ -79,7 +79,6 @@
     // font-family : $font-family-base;
     font-family: $sidebar-font-family;
 
-
     //
     a {
       &:hover,
@@ -150,12 +149,9 @@
         }
 
         > a {
-          // @include safari() {
-          //   letter-spacing: -.04rem
-          // }
           @media (max-width: $screen-xs-max) {
             @include themify {
-              color: $fg2-color;
+              color: $fg-color;
             }
 
             line-height: 4.2;
@@ -174,10 +170,6 @@
           &.active {
             cursor: default;
           }
-
-          // > b {
-          //   font-weight: 600
-          // }
         }
 
         > button {
@@ -196,41 +188,43 @@
         }
       }
 
-      .theme-sidebar__toggle-sidebar {
-        padding: 0;
+      @media (max-width: $screen-xs-max) {
+        .theme-sidebar__toggle-menu {
+          @include themify {
+            color: $fg-color;
+          }
 
-        color: $n-fg-color;
+          padding: 0;
+          height: $menu-height;
+          line-height: 4.2;
 
-        font-size: .8rem;
-
-        &::before {
-          @include transition(color $default-transition-duration1 $default-transition-function1);
-          @extend %fa;
-          // position: relative;
-          // top: .1rem;
-          content: '\f0c9';
-        }
-
-        &.is-open::before {
-          color: $n-fg1-color;
+          &::before {
+            content: '\f0c9';
+            position: relative;
+          }
         }
       }
 
-      .theme-sidebar__toggle-menu {
-        @include themify {
-          color: $fg2-color;
-        }
+      // @media (min-width: $screen-sm-min) {
+        .theme-sidebar__toggle-sidebar {
+          padding: 0;
 
-        padding: 0;
-        height: $menu-height;
-        line-height: 4.2;
+          color: $n-fg-color;
 
-        &::before {
-          content: '\f0c9';
-          position: relative;
-          // top: .1rem;
+          font-size: .8rem;
+
+          &::before {
+            @include transition(color $default-transition-duration1 $default-transition-function1);
+            @extend %fa;
+            content: '\f0c9';
+          }
+
+          &.is-open::before {
+            color: $n-fg1-color;
+          }
         }
-      }
+      // }
+      
 
       ///
       .theme-sidebar__menu {
@@ -299,7 +293,7 @@
 
           > .btn {
             @include themify {
-              color: $fg2-color;
+              color: $fg-color;
             }
 
             padding-right: .5rem;

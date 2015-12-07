@@ -151,9 +151,11 @@ hr {
   @include transition(none);
   background-image: none !important;
   @include themify {
-    @include placeholder(lighten($fg-color, 30));
+    @include placeholder(lighten($fg-color, 25));
+    // @include placeholder($fg2-color);
+    
     border-color: darken($bg-color, 10);
-    color: $fg2-color;
+    color: $fg-color;
 
     &:focus {
       border-color: $bg2-color;

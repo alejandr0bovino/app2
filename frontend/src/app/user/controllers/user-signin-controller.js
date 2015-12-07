@@ -1,11 +1,10 @@
 angular.module( 'ngBoilerplate.user.SigninCtrl', [])
-.controller( 'SigninCtrl', function SigninCtrl($rootScope, $scope, $http, $auth, $state, $timeout, User, growl, authenticated,  go, ENV, formFactory) {
+.controller( 'SigninCtrl', function SigninCtrl($rootScope, $scope, $http, $auth, $state, $timeout, User, growl, authenticated,  go, ENV) {
   if (authenticated) {
     $state.go('user.profile');
   } else {
     $scope.signin = function() {
       $scope.signinForm.$setPristine();
-      $scope.btnDisabled = true;
 
       var promise = $http.post(
         ENV.apiEndpoint + '/auth/signin',{email:angular.lowercase($scope.email),password:$scope.password},{ignoreLoadingBar:true}
@@ -27,13 +26,7 @@ angular.module( 'ngBoilerplate.user.SigninCtrl', [])
         function(response) {
           if (typeof response.data.message != 'undefined') {
             growl.warning(response.data.message);
-            $scope.btnDisabled = false;
-            // $scope.email = '';
-            // $scope.password = '';
-
-            formFactory.enableElements($scope);
-            // formFactory.clearElements();
-            // formFactory.focusElement();
+            $scope.inputDisabled = false;
           }
         }
       );

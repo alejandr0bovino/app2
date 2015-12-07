@@ -2,7 +2,7 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
 ])
 
-.controller( 'SignupCtrl', function SignupCtrl(ENV, $rootScope, $timeout, $scope, $http, $auth, $state, User, growl, authenticated, formFactory ) {
+.controller( 'SignupCtrl', function SignupCtrl(ENV, $rootScope, $timeout, $scope, $http, $auth, $state, User, growl, authenticated ) {
   if (authenticated) {
     $state.go('user.profile');
   } else {
@@ -61,9 +61,9 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
             growl.warning(response.data.message);
             $scope.email = '';
 
-            formFactory.enableElements($scope);
+            $scope.inputDisabled = false;
             $timeout(function(){
-              formFactory.focusElement('email');
+              document.querySelector('input[name="email"]').focus();
             }, 10);
             
           }
@@ -75,16 +75,16 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
     $scope.singupBtnText = 'Send';
 
-    // $scope.name = "imagenes";
-    // $scope.email = "imagenes43@gmail.com";
-    // $scope.userName = "imagenes44";
-    // $scope.password = "lsjE55::::3:fsfsx";
-    // $scope.confirmPassword = "lsjE55::::3:fsfsx";
+    $scope.name = "imagenes";
+    $scope.email = "imagenes43@gmail.com";
+    $scope.userName = "imagenes44";
+    $scope.password = "lsjE55::::3:fsfsx";
+    $scope.confirmPassword = "lsjE55::::3:fsfsx";
 
-    // $timeout(function(){
-    //   $scope.signupForm.$invalid = false;
-    //   $scope.signupForm.$pristine = false;
-    // },10);
+    $timeout(function(){
+      $scope.signupForm.$invalid = false;
+      $scope.signupForm.$pristine = false;
+    },10);
     
   }
 })

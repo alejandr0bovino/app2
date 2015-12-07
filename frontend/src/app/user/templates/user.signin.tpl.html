@@ -27,7 +27,7 @@
 
     <div class="form-group">
       <button type="button" class="btn btn-block btn-default--progress-2 js-form-submit"
-      ng-disabled="signinForm.$invalid || btnDisabled"
+      ng-disabled="signinForm.$invalid || signinForm.$pristine"
       progress-button="signin()">Send</button>
     </div>
 

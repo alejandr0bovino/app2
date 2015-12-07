@@ -51,7 +51,7 @@
     <div class="form-group" style="position: relative">
       <div class="input-group input-group--password-team">
         <input class="form-control js-form-blur" type="{{showPassword ? 'text' : 'password'}}" name="password" ng-model="password" placeholder="Password …"
-          pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required>
+          pattern-validator="((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8})" required ng-disabled="inputDisabled">
         <span class="input-group-addon">
           <switch ng-model="showPassword"></switch>
         </span>
