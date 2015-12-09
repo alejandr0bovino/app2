@@ -98,9 +98,9 @@
         padding-top: .75rem;
         padding-right: $theme-sidebar-inner1-gap;
         padding-left: $theme-sidebar-inner1-gap;
-        background-color: $n-bg0-color;
-        @include filter-gradient($n-bg0-color, $n-bg-color, vertical);
-        @include background-image(linear-gradient(top, $n-bg0-color 0%, $n-bg-color 100%));
+        background-color: $n-bg-color;
+        // @include filter-gradient($n-bg-color, $n-bg-color, vertical);
+        // @include background-image(linear-gradient(top, $n-bg-color 0%, $n-bg-color 100%));
         // letter-spacing: -.5px;
 
         .tooltip {
@@ -160,7 +160,7 @@
 
           @media (min-width: $screen-sm-min) {
             color: $n-fg-color;
-            font-size: .9rem;            
+            font-size: .8rem;            
           }
 
           float: left;
@@ -211,7 +211,7 @@
 
           color: $n-fg-color;
 
-          font-size: .8rem;
+          font-size: .75rem;
 
           &::before {
             @include transition(color $default-transition-duration1 $default-transition-function1);
@@ -244,6 +244,8 @@
           padding: .75rem 1.5rem;
           visibility: hidden;
           line-height: 2.3;
+          font-size: .9rem;
+          font-weight: 600;
 
           .menu-open & {
             @include transition(visibility $default-transition-duration1 $default-transition-function1);
@@ -254,7 +256,7 @@
         @media (min-width: $screen-sm-min) {
           margin-bottom: 3.75rem;
           line-height: 2.3;
-          font-size: .9rem;
+          font-size: .8rem;
           font-weight: 600;
 
           a {
@@ -300,7 +302,7 @@
             padding-left: .5rem;
             border-color: transparent;
             background-color: transparent;
-            font-size: .9rem;
+            font-size: .8rem;
             font-weight: 600
           }
         }
@@ -314,7 +316,7 @@
             padding-left: 0;
             padding-right: 0;
             // letter-spacing: -.5px;
-            font-size: .9rem;
+            font-size: .8rem;
             font-weight: 600
           }
         }
@@ -342,10 +344,10 @@
           margin-left: $theme-sidebar-inner1-width;
           padding-top: .75rem;
 
-          background-color: $n-bg0-color;
-          // @include filter-gradient($n-bg0-color, $n-bg-color, vertical);
-          // @include background-image(linear-gradient(top, $n-bg0-color 0%, $n-bg-color 100%));
-          font-size: .9rem;
+          background-color: $n-bg-color;
+          // @include filter-gradient($n-bg-color, $n-bg-color, vertical);
+          // @include background-image(linear-gradient(top, $n-bg-color 0%, $n-bg-color 100%));
+          font-size: .8rem;
 
           //// safari
           opacity: 0;

@@ -332,6 +332,7 @@ exports.uploadFilePost = function (req, res) {
 
 
 exports.removePicture = function (req, res) {
+  setTimeout(function(){
   User.findById(req.user, '+password', function(err, user) {
     if (!user) {
       return res.status(400).send({ message: 'User not found' });
@@ -352,6 +353,7 @@ exports.removePicture = function (req, res) {
       res.status(200).send({user: user});
     });
   });
+  }, 3000);
 };
 
 

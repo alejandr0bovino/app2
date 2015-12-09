@@ -8,7 +8,7 @@ $padding-lg: .4rem;
 
   font-size: .9rem;
   font-family: $btn-font-family;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
 
   &:focus,
@@ -47,7 +47,7 @@ $padding-lg: .4rem;
     // background-color: darken($bg-color, 5);
     background-color: $bg1-color;
     border-color: $bg1-color;
-    color: $fg2-color;
+    color: $fg-color;
 
     &:hover {
       border-color: $bg1-color;
@@ -63,55 +63,7 @@ $padding-lg: .4rem;
   }
 }
 
-.btn-default--progress {
-  @extend .btn-default;
 
-  @include themify() {
-    .content {
-      &:after,
-      &:before {
-        color: $fg2-color
-      }
-    }
-
-    .progress-inner {
-      background-color: lighten($fg-color, 40);
-    }
-  }
-
-  position: relative;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  letter-spacing: inherit;
-  line-height: 1.42857143; // normal
-
-  border-width: 1px;
-  border-style: solid;
-
-  &.state-success .content:after,
-  &.state-success .content:before,
-  &.state-error .content:after,
-  &.state-error .content:before {
-    @include transition(opacity $default-transition-duration1 $default-transition-function1 $default-transition-duration1);
-  }
-
-  .progress-inner {
-    height: 2px;
-    top: -1px;
-  }
-
-  .content {
-    &:after,
-    &:before {
-      @include transition(opacity $default-transition-duration1 $default-transition-function1 $default-transition-duration0);
-      margin-left: 0;
-      left: inherit;
-      right: -1.5rem;
-      bottom: 0.1rem;
-      font-size: .85rem;
-    }
-  }
-}
 
 .btn-default--progress-2 {
   @extend .btn-default;
@@ -266,6 +218,8 @@ $padding-lg: .4rem;
 
   .content {
     padding: $padding-lg 2rem;
+    top: -1px;
+    
     &::before,
     &::after {
       padding: $padding-lg 2rem;
@@ -355,3 +309,76 @@ $padding-lg: .4rem;
   border: none;
   font-size: 2rem; padding: 0; line-height: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .btn-default--progress {
+//   @extend .btn-default;
+
+//   @include themify() {
+//     .content {
+//       &:after,
+//       &:before {
+//         color: $fg2-color
+//       }
+//     }
+
+//     .progress-inner {
+//       background-color: lighten($fg-color, 40);
+//     }
+//   }
+
+//   position: relative;
+//   padding-left: 2rem;
+//   padding-right: 2rem;
+//   letter-spacing: inherit;
+//   line-height: 1.42857143; // normal
+
+//   border-width: 1px;
+//   border-style: solid;
+
+//   &.state-success .content:after,
+//   &.state-success .content:before,
+//   &.state-error .content:after,
+//   &.state-error .content:before {
+//     @include transition(opacity $default-transition-duration1 $default-transition-function1 $default-transition-duration1);
+//   }
+
+//   .progress-inner {
+//     height: 2px;
+//     top: -1px;
+//   }
+
+//   .content {
+//     &:after,
+//     &:before {
+//       @include transition(opacity $default-transition-duration1 $default-transition-function1 $default-transition-duration0);
+//       margin-left: 0;
+//       left: inherit;
+//       right: -1.5rem;
+//       bottom: 0.1rem;
+//       font-size: .85rem;
+//     }
+//   }
+// }

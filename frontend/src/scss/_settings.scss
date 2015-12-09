@@ -22,11 +22,12 @@ $n-fg2-color: #f9f9f9;
 
 $theme-light-bg: #f9f9f9;
 // $theme-light-fg: #262527;
-$theme-light-fg: #666;
+$theme-light-fg: #333;
 
 
 $theme-dark-bg: #333;
-$theme-dark-fg: #bbb;
+// $theme-dark-fg: #bbb;
+$theme-dark-fg: #f9f9f9;
 
 $v1: 5;
 $v2: 15;
@@ -81,8 +82,11 @@ $app2-base-font-size: 19; //[16, 18, 19]
 // Lato, Dosis
 
 
-$f1: Pt Sans;
-$f2: Dosis;
+// $f1: Pt Sans;
+$f1: ff-enzo-web;
+// $f2: Pt Sans Caption;
+// $f2: Montserrat;
+$f2: ff-enzo-web;
 
 $font-family-base: '#{$f1}', sans-serif;
 $headings-font-family: '#{$f2}', sans-serif;

@@ -102,10 +102,10 @@ a:focus {
       background-color: $bg1-color;
     }
 
-    color: $fg2-color;
+    // color: $fg2-color;
 
     a {
-      color: $fg2-color;
+      color: inherit
     }
 
     hr { border-color: $bg2-color }
@@ -115,9 +115,9 @@ a:focus {
 
 
 .theme-main__section {
-  @include themify() {
-    color: $fg-color;
-  }
+  // @include themify() {
+  //   color: inherit;
+  // }
 
   a {
     color: inherit;
