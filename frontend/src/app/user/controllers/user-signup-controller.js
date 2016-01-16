@@ -65,7 +65,6 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
             $timeout(function(){
               document.querySelector('input[name="email"]').focus();
             }, 10);
-            
           }
         }
       );
@@ -75,16 +74,16 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
     $scope.singupBtnText = 'Send';
 
-    $scope.name = "imagenes";
-    $scope.email = "imagenes43@gmail.com";
-    $scope.userName = "imagenes44";
-    $scope.password = "lsjE55::::3:fsfsx";
-    $scope.confirmPassword = "lsjE55::::3:fsfsx";
+    // $scope.name = "imagenes";
+    // $scope.email = "imagenes43@gmail.com";
+    // $scope.userName = "imagenes44";
+    // $scope.password = "lsjE55::::3:fsfsx";
+    // $scope.confirmPassword = "lsjE55::::3:fsfsx";
 
-    $timeout(function(){
-      $scope.signupForm.$invalid = false;
-      $scope.signupForm.$pristine = false;
-    },10);
+    // $timeout(function(){
+    //   $scope.signupForm.$invalid = false;
+    //   $scope.signupForm.$pristine = false;
+    // },10);
     
   }
 })

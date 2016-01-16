@@ -9,7 +9,7 @@
   </div>
 
   <form class="c-modal-1__footer" form-usable>
-    <button id="removeImageSubmit" type="button" class="btn btn-default--progress-2 js-form-submit" progress-button="remove()">Remove {{type}}</button>
+    <button id="removeImageSubmit" type="button" class="btn btn-default--progress-2 js-form-submit" progress-button="remove()" ng-disabled="btnDisabled">Remove {{type}}</button>
 
     <button class="btn btn-default" type="button" ng-click="cancel()" ng-disabled="btnDisabled">Cancel</button>
   </form>

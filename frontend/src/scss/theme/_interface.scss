@@ -11,8 +11,8 @@
 
   .#{$theme}  {
     &::-webkit-scrollbar {
-      width:  .5rem;
-      height: .5rem;
+      width:  .4rem;
+      height: .4rem;
     }
 
     &::-webkit-scrollbar-track {
@@ -76,31 +76,45 @@ a:focus {
   }
   @media (min-width: $screen-md-min) {
     @include themify() {
-      @include safari() {
-        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(darken($bg-color, 10), .15), rgba(0, 0, 0, 0));
-      }
+    //   @include safari() {
+    //     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(darken($bg-color, 10), .15), rgba(0, 0, 0, 0));
+    //   }
 
       background-color: $bg-color;
-      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), darken($bg-color, 10), rgba(0, 0, 0, 0));
+    //   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), darken($bg-color, 10), rgba(0, 0, 0, 0));
 
-      background-position: 25%;
-      background-repeat: repeat-y;
-      background-size: 1px 1px;
+    //   background-position: 25%;
+    //   background-repeat: repeat-y;
+    //   background-size: 1px 1px;
     }
 
     width: 100%;
-    min-height: 100%;
-    position: absolute;
+    // min-height: 100%;
+    height: 100%;
+    // position: absolute;
+    display: table
   }
 }
-
+.zzz__inner {
+  @media (min-width: $screen-md-min) {
+    display: table-row
+  }
+}
 
 
 .theme-main__aside {
   @include themify() {
     @media (max-width: $screen-sm-max) {
-      background-color: $bg1-color;
+      background-color: $bg1-color;      
     }
+    @media (min-width: $screen-md-min) {
+      // background-color: $bg1-color;      
+      // box-shadow: 1px 0px 0px $bg1-color;
+      border-right: 1px solid $bg1-color;
+    }
+
+    // background-color: violet;
+    
 
     // color: $fg2-color;
 
@@ -115,9 +129,12 @@ a:focus {
 
 
 .theme-main__section {
-  // @include themify() {
+  @include themify() {
+    // box-shadow: 1px 0px 0px $bg1-color inset;
+  }
   //   color: inherit;
-  // }
+
+  // background-color: yellowgreen;  
 
   a {
     color: inherit;
@@ -127,6 +144,6 @@ a:focus {
 
 .theme-footer {
   @media (min-width: $screen-sm-min) {
-    background-color: $n-bg0-color;
+    background-color: $n-bg2-color;
   }
 }

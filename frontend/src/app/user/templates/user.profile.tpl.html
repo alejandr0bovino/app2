@@ -33,7 +33,6 @@
       </li>
 
       <li class="ellipsis hidden-xs">
-        <!--<i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> connected-->
         <span>{{ user.profile.name }}</span>
       </li>
     </ul>
@@ -96,16 +95,16 @@
       </li>
 
       <li class="list-group-item">
-          <button class="btn btn-block btn-xunlink" ng-if="user.google" ng-click="unlink('google')" ng-disabled="user.pendingUpdate">
-          <div>
-            <i class="fa fa-google-plus"></i> <span>Google</span> <i class="fa fa-check-circle-o"></i>
-            </div>
-          </button>
-          <button class="btn btn-block btn-xunlink" ng-if="!user.google" ng-click="link('google')" ng-disabled="user.pendingUpdate">
-          <div>
-            <i class="fa fa-google-plus"></i> <span>Google</span>
-            </div>
-          </button>
+        <button class="btn btn-block btn-xunlink" ng-if="user.google" ng-click="unlink('google')" ng-disabled="user.pendingUpdate">
+        <div>
+          <i class="fa fa-google"></i> <span>Google</span> <i class="fa fa-check-circle-o"></i>
+          </div>
+        </button>
+        <button class="btn btn-block btn-xunlink" ng-if="!user.google" ng-click="link('google')" ng-disabled="user.pendingUpdate">
+        <div>
+          <i class="fa fa-google"></i> <span>Google</span>
+          </div>
+        </button>
       </li>
 
       <li class="list-group-item">

@@ -32,7 +32,7 @@ exports.adminLogin = function (req, res) {
 };
 
 exports.signin = function (req, res) {
-    setTimeout(function() {
+  setTimeout(function() {
   User.findOne({ email: req.body.email }, '+password', function(err, user) {
     if (!user) {
       return res.status(401).send({ message: 'Wrong email and/or password' });
@@ -445,7 +445,6 @@ exports.connectGithub = function(req, res) {
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
-    // client_id: config.github.clientId,
     client_secret: config.github.clientSecret,
     redirect_uri: req.body.redirectUri
   };
@@ -466,6 +465,7 @@ exports.connectGithub = function(req, res) {
           }
           var token = req.headers.authorization.split(' ')[1];
           var payload = jwt.decode(token, config.token_secret);
+
           User.findById(payload.sub, function(err, user) {
             if (!user) {
               return res.status(400).send({ message: 'User not found' });
@@ -509,8 +509,6 @@ exports.connectGithub = function(req, res) {
           }
 
 
-
-
           User.findOne({ email: profile.email}, function(err, existingUser) {
             if (existingUser) {
               return res.status(409).send({ message: 'There is a user already registered with this Github account email.' });
@@ -531,7 +529,6 @@ exports.connectGithub = function(req, res) {
             // user.profile.website = profile.blog;
             user.save(function() {
               var token = helpers.createToken(user);
-              // res.send({ token: token });
               res.send({
                 token: token,
                 connect: true
@@ -539,6 +536,82 @@ exports.connectGithub = function(req, res) {
             });
 
           });
+        });
+      }
+    });
+  });
+};
+
+
+exports.connectYahoo = function(req, res) {
+  console.log(req.body.redirectUri);
+  
+  var accessTokenUrl = 'https://api.login.yahoo.com/oauth2/get_token';
+  var clientId = req.body.clientId;
+  var clientSecret = config.yahoo.clientSecret;
+  var formData = {
+    code: req.body.code,
+    redirect_uri: req.body.redirectUri,
+    grant_type: 'authorization_code'
+  };
+
+
+  var headers = { Authorization: 'Basic ' + new Buffer(clientId + ':' + clientSecret).toString('base64') };
+
+  // Step 1. Exchange authorization code for access token.
+  request.post({ url: accessTokenUrl, form: formData, headers: headers, json: true }, function(err, response, body) {
+    var socialApiUrl = 'https://social.yahooapis.com/v1/user/' + body.xoauth_yahoo_guid + '/profile?format=json';
+    var headers = { Authorization: 'Bearer ' + body.access_token };
+
+    // Step 2. Retrieve profile information about the current user.
+    request.get({ url: socialApiUrl, headers: headers, json: true }, function(err, response, body) {
+
+      // Step 3a. Link user accounts.
+      if (req.headers.authorization) {
+        User.findOne({ yahoo: body.profile.guid }, function(err, existingUser) {
+          if (existingUser) {
+            return res.status(409).send({ message: 'There is already a Yahoo account that belongs to you' });
+          }
+          var token = req.headers.authorization.split(' ')[1];
+          var payload = jwt.decode(token, config.token_secret);
+
+
+          User.findById(payload.sub, function(err, user) {
+            if (!user) {
+              return res.status(400).send({ message: 'User not found' });
+            }
+            user.yahoo = body.profile.guid;
+            user.profile.name = user.profile.name || body.profile.nickname;
+
+            user.save(function() {
+              var token = helpers.createToken(user);
+              res.send({
+                token: token,
+                user: user
+              });
+            });
+          });
+        });
+      } else {
+        // Step 3b. Create a new user account or return an existing one.
+        User.findOne({ yahoo: body.profile.guid }, function(err, existingUser) {
+          if (existingUser) {
+            var token = helpers.createToken(existingUser)
+            return res.send({ token: token });
+          }
+          var user = new User();
+          user.yahoo = body.profile.guid;
+          user.profile.name = body.profile.nickname;
+
+          user.save(function() {
+            var token = helpers.createToken(user);
+            res.send({
+              token: token,
+              connect: true
+            });
+          });
+
+
 
         });
       }

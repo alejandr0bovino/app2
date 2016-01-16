@@ -11,25 +11,27 @@ body {
 }
 
 .theme-main__aside {
-  @media (max-width: $screen-sm-max) {
+  @media (max-width: $screen-xs-max) {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-
+  @media (min-width: $screen-sm-min) {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+  }
+  @media (max-width: $screen-sm-max) {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
   @media (min-width: $screen-md-min) {
-    // @media (min-height: 500px) {
-    //   position: fixed;
-    // }
-    padding: .75rem 2rem;
+    display: table-cell;
+    vertical-align: top;
+    width: 25%;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }
   .theme-main__aside__title {
-    @media (min-width: $screen-md-min) {
-      &:first-child {
-        // line-height: .875;
-      }
-    }
-
     &:first-child {
       margin-top: 0;
     }
@@ -42,15 +44,18 @@ body {
     padding-top: 1rem;
     padding-bottom: 1.5rem
   }
-
   @media (min-width: $screen-sm-min) {
-    height: 100%;
     padding-top: .75rem;
     padding-bottom: 5rem;
   }
-
+  @media (max-width: $screen-sm-max) {    
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
   @media (min-width: $screen-md-min) {
-    float: right;
+    display: table-cell;
+    vertical-align: top;
+    width: 75%;
     padding-left: 2rem;
     padding-right: $theme-main-sidebar-width;
   }

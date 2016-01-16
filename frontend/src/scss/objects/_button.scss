@@ -1,10 +1,13 @@
 // bootstrap
 
-$padding: .334rem;
+// $padding: .334rem;
+// $padding-lg: .4rem;
+$padding-top: .384rem;
+$padding-bottom: .284rem;
 $padding-lg: .4rem;
 
 .btn {
-  padding: $padding 1rem;
+  padding: $padding-top 1rem $padding-bottom;
 
   font-size: .9rem;
   font-family: $btn-font-family;
@@ -98,12 +101,12 @@ $padding-lg: .4rem;
   .content {
     // padding-top: $padding;
     // padding-bottom: $padding;
-    padding: $padding 1rem;
+    padding: $padding-top 1rem $padding-bottom;
     &::before,
     &::after {
       // padding-top: $padding;
     // padding-bottom: $padding;
-    padding: $padding 1rem;
+    padding: $padding-top 1rem $padding-bottom;
     }
   }
 
@@ -131,27 +134,27 @@ $padding-lg: .4rem;
   }
 
   &.active {
-    background-color: $n-bg1-color;
-    border-color: $n-bg1-color;
+    background-color: $n-bg2-color;
+    border-color: $n-bg2-color;
     color: $n-fg-color;
   }
 }
 
 .btn-2 {
-  border-color: $n-bg1-color;
+  border-color: $n-bg2-color;
   background-color: transparent;
   color: $n-fg-color;
 
   &:hover,
   &:focus,
   &:active {
-    border-color: $n-bg1-color;
+    border-color: $n-bg2-color;
     color: $n-fg-color;
   }
 
   &.active {
-    background-color: $n-bg1-color;
-    border-color: $n-bg1-color;
+    background-color: $n-bg2-color;
+    border-color: $n-bg2-color;
     color: $n-fg-color
   }
 }

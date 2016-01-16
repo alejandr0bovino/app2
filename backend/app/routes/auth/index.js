@@ -21,4 +21,5 @@ module.exports = function (app) {
   app.post('/auth/facebook', auth.connectFacebook);
   app.post('/auth/twitter', auth.connectTwitter);
   app.post('/auth/github', auth.connectGithub);
+  app.post('/auth/yahoo', auth.connectYahoo);
 };

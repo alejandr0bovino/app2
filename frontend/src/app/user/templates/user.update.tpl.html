@@ -10,7 +10,6 @@
       </li>
 
       <li class="ellipsis">
-        <!--<i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> connected-->
         {{ user.profile.name }}
       </li>
     </ul>
@@ -24,7 +23,8 @@
       <li class="list-group-item">
         <button class="btn btn-block btn-xunlink" disabled>
           <div>
-            <i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> <span ng-bind="user.pendingUpdate"></span> <i class="fa fa-check-circle-o"></i>
+            <!-- <i class="fa fa-{{ user.pendingUpdate === 'google' ? 'google-plus' : user.pendingUpdate }}"></i> <span ng-bind="user.pendingUpdate"></span> <i class="fa fa-check-circle-o"></i> -->
+            <i class="fa fa-{{ user.pendingUpdate }}"></i> <span ng-bind="user.pendingUpdate"></span> <i class="fa fa-check-circle-o"></i>
           </div>
         </button>
       </li>

@@ -1,45 +1,51 @@
-<aside class="theme-main__aside col-md-3">
-  <h3  class="theme-main__aside__title" ng-bind-html="headerTitle"></h3>
+<div class="zzz">
+  <div class="zzz__inner">
+    <aside class="theme-main__aside">
+      <h4  class="theme-main__aside__title visible-xs visible-sm" style="margin-bottom: 0" ng-bind-html="headerTitle"></h4>
 
-  <h4 class="text-uppercase visible-md visible-lg">Don´t have an account&nbsp;?</h4>
+      <div class="visible-md visible-lg">
+        <h4  class="theme-main__aside__title">Don´t have an account&nbsp;?</h4>
 
-  <ul class="m-list--2 visible-md visible-lg">
-    <li><a href ui-sref="user.signup">Sign up</a></li>
-  </ul>
-</aside>
+        <ul class="m-list--2 visible-md visible-lg">
+          <li><a href ui-sref="user.signup">Sign up</a></li>
+        </ul>
+      </div>  
+    </aside>
 
-<section class="theme-main__section col-md-9">
-  <h3 class="theme-main__section__title">Connect your social network</h3>
+    <section class="theme-main__section">
+      <h3 class="theme-main__section__title">Connect your social network</h3>
 
-  <div ui-view="connect"></div>
-  <br class="visible-md visible-lg">
-
-  <h3 class="theme-main__section__title">Or sign in</h3>
-
-  <form method="post" ng-submit="login()" name="signinForm" form-usable>
-    <div class="form-group">
-      <input class="form-control js-form-blur" type="email" name="email" ng-model="email" ng-disabled="inputDisabled" placeholder="Email …" required>
-    </div>
-
-    <div class="form-group">
-      <input class="form-control js-form-blur" type="password" name="password" ng-model="password" ng-minlength="8" ng-disabled="inputDisabled" placeholder="Password …"  required>
-    </div>
-
-    <div class="form-group">
-      <button type="button" class="btn btn-block btn-default--progress-2 js-form-submit"
-      ng-disabled="signinForm.$invalid || signinForm.$pristine"
-      progress-button="signin()">Send</button>
-    </div>
-
-    <p class="text-center">
-      <small>
-        <a href ui-sref="user.password_reset.begin">Recover password</a>.
-      </small>
+      <div ui-view="connect"></div>
       <br>
-      <small>
-        Don't have an account yet?
-        <a href ui-sref="user.signup">Sign up</a>.
-      </small>
-    </p>
-  </form>
-</section>
+
+      <h3 class="theme-main__section__title">Or sign in</h3>
+
+      <form method="post" ng-submit="login()" name="signinForm" form-usable>
+        <div class="form-group">
+          <input class="form-control js-form-blur" type="email" name="email" ng-model="email" ng-disabled="inputDisabled" placeholder="Email …" required>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control js-form-blur" type="password" name="password" ng-model="password" ng-minlength="8" ng-disabled="inputDisabled" placeholder="Password …"  required>
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="btn btn-block btn-default--progress-2 js-form-submit"
+          ng-disabled="signinForm.$invalid || signinForm.$pristine"
+          progress-button="signin()">Send</button>
+        </div>
+
+        <p class="text-center">
+          <small>
+            <a href ui-sref="user.password_reset.begin">Recover password</a>.
+          </small>
+          <br>
+          <small>
+            Don't have an account yet?
+            <a href ui-sref="user.signup">Sign up</a>.
+          </small>
+        </p>
+      </form>
+    </section>
+  </div>
+</div>

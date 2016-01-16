@@ -77,6 +77,11 @@ angular.module( 'ngBoilerplate', [
     redirectUri: ENV.baseUrl
   });
 
+  $authProvider.yahoo({
+    url: ENV.apiEndpoint + '/auth/yahoo',
+    clientId: ENV.yahooClientId,
+    redirectUri: ENV.baseUrl
+  });
   ///
 
   if(window.history && window.history.pushState){

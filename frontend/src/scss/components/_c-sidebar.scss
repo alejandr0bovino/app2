@@ -241,7 +241,7 @@
             }
           }
 
-          padding: .75rem 1.5rem;
+          padding: .5rem 1.5rem;
           visibility: hidden;
           line-height: 2.3;
           font-size: .9rem;
@@ -344,7 +344,7 @@
           margin-left: $theme-sidebar-inner1-width;
           padding-top: .75rem;
 
-          background-color: $n-bg-color;
+          background-color: $n-bg2-color;
           // @include filter-gradient($n-bg-color, $n-bg-color, vertical);
           // @include background-image(linear-gradient(top, $n-bg-color 0%, $n-bg-color 100%));
           font-size: .8rem;
